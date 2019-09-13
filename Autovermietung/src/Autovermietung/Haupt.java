@@ -14,6 +14,8 @@ public class Haupt {
 		System.out.println("JL Test");
 
 		System.out.println("Daniel Test");
+		
+		12345; // just testing
 	}
 
 }
