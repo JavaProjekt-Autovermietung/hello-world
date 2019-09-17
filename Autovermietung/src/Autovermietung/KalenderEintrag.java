@@ -7,6 +7,7 @@ public class KalenderEintrag {
 	DateTime von;
 	DateTime bis;
 	
+	String Kennzeichen;
 	int Kundennummer;
 	Autostatus Status;
 }
