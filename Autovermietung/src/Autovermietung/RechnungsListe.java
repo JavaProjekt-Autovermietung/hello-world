@@ -3,53 +3,54 @@ package Autovermietung;
 import java.util.ArrayList;
 
 public class RechnungsListe {
-    /** Attributes */
-    /**
-     * 
-     */
-    private ArrayList<Rechnung> Rechnungen;
-    /**
-     * Operation RechnungLoeschen
-     *
-     * @param Rechnungsnummer - 
-     * @return 
-     */
-    public boolean RechnungLoeschen(int Rechnungsnummer) { return false; }
-    /**
-     * Operation RechnungAendern
-     *
-     * @param Rechnungsnummer - 
-     * @return 
-     */
-    public void RechnungAendern(int Rechnungsnummer) {}
-    /**
-     * Operation RechnungSuchen
-     *
-     * @param Rechnungsnummer - 
-     * @return Rechnung
-     */
-    public Rechnung RechnungSuchen(int Rechnungsnummer) { return Rechnungen.get(0); }
-    /**
-     * Operation RechnungErstellen
-     *
-     * @param Preis - 
-     * @param Ausleihdauer - 
-     * @param Zahlungsart - 
-     * @return <String>
-     */
-    public boolean RechnungErstellen(double Preis, DateTime Ausleihdauer, Rechnung.Zahlungsart Zahlungsart) { return false; }
-    /**
-     * Operation alleRechnungen
-     *
-     * @return ArrayList<Rechnung>
-     */
-    public ArrayList<Rechnung> alleRechnungen() { return Rechnungen; }
-    /**
-     * Operation getRechnung
-     *
-     * @param Rechnungsnummer - 
-     * @return Rechnung
-     */
-    public Rechnung getRechnung(int Rechnungsnummer) { return Rechnungen.get(0); }
 
+    private ArrayList<Rechnung> Rechnungen;
+    
+    RechnungsListe() {
+    	Rechnungen = new ArrayList<Rechnung>();
+    }
+    
+    public void RechnungLoeschen(int Rechnungsnummer) { 
+    	
+    	int x = RechnungSuchen(Rechnungsnummer);
+		if (x >= 0) {
+			Rechnungen.remove(Rechnungen.get(x));
+		}
+    }
+
+    private int RechnungSuchen(int Rechnungsnummer) { 
+
+    	int gefunden = -1;
+    	for (int i = 0; (i < Rechnungen.size()) && (gefunden == -1); i++) {
+			if (Rechnungen.get(i).getRechnungsNummer() == Rechnungsnummer) {
+				gefunden = i;
+			}
+    	}
+    	return gefunden;
+    }
+
+    public void RechnungErstellen(int Rechnungsnummer, double Preis, KalenderEintrag Ausleihdauer, Rechnung.Zahlungsart Zahlungsart, int Kundennummer) { 
+
+    	Rechnung R = new Rechnung(Rechnungsnummer, Preis, Ausleihdauer, Zahlungsart, Kundennummer);
+		Rechnungen.add(R);
+    	}
+
+    public Rechnung getRechnung(int Rechnungsnummer) { 
+		
+    	int x = RechnungSuchen(Rechnungsnummer);
+		if (x >= 0) {
+			return Rechnungen.get(x);
+		}
+		return null;
+    }
+    
+    public ArrayList<Rechnung> KundennummerRechnung(int Kundennummer) {
+    	ArrayList<Rechnung> RechnungVonKunden = new ArrayList<Rechnung>();
+    	for (int i = 0; (i < Rechnungen.size()); i++) {
+			if (Rechnungen.get(i).getKundennummer() == Kundennummer) {
+				RechnungVonKunden.add(RechnungVonKunden.get(i));
+			}
+    	}
+    	return RechnungVonKunden;
+    }
 }

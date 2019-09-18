@@ -10,6 +10,7 @@ public class KalenderEintrag {
 	LocalDateTime von;
 	LocalDateTime bis;
 	
+	String Kennzeichen;
 	int Kundennummer;
 	Autostatus Status;
 }
