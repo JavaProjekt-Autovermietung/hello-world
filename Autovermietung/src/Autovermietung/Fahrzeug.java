@@ -2,6 +2,11 @@ package Autovermietung;
 
 import java.util.ArrayList;
 
+import Autovermietung.KalenderEintrag.Autostatus;
+
+import java.time.LocalDateTime;
+import java.time.LocalDate;
+
 public class Fahrzeug {
 
 	enum FahrzeugTyp { Kombi, Limosine, Cabrio };
@@ -42,7 +47,10 @@ public class Fahrzeug {
      * @param Modell - 
      * @return 
      */
-    public Fahrzeug(String Kennzeichen, FahrzeugTyp Typ, FahrzeugHersteller Hersteller, String Modell ) {}
+    public Fahrzeug(String Kennzeichen, FahrzeugTyp Typ, FahrzeugHersteller Hersteller, String Modell ){
+    	
+    	Kalender = new ArrayList<KalenderEintrag>();
+    }
     /**
      * Operation getKennzeichen
      *
@@ -55,7 +63,7 @@ public class Fahrzeug {
      * @param neu - 
      * @return 
      */
-    public void setKennzeichen(String neu){}
+    public void setKennzeichen(String neu){Kennzeichen = neu;}
     /**
      * Operation getTyp
      *
@@ -68,7 +76,7 @@ public class Fahrzeug {
      * @param neu - 
      * @return 
      */
-    public void setTyp(FahrzeugTyp neu) {}
+    public void setTyp(FahrzeugTyp neu) {Typ = neu;}
     /**
      * Operation getHersteller
      *
@@ -81,7 +89,7 @@ public class Fahrzeug {
      * @param neu - 
      * @return 
      */
-    public void setHersteller( FahrzeugHersteller neu) {}
+    public void setHersteller( FahrzeugHersteller neu) {Hersteller = neu;}
     /**
      * Operation getModell
      *
@@ -94,7 +102,13 @@ public class Fahrzeug {
      * @param neu - 
      * @return 
      */
-    public void setModell(String neu){}
+    public void setModell(String neu){Modell =  neu;}
+    
+    private boolean verfuegbar(LocalDateTime von, LocalDateTime bis, int kundenNr)
+    {
+    	return false;
+    }
+    
     /**
      * Operation ausleihen
      *
@@ -103,13 +117,35 @@ public class Fahrzeug {
      * @param kundenNr - 
      * @return 
      */
-    public boolean ausleihen(DateTime von, DateTime bis, int kundenNr) { return false; }
+    public boolean ausleihen(LocalDateTime von, LocalDateTime bis, int kundenNr) { 
+    	
+    	if (verfuegbar(von, bis, kundenNr))
+    	{
+    		KalenderEintrag k = new KalenderEintrag();
+    		k.von = von;
+    		k.bis = bis;
+    		k.Kundennummer = kundenNr;
+    		k.Status = KalenderEintrag.Autostatus.ausgeliehen;
+    		Kalender.add(k);
+	    	return true;
+	    }
+    	else
+    		return false;
+    }
+    	
     /**
      * Operation zurueckgeben
      *
      * @return 
      */
-    public boolean zurueckgeben() { return false; }
+    public boolean zurueckgeben() { 
+//    	if (KalenderEintrag.Status == Autostatus.ausgeliehen) {
+//    	KalenderEintrag.Status =Autostatus.zurueckgebracht;
+//   	return true;
+//    	}
+//    	else return false;
+    	return false;
+    }
     /**
      * Operation reservieren
      *
@@ -118,7 +154,14 @@ public class Fahrzeug {
      * @param kundenNr - 
      * @return 
      */
-    public boolean reservieren(DateTime von, DateTime bis, int kundenNr ) { return false; }
+    public boolean reservieren(LocalDateTime von, LocalDateTime bis, int kundenNr ) {
+    	
+/*    	for (int j = 0; j < DateTime.ZeitSpanneTage(von, bis); j++)
+    	{  KalenderEintrag.kvon = von.plusDays(j);
+    	   KalenderEintrag.Status = Autostatus.reserviert;
+    	   KalenderEintrag.Kundennummer = kundenNr;
+    	} */
+    	return true ;}
     /**
      * Operation buchen
      *
@@ -127,7 +170,7 @@ public class Fahrzeug {
      * @param kundenNr - 
      * @return 
      */
-    public boolean buchen (DateTime von, DateTime bis, int kundenNr) { return false; }
+    public boolean buchen (LocalDateTime von, LocalDateTime bis, int kundenNr) { return false; }
     /**
      * Operation warten
      *
