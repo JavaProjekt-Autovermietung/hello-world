@@ -4,49 +4,40 @@ import java.util.ArrayList;
 
 public class KundenListe {
 
-    /** Attributes */
-    /**
-     * 
-     */
     private ArrayList<Kunde> Kunden;
-    /**
-     * Operation KundenListe
-     *
-     * @return 
-     */
-    public KundenListe() {}
-    /**
-     * Operation sucheKunde
-     *
-     * @param Kundennummer - 
-     * @return Kunde
-     */
-    public Kunde sucheKunde(int Kundennummer) { return Kunden.get(0); }
-    /**
-     * Operation hinzufuegen
-     *
-     * @param Kundennummer - 
-     * @param Vorname - 
-     * @param Nachname - 
-     * @param Adresse - 
-     * @param PLZ - 
-     * @param Ort - 
-     * @return 
-     */
-    public void hinzufuegen(int Kundennummer, String Vorname, String Nachname, String Adresse, String PLZ, String Ort ){}
-    /**
-     * Operation hinzufuegen
-     *
-     * @param neu - 
-     * @return 
-     */
-    public void hinzufuegen(Kunde neu) {}
-    /**
-     * Operation loeschen
-     *
-     * @param Kundennummer - 
-     * @return 
-     */
-    public boolean loeschen(int Kundennummer) { return false; }
+
+    private int findeKunde(int nr)
+    {
+    	int gefunden = -1;
+        for (int i = 0; i < Kunden.size() && gefunden < 0; i++){
+    		if (Kunden.get(i).getKundennummer() == nr)
+    			gefunden = i;
+        }
+    	return gefunden;
+    }
+
+    public KundenListe() {
+    	Kunden = new ArrayList<Kunde>();
+    }
+
+    public Kunde sucheKunde(int Kundennummer) {  
+    	   	return Kunden.get(0);
+    }
+
+    public void hinzufuegen(int Kundennummer, String Nachname, String Vorname, String Adresse, String PLZ, String Ort ){
+    	Kunde K = new Kunde(Kundennummer, Nachname, Vorname, Adresse, PLZ, Ort);
+    	Kunden.add(K);
+    }
+    
+    public void hinzufuegen(Kunde neu) {
+    	Kunden.add(neu);
+    }
+    
+    public boolean loeschen(int Kundennummer) {  
+    	int gefunden = findeKunde(Kundennummer);
+    	if (gefunden >= 0)
+    		Kunden.remove(gefunden);
+    	return (gefunden >= 0);
+    }
 
 }
