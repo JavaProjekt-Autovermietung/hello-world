@@ -15,8 +15,9 @@ public class Haupt {
 
 		System.out.println("Daniel Test");
 		
-		DateTime test = new DateTime();
-		test.test();
+		// DateTime test = new DateTime();
+		
+		//test.test();
 
 }
 	

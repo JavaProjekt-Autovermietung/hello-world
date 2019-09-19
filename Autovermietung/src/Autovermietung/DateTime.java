@@ -14,16 +14,7 @@ public class DateTime {
 	int Stunde;
 	int Minute;
 	LocalDateTime anfangsDatum, endDatum;
-	
-	//Konstruktore
-	/* DateTime(){}
-	 
-	DateTime (int uJahr, int uMonat, int uTag, int uStunde, int uMinute)
-		{
-			Jahr = uJahr; Monat = uMonat; Tag = uTag; Stunde = uStunde; Minute = uMinute;
-			DDate = LocalDateTime.of(Jahr, Monat, Tag, Stunde, Minute);
-		} */
-	
+
 	
 	LocalDateTime setDate() {return LocalDateTime.now();}
 	LocalDateTime setDate(int uJahr, int uMonat, int uTag) {return LocalDateTime.of(uJahr, uMonat, uTag, 0, 0);}
@@ -40,11 +31,10 @@ public class DateTime {
 	static int ZeitSpanneTage (LocalDateTime anfangsDatum, LocalDateTime endDatum) {
 		
 		int zsTage =(int) anfangsDatum.until(endDatum, ChronoUnit.DAYS);
-		// System.out.println("Tage "+ Periode/24 + " Stunden "+ Periode % 24);
-		return zsTage;
+		return zsTage+1;
 		}
 	
-	void test()
+	/* void test()
 	{
 		
 		LocalDateTime date10 = setDate();
@@ -68,18 +58,8 @@ public class DateTime {
 		
 		System.out.println("Ein Tag später ist der: " + date12.plusDays(1));
 		
-		/* 
-		LocalDateTime date3 = LocalDateTime.of(2013, 11, 8, 9, 30);
-		System.out.println(date3);
 		
-		LocalDateTime date4 = LocalDateTime.of(2013, 11, 8, 18, 15);
-		System.out.println(date4);
 		
-		long dauerLDT = date3.until(date4, ChronoUnit.HOURS);
-		System.out.println("Tage "+ dauerLDT/24 + " Stunden "+ dauerLDT % 24); */
-		
-	}
-
-	
+	} */
 	
 }

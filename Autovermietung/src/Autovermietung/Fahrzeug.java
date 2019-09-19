@@ -106,8 +106,31 @@ public class Fahrzeug {
     
     private boolean verfuegbar(LocalDateTime von, LocalDateTime bis, int kundenNr)
     {
-    	return false;
-    }
+    	int zeitraum = DateTime.ZeitSpanneTage(von, bis);
+    	LocalDateTime vonDatum = von;
+    	int zaehler = 0;
+    		
+    		for (int iarray=0; iarray < Kalender.size(); iarray++) 
+    		{
+    			if (Kalender.get(iarray).von == vonDatum &&  Kalender.get(iarray).Status != KalenderEintrag.Autostatus.frei)
+    			{
+    				return false;
+    			}
+    			else {
+	    				zaehler =+1;
+	    				if (zaehler == zeitraum) 
+						{ 
+							return true;
+						}	
+    			}
+    			 
+    			vonDatum.plusDays(1);
+    			
+    		}
+		
+		return false; 
+     }
+
     
     /**
      * Operation ausleihen
@@ -125,6 +148,7 @@ public class Fahrzeug {
     		k.von = von;
     		k.bis = bis;
     		k.Kundennummer = kundenNr;
+    		k.Kennzeichen = getKennzeichen();
     		k.Status = KalenderEintrag.Autostatus.ausgeliehen;
     		Kalender.add(k);
 	    	return true;
@@ -139,13 +163,17 @@ public class Fahrzeug {
      * @return 
      */
     public boolean zurueckgeben() { 
-//    	if (KalenderEintrag.Status == Autostatus.ausgeliehen) {
-//    	KalenderEintrag.Status =Autostatus.zurueckgebracht;
-//   	return true;
-//    	}
-//    	else return false;
-    	return false;
+    	
+    	for (int i=0; i < Kalender.size(); i++ ) {
+    		if (Kalender.get(i).Kennzeichen == getKennzeichen() && Kalender.get(i).Status == KalenderEintrag.Autostatus.ausgeliehen) 
+    		{
+    			Kalender.get(i).Status = KalenderEintrag.Autostatus.frei;
+    			return true;
+    		}
+    	}
+    	 return false;
     }
+    
     /**
      * Operation reservieren
      *
@@ -155,13 +183,21 @@ public class Fahrzeug {
      * @return 
      */
     public boolean reservieren(LocalDateTime von, LocalDateTime bis, int kundenNr ) {
-    	
-/*    	for (int j = 0; j < DateTime.ZeitSpanneTage(von, bis); j++)
-    	{  KalenderEintrag.kvon = von.plusDays(j);
-    	   KalenderEintrag.Status = Autostatus.reserviert;
-    	   KalenderEintrag.Kundennummer = kundenNr;
-    	} */
-    	return true ;}
+    	    	
+    	if (verfuegbar(von, bis, kundenNr))
+    	{
+    		KalenderEintrag k = new KalenderEintrag();
+    		k.von = von;
+    		k.bis = bis;
+    		k.Kundennummer = kundenNr;
+    		k.Kennzeichen = getKennzeichen();
+    		k.Status = KalenderEintrag.Autostatus.reserviert;
+    		Kalender.add(k);
+	    	return true;
+	    }
+    	else
+    		return false;
+    }
     /**
      * Operation buchen
      *
@@ -170,14 +206,39 @@ public class Fahrzeug {
      * @param kundenNr - 
      * @return 
      */
-    public boolean buchen (LocalDateTime von, LocalDateTime bis, int kundenNr) { return false; }
+    public boolean buchen (LocalDateTime von, LocalDateTime bis, int kundenNr) {
+    	
+    	if (verfuegbar(von, bis, kundenNr))
+    	{
+    		KalenderEintrag k = new KalenderEintrag();
+    		k.von = von;
+    		k.bis = bis;
+    		k.Kundennummer = kundenNr;
+    		k.Kennzeichen = getKennzeichen();
+    		k.Status = KalenderEintrag.Autostatus.gebucht;
+    		Kalender.add(k);
+	    	return true;
+	    }
+    	else
+    		return false;
+     }
+    
     /**
      * Operation warten
-     *
+     * @param von 		FEHLTE UND IST VON NÖTEN!
      * @param bis - 
      * @return 
      */
-    public void warten(DateTime bis) {}
+    public void warten(LocalDateTime von, LocalDateTime bis) {
+    	
+    	KalenderEintrag k = new KalenderEintrag();
+		k.von = von;
+		k.bis = bis;
+		k.Kennzeichen = getKennzeichen();
+		k.Status = KalenderEintrag.Autostatus.wartung;
+		Kalender.add(k);
+    }
+    
     /**
      * Operation getKlasse
      *
@@ -190,14 +251,5 @@ public class Fahrzeug {
      * @param neu - 
      * @return 
      */
-    public void setKlasse(FahrzeugKlasse neu) {}
-    /**
-     * Operation verfuegbar
-     *
-     * @param von - 
-     * @param bis - 
-     * @return boolean
-     */
-    public boolean verfuegbar(DateTime von, DateTime bis) { return false; }
-
+    public void setKlasse(FahrzeugKlasse neu) {Klasse = neu;}
 }
