@@ -48,7 +48,7 @@ public class RechnungsListe {
     	ArrayList<Rechnung> RechnungVonKunden = new ArrayList<Rechnung>();
     	for (int i = 0; (i < Rechnungen.size()); i++) {
 			if (Rechnungen.get(i).getKundennummer() == Kundennummer) {
-				RechnungVonKunden.add(RechnungVonKunden.get(i));
+				RechnungVonKunden.add(Rechnungen.get(i));
 			}
     	}
     	return RechnungVonKunden;

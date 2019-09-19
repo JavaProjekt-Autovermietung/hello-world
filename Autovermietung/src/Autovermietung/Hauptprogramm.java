@@ -20,8 +20,15 @@ import java.awt.FlowLayout;
 import com.github.lgooddatepicker.components.DateTimePicker;
 
 public class Hauptprogramm {
+	
+	//Konstante für Panel Namen
+	static final String RechnungSuche = "RechnungSuche";
+	static final String RechnungErstellen = "RechnungErstellen";
+	static final String RechnungPanel = "RechnungPanel";
 
 	private JFrame frame;
+	
+	JFrame getFrame() { return frame; }
 
 	/**
 	 * Launch the application.
@@ -51,17 +58,30 @@ public class Hauptprogramm {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 661, 444);
+		frame.setResizable(false);
+		frame.setBounds(100, 100, 458, 441);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(new CardLayout(0, 0));
 		
+		
+		//Alle einzelnen Panels so aufrufen
+		RechnungPanel rechnungPanel = new RechnungPanel(frame);
+		frame.getContentPane().add(rechnungPanel, RechnungPanel);
+		
+		RechnungErstellen rechnungErstellen = new RechnungErstellen(frame);
+		frame.getContentPane().add(rechnungErstellen, RechnungErstellen);
+		
+		RechnungSuche rechnungSuche = new RechnungSuche(frame);
+		frame.getContentPane().add(rechnungSuche, RechnungSuche);
+		
+		/*
 		FahrzeugPanel fahrzeugPanel = new FahrzeugPanel();
 		frame.getContentPane().add(fahrzeugPanel, "FahrzeugPanel");
-
+		*/
 		JMenuBar menuBar = new JMenuBar();
 		frame.setJMenuBar(menuBar);
 		
-		JMenu mnTest = new JMenu("Test");
+		JMenu mnTest = new JMenu("Rechnung");
 		mnTest.addMenuKeyListener(new MenuKeyListener() {
 			public void menuKeyPressed(MenuKeyEvent e) {
 			}
@@ -93,7 +113,7 @@ public class Hauptprogramm {
 			}
 		});
 		
-		JMenu mnNochEins = new JMenu("noch eins");
+		JMenu mnNochEins = new JMenu("Kunde");
 		menuBar.add(mnNochEins);
 		
 		JMenuItem mntmEinUnterpunkt = new JMenuItem("ein Unterpunkt");

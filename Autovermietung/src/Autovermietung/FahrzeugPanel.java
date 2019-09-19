@@ -5,7 +5,11 @@ import javax.swing.JPanel;
 import com.github.lgooddatepicker.components.DatePicker;
 import com.github.lgooddatepicker.components.DateTimePicker;
 
+import java.awt.Font;
+
 import javax.swing.JLabel;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class FahrzeugPanel extends JPanel {
 
@@ -13,18 +17,24 @@ public class FahrzeugPanel extends JPanel {
 	 * Create the panel.
 	 */
 	public FahrzeugPanel() {
+		setLayout(null);
 		
-		JLabel lblFahrzeugpanel = new JLabel("FahrzeugPanel");
-		add(lblFahrzeugpanel);
+		JLabel lblFahrzeug = new JLabel("Fahrzeug");
+		lblFahrzeug.setBounds(169, 45, 104, 29);
+		lblFahrzeug.setFont(new Font("Tahoma", Font.PLAIN, 24));
+		add(lblFahrzeug);
 		
 		DatePicker datePicker = new DatePicker();
-		datePicker.setSize(160, 24);
+		datePicker.getComponentToggleCalendarButton().addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		datePicker.setBounds(68, 100, 139, 20);
 		add(datePicker);
 		datePicker.setDateToToday();
-		datePicker.setLocation(217, 115);
 		
 		DateTimePicker dateTimePicker = new DateTimePicker();
-		dateTimePicker.setBounds(217, 174, 240, 25);
+		dateTimePicker.setBounds(68, 192, 217, 23);
 		add(dateTimePicker);
 		dateTimePicker.datePicker.setDateToToday();
 		dateTimePicker.timePicker.setTimeToNow();
