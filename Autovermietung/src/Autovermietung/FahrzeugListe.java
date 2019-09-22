@@ -14,14 +14,24 @@ public class FahrzeugListe {
      *
      * @return 
      */
-    public FahrzeugListe() {}
+    public FahrzeugListe() {
+    	
+    	for (int i = 0;i<Fahrzeuge.size();i++){
+    	    System.out.println(Fahrzeuge.get(i));
+    	}
+    	
+    }
     /**
      * Operation sucheFahrzeug
      *
      * @param Kennzeichen - 
      * @return Fahrzeug
      */
-    public Fahrzeug sucheFahrzeug(String Kennzeichen) { return Fahrzeuge.get(0); }
+    public Fahrzeug sucheFahrzeug(String Kennzeichen) { 
+    	
+    	
+    	
+    	return Fahrzeuge.get(0); }
     /**
      * Operation verfuegbar
      * Ist das gut, dass man direkt Zugriff auf die Fahrzeuge bekommt?
