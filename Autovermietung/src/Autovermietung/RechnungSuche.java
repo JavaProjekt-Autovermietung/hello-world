@@ -18,13 +18,13 @@ import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 
 public class RechnungSuche extends JPanel {
-	private JFrame frame;
+	private Hauptprogramm hauptprogramm;
 
 	/**
 	 * Create the panel.
 	 */
-	public RechnungSuche(JFrame frame) {
-		this.frame = frame;
+	public RechnungSuche(Hauptprogramm haupt) {
+		hauptprogramm = haupt;
 		setLayout(null);
 
 		JLabel lblRechnung = new JLabel("Rechnung");

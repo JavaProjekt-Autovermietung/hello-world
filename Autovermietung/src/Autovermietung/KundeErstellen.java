@@ -16,10 +16,12 @@ public class KundeErstellen extends JPanel {
 	private JTextField txtStrasse;
 	private JTextField txtPlz;
 	private JTextField txtOrt;
+	private Hauptprogramm hauptprogramm;
 	/**
 	 * Create the panel.
 	 */
-	public KundeErstellen() {
+	public KundeErstellen(Hauptprogramm haupt) {
+		hauptprogramm = haupt;
 		setLayout(null);
 		
 		JLabel lblRechnung = new JLabel("Kunde");
@@ -51,9 +53,9 @@ public class KundeErstellen extends JPanel {
 		txtStrasse.setBounds(113, 179, 220, 20);
 		add(txtStrasse);
 		
-		JButton btnNachRechnungSuchen = new JButton("Rechnung erstellen");
-		btnNachRechnungSuchen.setBounds(113, 247, 220, 23);
-		add(btnNachRechnungSuchen);
+		JButton btnKundeAnlegen = new JButton("Kunde anlegen");
+		btnKundeAnlegen.setBounds(113, 247, 220, 23);
+		add(btnKundeAnlegen);
 		
 		txtPlz = new JTextField();
 		txtPlz.setText("PLZ");
