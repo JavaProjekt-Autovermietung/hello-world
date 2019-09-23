@@ -1,5 +1,6 @@
 package Autovermietung;
 
+import java.awt.CardLayout;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -11,10 +12,12 @@ import javax.swing.JTextField;
 
 public class KundePanel extends JPanel {
 	private JTextField txtKundennummer;
+	private Hauptprogramm hauptprogramm;
 	/**
 	 * Create the panel.
 	 */
-	public KundePanel() {
+	public KundePanel(Hauptprogramm haupt) {
+		hauptprogramm = haupt;
 		setLayout(null);
 		
 		JLabel lblKunde = new JLabel("Kunde");
@@ -25,6 +28,7 @@ public class KundePanel extends JPanel {
 		JButton btnKundeAnlegen = new JButton("Neuen Kunden anlegen");
 		btnKundeAnlegen.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				((CardLayout)hauptprogramm.getFrame().getContentPane().getLayout()).show(hauptprogramm.getFrame().getContentPane(), Hauptprogramm.KundeErstellen);
 			}
 		});
 		btnKundeAnlegen.setBounds(113, 102, 220, 23);
@@ -41,6 +45,11 @@ public class KundePanel extends JPanel {
 		txtKundennummer.setColumns(10);
 		
 		JButton btnNachKundensuchen = new JButton("Nach Kunden suchen");
+		btnNachKundensuchen.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				((CardLayout)hauptprogramm.getFrame().getContentPane().getLayout()).show(hauptprogramm.getFrame().getContentPane(), "KundeSuche");
+			}
+		});
 		btnNachKundensuchen.setBounds(113, 220, 220, 23);
 		add(btnNachKundensuchen);
 	}

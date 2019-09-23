@@ -16,13 +16,13 @@ public class RechnungErstellen extends JPanel {
 	private JTextField txtKundennummer;
 	private JTextField txtPreis;
 	private JTextField txtAusleihdauer;
-	private JFrame frame;
+	private Hauptprogramm hauptprogramm;
 
 	/**
 	 * Create the panel.
 	 */
-	public RechnungErstellen(JFrame frame) {
-		this.frame = frame;
+	public RechnungErstellen(Hauptprogramm haupt) {
+		hauptprogramm = haupt;
 		setLayout(null);
 
 		JLabel lblRechnung = new JLabel("Rechnung");

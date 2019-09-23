@@ -14,13 +14,17 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JPopupMenu;
 import javax.swing.SwingConstants;
+import java.awt.Choice;
+import java.awt.List;
 
 public class KundeSuche extends JPanel {
+	private Hauptprogramm hauptprogramm;
 
 	/**
 	 * Create the panel.
 	 */
-	public KundeSuche() {
+	public KundeSuche(Hauptprogramm haupt) {
+		hauptprogramm = haupt;
 		setLayout(null);
 		
 		JLabel lblKunde = new JLabel("Kunde");
@@ -33,24 +37,8 @@ public class KundeSuche extends JPanel {
 		lblNewLabel.setBounds(0, 103, 450, 14);
 		add(lblNewLabel);
 		
-		JMenu mnSortierenNach = new JMenu("Sortieren nach");
-		mnSortierenNach.setBounds(140, 218, 133, 26);
-		add(mnSortierenNach);
-		
-		JMenuItem mntmKundennummer = new JMenuItem("Kundennummer");
-		mnSortierenNach.add(mntmKundennummer);
-		
-		JMenuItem mntmRechnungsnummer = new JMenuItem("Rechnungsnummer");
-		mnSortierenNach.add(mntmRechnungsnummer);
-		
-		JMenuItem mntmPreis = new JMenuItem("Preis");
-		mnSortierenNach.add(mntmPreis);
-		
-		JMenuItem mntmAusleihdauer = new JMenuItem("Ausleihdauer");
-		mnSortierenNach.add(mntmAusleihdauer);
-		
 		JButton button = new JButton("L\u00F6schen");
-		button.setBounds(112, 128, 71, 23);
+		button.setBounds(98, 128, 78, 23);
 		add(button);
 		
 		JButton btnndern = new JButton("\u00C4ndern");
@@ -60,6 +48,15 @@ public class KundeSuche extends JPanel {
 		JButton btnFahrzeug = new JButton("KFZ");
 		btnFahrzeug.setBounds(261, 128, 71, 23);
 		add(btnFahrzeug);
+		
+		Choice choice = new Choice();
+		choice.setBounds(146, 233, 141, 20);
+		add(choice);
+		choice.add("Sortieren nach...");
+		choice.add("Name");
+		choice.add("Kundennummer");
+		choice.add("Adresse");
+		choice.add("Ort");
 	}
 	private static void addPopup(Component component, final JPopupMenu popup) {
 		component.addMouseListener(new MouseAdapter() {
@@ -78,5 +75,4 @@ public class KundeSuche extends JPanel {
 			}
 		});
 	}
-	
 }

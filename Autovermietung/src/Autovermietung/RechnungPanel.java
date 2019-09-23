@@ -12,21 +12,24 @@ import javax.swing.JFrame;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
+import java.awt.Color;
+import javax.swing.UIManager;
+import java.awt.SystemColor;
 
 public class RechnungPanel extends JPanel {
 	private JTextField txtRechnungsnummer;
-	//frame initialisierung
-	private JFrame frame;
+	private Hauptprogramm hauptprogramm;
 
 	/**
 	 * Create the panel.
 	 */
 	//Konstruktor mit extra parameter frame
-	public RechnungPanel(JFrame frame) {
-		this.frame = frame;
+	public RechnungPanel(Hauptprogramm haupt) {
+		hauptprogramm = haupt;
 		setLayout(null);
 		
 		JLabel lblRechnung = new JLabel("Rechnung");
+		lblRechnung.setForeground(Color.BLACK);
 		lblRechnung.setBounds(169, 45, 104, 29);
 		lblRechnung.setFont(new Font("Tahoma", Font.PLAIN, 24));
 		add(lblRechnung);
@@ -35,13 +38,13 @@ public class RechnungPanel extends JPanel {
 		JButton btnRechnungErstellen = new JButton("Neue Rechnung erstellen");
 		btnRechnungErstellen.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				((CardLayout)frame.getContentPane().getLayout()).show(frame.getContentPane(), "RechnungErstellen");
+				((CardLayout)hauptprogramm.getFrame().getContentPane().getLayout()).show(hauptprogramm.getFrame().getContentPane(), "RechnungErstellen");
 			}
 		});
 		btnRechnungErstellen.setBounds(113, 102, 220, 23);
 		add(btnRechnungErstellen);
 		
-		JButton btnAlleRechnungenAnzeigen = new JButton("RechnungAnzeigen");
+		JButton btnAlleRechnungenAnzeigen = new JButton("Alle Rechnungen anzeigen");
 		btnAlleRechnungenAnzeigen.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -58,7 +61,7 @@ public class RechnungPanel extends JPanel {
 		JButton btnNachRechnungSuchen = new JButton("Nach Rechnung suchen");
 		btnNachRechnungSuchen.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				((CardLayout)frame.getContentPane().getLayout()).show(frame.getContentPane(), Hauptprogramm.RechnungSuche);
+				((CardLayout)hauptprogramm.getFrame().getContentPane().getLayout()).show(hauptprogramm.getFrame().getContentPane(), Hauptprogramm.RechnungSuche);
 			}
 		});
 		btnNachRechnungSuchen.setBounds(113, 220, 220, 23);

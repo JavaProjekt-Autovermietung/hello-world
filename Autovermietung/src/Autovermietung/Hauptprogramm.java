@@ -18,17 +18,28 @@ import javax.swing.JLabel;
 import java.awt.CardLayout; 
 import java.awt.FlowLayout;
 import com.github.lgooddatepicker.components.DateTimePicker;
+import java.awt.Button;
+import javax.swing.JButton;
 
 public class Hauptprogramm {
 	
 	//Konstante für Panel Namen
+	static final String StartPanel = "StartPanel";
 	static final String RechnungSuche = "RechnungSuche";
 	static final String RechnungErstellen = "RechnungErstellen";
 	static final String RechnungPanel = "RechnungPanel";
+	static final String FahrzeugPanel = "FahrzeugPanel";
+	static final String KundePanel = "KundePanel";
+	static final String KundeErstellen = "KundeErstellen";
+	static final String KundeSuche = "KundeSuche";
+	
+	private RechnungsListe rechnungsListe = new RechnungsListe();
+	
 
 	private JFrame frame;
 	
 	JFrame getFrame() { return frame; }
+	RechnungsListe getRechnungsListe() { return rechnungsListe; }
 
 	/**
 	 * Launch the application.
@@ -65,63 +76,56 @@ public class Hauptprogramm {
 		
 		
 		//Alle einzelnen Panels so aufrufen
-		RechnungPanel rechnungPanel = new RechnungPanel(frame);
+		
+		StartPanel startPanel = new StartPanel(this);
+		frame.getContentPane().add(startPanel, RechnungPanel);
+		
+		RechnungPanel rechnungPanel = new RechnungPanel(this);
 		frame.getContentPane().add(rechnungPanel, RechnungPanel);
 		
-		RechnungErstellen rechnungErstellen = new RechnungErstellen(frame);
+		RechnungErstellen rechnungErstellen = new RechnungErstellen(this);
 		frame.getContentPane().add(rechnungErstellen, RechnungErstellen);
 		
-		RechnungSuche rechnungSuche = new RechnungSuche(frame);
+		RechnungSuche rechnungSuche = new RechnungSuche(this);
 		frame.getContentPane().add(rechnungSuche, RechnungSuche);
 		
-		/*
-		FahrzeugPanel fahrzeugPanel = new FahrzeugPanel();
-		frame.getContentPane().add(fahrzeugPanel, "FahrzeugPanel");
-		*/
+		FahrzeugPanel fahrzeugPanel = new FahrzeugPanel(this);
+		frame.getContentPane().add(fahrzeugPanel, FahrzeugPanel);
+		
+		KundePanel kundePanel = new KundePanel(this);
+		frame.getContentPane().add(kundePanel, KundePanel);
+		
+		KundeErstellen kundeErstellen = new KundeErstellen(this);
+		frame.getContentPane().add(kundeErstellen, KundeErstellen);
+		
+		KundeSuche kundeSuche = new KundeSuche(this);
+		frame.getContentPane().add(kundeSuche, KundeSuche);
+		
 		JMenuBar menuBar = new JMenuBar();
 		frame.setJMenuBar(menuBar);
 		
-		JMenu mnTest = new JMenu("Rechnung");
-		mnTest.addMenuKeyListener(new MenuKeyListener() {
-			public void menuKeyPressed(MenuKeyEvent e) {
-			}
-			public void menuKeyReleased(MenuKeyEvent e) {
-			}
-			public void menuKeyTyped(MenuKeyEvent e) {
-			}
-		});
-		menuBar.add(mnTest);
-		
-		JMenuItem mntmBla = new JMenuItem("bla");
-		mntmBla.addActionListener(new ActionListener() {
+		JMenuItem mntmRechnung = new JMenuItem("Rechnung");
+		mntmRechnung.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				((CardLayout)getFrame().getContentPane().getLayout()).show(getFrame().getContentPane(), "RechnungPanel");
 			}
 		});
-		mnTest.add(mntmBla);
+		menuBar.add(mntmRechnung);
 		
-		JMenuItem mntmBla_1 = new JMenuItem("bla2");
-		mntmBla_1.addActionListener(new ActionListener() {
+		JMenuItem mntmFahrzeug = new JMenuItem("Fahrzeug");
+		mntmFahrzeug.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				((CardLayout)getFrame().getContentPane().getLayout()).show(getFrame().getContentPane(), "FahrzeugPanel");
 			}
 		});
-		mnTest.add(mntmBla_1);
+		menuBar.add(mntmFahrzeug);
 		
-		JMenuItem mntmAsfs = new JMenuItem("Fahrzeug");
-		mntmAsfs.addActionListener(new ActionListener() {
+		JMenuItem mntmKunde = new JMenuItem("Kunde");
+		mntmKunde.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				((CardLayout)frame.getContentPane().getLayout()).show(frame.getContentPane(), "FahrzeugPanel");
+				((CardLayout)getFrame().getContentPane().getLayout()).show(getFrame().getContentPane(), "KundePanel");
 			}
 		});
-		
-		JMenu mnNochEins = new JMenu("Kunde");
-		menuBar.add(mnNochEins);
-		
-		JMenuItem mntmEinUnterpunkt = new JMenuItem("ein Unterpunkt");
-		mntmEinUnterpunkt.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		mnNochEins.add(mntmEinUnterpunkt);
-		menuBar.add(mntmAsfs);		
+		menuBar.add(mntmKunde);
 	}
 }

@@ -12,12 +12,13 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class FahrzeugPanel extends JPanel {
+	private Hauptprogramm hauptprogramm;
 
 	/**
 	 * Create the panel.
 	 */
-	public FahrzeugPanel() {
-		setLayout(null);
+	public FahrzeugPanel(Hauptprogramm haupt) {
+		hauptprogramm = haupt;
 		
 		JLabel lblFahrzeug = new JLabel("Fahrzeug");
 		lblFahrzeug.setBounds(169, 45, 104, 29);
