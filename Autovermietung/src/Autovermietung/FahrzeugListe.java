@@ -29,9 +29,17 @@ public class FahrzeugListe {
      */
     public Fahrzeug sucheFahrzeug(String Kennzeichen) { 
     	
-    	
-    	
-    	return Fahrzeuge.get(0); }
+    	for (int i = 0;i<Fahrzeuge.size();i++){
+    	    if (Fahrzeuge.get(i).getKennzeichen()== Kennzeichen)
+    	    	return Fahrzeuge.get(i);
+    	    else 
+    	    {
+    	    	System.out.println("Fahrzeug nicht gefunden! Kennzeichen: ");
+    	    	return null;
+    	    }
+    	}
+    	return null;
+    }
     /**
      * Operation verfuegbar
      * Ist das gut, dass man direkt Zugriff auf die Fahrzeuge bekommt?
