@@ -83,10 +83,10 @@ public class Hauptprogramm {
 		RechnungPanel rechnungPanel = new RechnungPanel(this);
 		frame.getContentPane().add(rechnungPanel, RechnungPanel);
 		
-		RechnungErstellen rechnungErstellen = new RechnungErstellen(this);
+		RechnungErstellenPanel rechnungErstellen = new RechnungErstellenPanel(this);
 		frame.getContentPane().add(rechnungErstellen, RechnungErstellen);
 		
-		RechnungSuche rechnungSuche = new RechnungSuche(this);
+		RechnungSuchePanel rechnungSuche = new RechnungSuchePanel(this);
 		frame.getContentPane().add(rechnungSuche, RechnungSuche);
 		
 		FahrzeugPanel fahrzeugPanel = new FahrzeugPanel(this);
@@ -95,10 +95,10 @@ public class Hauptprogramm {
 		KundePanel kundePanel = new KundePanel(this);
 		frame.getContentPane().add(kundePanel, KundePanel);
 		
-		KundeErstellen kundeErstellen = new KundeErstellen(this);
+		KundeErstellenPanel kundeErstellen = new KundeErstellenPanel(this);
 		frame.getContentPane().add(kundeErstellen, KundeErstellen);
 		
-		KundeSuche kundeSuche = new KundeSuche(this);
+		KundeSuchePanel kundeSuche = new KundeSuchePanel(this);
 		frame.getContentPane().add(kundeSuche, KundeSuche);
 		
 		JMenuBar menuBar = new JMenuBar();

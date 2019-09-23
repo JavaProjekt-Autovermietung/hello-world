@@ -9,7 +9,7 @@ import javax.swing.JMenu;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class KundeErstellen extends JPanel {
+public class KundeErstellenPanel extends JPanel {
 	private JTextField txtKundennummer;
 	private JTextField txtName;
 	private JTextField txtVorname;
@@ -20,7 +20,7 @@ public class KundeErstellen extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public KundeErstellen(Hauptprogramm haupt) {
+	public KundeErstellenPanel(Hauptprogramm haupt) {
 		hauptprogramm = haupt;
 		setLayout(null);
 		

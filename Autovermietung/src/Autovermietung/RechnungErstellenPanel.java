@@ -11,7 +11,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import java.awt.Color;
 
-public class RechnungErstellen extends JPanel {
+public class RechnungErstellenPanel extends JPanel {
 	private JTextField txtRechnungsnummer;
 	private JTextField txtKundennummer;
 	private JTextField txtPreis;
@@ -21,7 +21,7 @@ public class RechnungErstellen extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public RechnungErstellen(Hauptprogramm haupt) {
+	public RechnungErstellenPanel(Hauptprogramm haupt) {
 		hauptprogramm = haupt;
 		setLayout(null);
 

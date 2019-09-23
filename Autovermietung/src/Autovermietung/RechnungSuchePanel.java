@@ -17,13 +17,13 @@ import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 
-public class RechnungSuche extends JPanel {
+public class RechnungSuchePanel extends JPanel {
 	private Hauptprogramm hauptprogramm;
 
 	/**
 	 * Create the panel.
 	 */
-	public RechnungSuche(Hauptprogramm haupt) {
+	public RechnungSuchePanel(Hauptprogramm haupt) {
 		hauptprogramm = haupt;
 		setLayout(null);
 
