@@ -115,20 +115,22 @@ public class FahrzeugListe {
     	}
     
     /**
-     * Operation reserviert
+     * Operation kundenReservierung
      *
      * @param Kundennummer - 
      * @return ArrayList<Fahrzeug>
      */
     
-    /* public ArrayList<Fahrzeug> reserviert(int Kundennummer) 
+     public ArrayList<Fahrzeug> kundenReservierung(int Kundennummer) 
     	{
-    	ArrayList<Fahrzeug> kundeReservierungen = new ArrayList<Fahrzeug>();
+    	// ArrayList<Fahrzeug> kundeReservierungen = new ArrayList<Fahrzeug>();
     	
     	for (int i=0; i <fahrzeugListe.size(); i++) 
 		{
-			if (fahrzeugListe.get(i).Kalender.Kundennummer == Kundennummer )
+    		if (fahrzeugListe.get(i).reserviert(Kundennummer) )
+    			
+ 
     	
-    	return kundeReservierungen); } */
+    	return kundeReservierungen; }
 
 }

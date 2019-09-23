@@ -33,7 +33,7 @@ public class Fahrzeug {
     /**
      * 
      */
-    private ArrayList<KalenderEintrag> Kalender;
+    private ArrayList<KalenderEintrag> Kalender = new ArrayList<KalenderEintrag>();
     /**
      * 
      */
@@ -45,10 +45,15 @@ public class Fahrzeug {
      * @param Typ - 
      * @param Hersteller - 
      * @param Modell - 
+     * @ 						param Klasse fehlt!!
      * @return 
      */
-    public Fahrzeug(String Kennzeichen, FahrzeugTyp Typ, FahrzeugHersteller Hersteller, String Modell ){
-    	
+    public Fahrzeug(String Kennzeichen, FahrzeugTyp Typ, FahrzeugHersteller Hersteller, String Modell, FahrzeugKlasse Klasse ){
+    	this.Kennzeichen = Kennzeichen;
+    	this.Typ = Typ;
+    	this.Hersteller = Hersteller;
+    	this.Modell = Modell;
+    	this.Klasse = Klasse;
     	Kalender = new ArrayList<KalenderEintrag>();
     }
     /**
@@ -104,7 +109,7 @@ public class Fahrzeug {
      */
     public void setModell(String neu){Modell =  neu;}
     
-    private boolean verfuegbar(LocalDateTime von, LocalDateTime bis, int kundenNr)
+    public boolean verfuegbar(LocalDateTime von, LocalDateTime bis) //private?? ->public -- Kundennummer ist Unsinn!
     {
     	int zeitraum = DateTime.ZeitSpanneTage(von, bis);
     	LocalDateTime vonDatum = von;
@@ -142,7 +147,7 @@ public class Fahrzeug {
      */
     public boolean ausleihen(LocalDateTime von, LocalDateTime bis, int kundenNr) { 
     	
-    	if (verfuegbar(von, bis, kundenNr))
+    	if (verfuegbar(von, bis))
     	{
     		KalenderEintrag k = new KalenderEintrag();
     		k.von = von;
@@ -165,7 +170,8 @@ public class Fahrzeug {
     public boolean zurueckgeben() { 
     	
     	for (int i=0; i < Kalender.size(); i++ ) {
-    		if (Kalender.get(i).Kennzeichen == getKennzeichen() && Kalender.get(i).Status == KalenderEintrag.Autostatus.ausgeliehen) 
+    		if (Kalender.get(i).Kennzeichen == getKennzeichen() &&
+    				Kalender.get(i).Status == KalenderEintrag.Autostatus.ausgeliehen) 
     		{
     			Kalender.get(i).Status = KalenderEintrag.Autostatus.frei;
     			return true;
@@ -184,7 +190,7 @@ public class Fahrzeug {
      */
     public boolean reservieren(LocalDateTime von, LocalDateTime bis, int kundenNr ) {
     	    	
-    	if (verfuegbar(von, bis, kundenNr))
+    	if (verfuegbar(von, bis))
     	{
     		KalenderEintrag k = new KalenderEintrag();
     		k.von = von;
@@ -208,7 +214,7 @@ public class Fahrzeug {
      */
     public boolean buchen (LocalDateTime von, LocalDateTime bis, int kundenNr) {
     	
-    	if (verfuegbar(von, bis, kundenNr))
+    	if (verfuegbar(von, bis))
     	{
     		KalenderEintrag k = new KalenderEintrag();
     		k.von = von;
@@ -252,4 +258,21 @@ public class Fahrzeug {
      * @return 
      */
     public void setKlasse(FahrzeugKlasse neu) {Klasse = neu;}
+    
+    /* public ArrayList<Fahrzeug> reserviert(int Kundennummer) {
+    	
+    	ArrayList<Fahrzeug> kundeReservierungen = new ArrayList<Fahrzeug>();
+    	
+    	for (int i=0; i < Kalender.size(); i++ ) 
+    	{ 
+    		if (Kalender.get(i).Kundennummer == Kundennummer &&
+    				Kalender.get(i).Status == KalenderEintrag.Autostatus.reserviert)
+    			kundeReservierungen.Kalender.add(Kalender.get(i)) ;
+    				
+    	}
+    	
+    	return false;
+    	
+    	
+    }*/
 }
