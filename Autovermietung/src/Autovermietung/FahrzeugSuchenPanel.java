@@ -14,12 +14,12 @@ import java.awt.Color;
 import java.awt.Button;
 import java.awt.ScrollPane;
 
-public class FahrzeugSuchen extends JPanel {
+public class FahrzeugSuchenPanel extends JPanel {
 
 	/**
 	 * Create the panel.
 	 */
-	public FahrzeugSuchen() {
+	public FahrzeugSuchenPanel() {
 		setLayout(null);
 		
 		JLabel lblFahrzeug = new JLabel("Fahrzeug");
