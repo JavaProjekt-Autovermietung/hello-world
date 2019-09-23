@@ -9,6 +9,8 @@ import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+
+import java.awt.Choice;
 import java.awt.Color;
 
 public class RechnungErstellen extends JPanel {
@@ -54,22 +56,14 @@ public class RechnungErstellen extends JPanel {
 		txtAusleihdauer.setBounds(113, 179, 220, 20);
 		add(txtAusleihdauer);
 		
-		JMenu mnSortierenNach = new JMenu("Zahlungsart");
-		mnSortierenNach.setBackground(Color.GRAY);
-		mnSortierenNach.setBounds(112, 210, 133, 26);
-		add(mnSortierenNach);
-		
-		JMenuItem mntmKundennummer = new JMenuItem("Kreditkarte");
-		mnSortierenNach.add(mntmKundennummer);
-		
-		JMenuItem mntmRechnungsnummer = new JMenuItem("Bar");
-		mnSortierenNach.add(mntmRechnungsnummer);
-		
-		JMenuItem mntmPreis = new JMenuItem("Rechnung");
-		mnSortierenNach.add(mntmPreis);
-		
-		JMenuItem mntmAusleihdauer = new JMenuItem("Paypal");
-		mnSortierenNach.add(mntmAusleihdauer);
+		Choice choice = new Choice();
+		choice.setBounds(146, 212, 141, 20);
+		add(choice);
+		choice.add("Zahlungsart...");
+		choice.add("Kreditkarte");
+		choice.add("Bar");
+		choice.add("Rechnung");
+		choice.add("Paypal");
 		
 		JButton btnNachRechnungSuchen = new JButton("Rechnung erstellen");
 		btnNachRechnungSuchen.setBounds(113, 247, 220, 23);
