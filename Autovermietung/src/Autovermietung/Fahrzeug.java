@@ -43,19 +43,12 @@ public class Fahrzeug {
      * @ 						param Klasse fehlt!!
      * @return 
      */
-<<<<<<< Upstream, based on branch 'master' of https://github.com/JavaProjekt-Autovermietung/hello-world.git
     public Fahrzeug(String Kennzeichen, FahrzeugTyp Typ, FahrzeugHersteller Hersteller, String Modell, FahrzeugKlasse Klasse ){
     	this.Kennzeichen = Kennzeichen;
     	this.Typ = Typ;
     	this.Hersteller = Hersteller;
     	this.Modell = Modell;
     	this.Klasse = Klasse;
-=======
-    
-
-    public Fahrzeug(String Kennzeichen, FahrzeugTyp Typ, FahrzeugHersteller Hersteller, String Modell, FahrzeugKlasse Klasse){		//Parameter Klasse hinzu (?) MT
-    	
->>>>>>> d9570a8 Milka 24.09.12h
     	Kalender = new ArrayList<KalenderEintrag>();
     }
     /**
@@ -111,12 +104,7 @@ public class Fahrzeug {
      */
     public void setModell(String neu){Modell =  neu;}
     
-<<<<<<< Upstream, based on branch 'master' of https://github.com/JavaProjekt-Autovermietung/hello-world.git
     public boolean verfuegbar(LocalDateTime von, LocalDateTime bis) 
-=======
-    
-    boolean verfuegbar (LocalDateTime von, LocalDateTime bis)
->>>>>>> d9570a8 Milka 24.09.12h
     {
     	int zeitraum = DateTime.ZeitSpanneTage(von, bis);
     	LocalDateTime vonDatum = von;
@@ -263,7 +251,6 @@ public class Fahrzeug {
     public void setKlasse(FahrzeugKlasse neu) {Klasse = neu;}
     
 	
-<<<<<<< Upstream, based on branch 'master' of https://github.com/JavaProjekt-Autovermietung/hello-world.git
     public boolean reserviert(int Kundennummer) {
     	
     	int zaehler =0;
@@ -284,12 +271,4 @@ public class Fahrzeug {
     
     }
     
-=======
-    /*
-    public boolean verfuegbar(LocalDateTime von, LocalDateTime bis) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-	*/
->>>>>>> d9570a8 Milka 24.09.12h
 }
