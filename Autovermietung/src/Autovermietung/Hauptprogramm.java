@@ -32,14 +32,18 @@ public class Hauptprogramm {
 	static final String KundePanel = "KundePanel";
 	static final String KundeErstellen = "KundeErstellen";
 	static final String KundeSuche = "KundeSuche";
+	static final String FahrzeugeAusgabePanel = "FahrzeugeAusgabePanel";
 	
 	private RechnungsListe rechnungsListe = new RechnungsListe();
+	private FahrzeugListe fahrzeugListe = new FahrzeugListe();
 	
 
 	private JFrame frame;
 	
 	JFrame getFrame() { return frame; }
 	RechnungsListe getRechnungsListe() { return rechnungsListe; }
+	
+	FahrzeugListe getFahrzeugListe () { return fahrzeugListe; }
 
 	/**
 	 * Launch the application.
@@ -50,7 +54,8 @@ public class Hauptprogramm {
 				try {
 					Hauptprogramm window = new Hauptprogramm();
 					window.frame.setVisible(true);
-				} catch (Exception e) {
+					} 
+				catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
@@ -89,9 +94,6 @@ public class Hauptprogramm {
 		RechnungSuchePanel rechnungSuche = new RechnungSuchePanel(this);
 		frame.getContentPane().add(rechnungSuche, RechnungSuche);
 		
-		FahrzeugPanel fahrzeugPanel = new FahrzeugPanel(this);
-		frame.getContentPane().add(fahrzeugPanel, FahrzeugPanel);
-		
 		KundePanel kundePanel = new KundePanel(this);
 		frame.getContentPane().add(kundePanel, KundePanel);
 		
@@ -101,6 +103,16 @@ public class Hauptprogramm {
 		KundeSuchePanel kundeSuche = new KundeSuchePanel(this);
 		frame.getContentPane().add(kundeSuche, KundeSuche);
 		
+		FahrzeugPanel fahrzeugPanel = new FahrzeugPanel(this);
+		frame.getContentPane().add(fahrzeugPanel, FahrzeugPanel);
+		
+		FahrzeugeAusgabePanel fahrzeugeAusgabePanel = new FahrzeugeAusgabePanel(this);
+		frame.getContentPane().add(fahrzeugeAusgabePanel, FahrzeugeAusgabePanel);
+		
+		
+		
+		
+		//Menue Reiter
 		JMenuBar menuBar = new JMenuBar();
 		frame.setJMenuBar(menuBar);
 		
@@ -127,5 +139,7 @@ public class Hauptprogramm {
 			}
 		});
 		menuBar.add(mntmKunde);
+		
+		((CardLayout)getFrame().getContentPane().getLayout()).show(getFrame().getContentPane(), "FahrzeugeAusgabePanel");
 	}
 }

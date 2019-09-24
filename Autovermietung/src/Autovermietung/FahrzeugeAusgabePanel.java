@@ -20,37 +20,18 @@ import javax.swing.table.AbstractTableModel;
 //copy ende
 
 
-public class FahrzeugAusgabePanel extends JPanel {
+public class FahrzeugeAusgabePanel extends JPanel {
 	private Hauptprogramm hauptprogramm;
-	//private JTable table;
-	//test
-
+	private JTable table;
 
 //Create the panel.
 	
-	public FahrzeugAusgabePanel(Hauptprogramm haupt) 
+	public FahrzeugeAusgabePanel(Hauptprogramm haupt) 
 		{
 			hauptprogramm = haupt;
-			setLayout(null);
 			
-//Titel
-			JLabel lblFahrzeug = new JLabel("Ausgabe");
-			lblFahrzeug.setBounds(180, 11, 98, 29);
-			lblFahrzeug.setFont(new Font("Tahoma", Font.PLAIN, 24));
-			//add(lblFahrzeug);
 			
-			//table = new JTable();
-			//table.setBounds(60, 222, 307, -129);
-			//add(table);
-			
-			//{
-			// Die Anzahl Columns (Breite) der Tabelle
-			//int size = model.getColumnCount();
-
-					// Die Daten für das Table
-				
-				/*
-					ArrayList data = new ArrayList <Fahrzeug>();
+					Vector data = new Vector ();
 						Vector rowA = new Vector();
 							rowA.add(  "1" );
 							rowA.add(  "2" );
@@ -69,16 +50,21 @@ public class FahrzeugAusgabePanel extends JPanel {
 					
 						data.add( rowA );
 						data.add( rowB );
-						data.add( rowC );*/
+						data.add( rowC );
 							
-					// Die Titel für das Table
-				/*
+// Die Titel für das Table
+
 					Vector title = new Vector();
-						title.add( "A" );
-						title.add( "B" );
-						title.add( "C" );
-						title.add( "D" );
-						*/
+						title.add( "Kennzeichen" );
+						title.add( "Hersteller" );
+						title.add( "Modell" );
+						title.add( "Typ" );
+						
+
+// Das JTable initialisieren
+						JTable table = new JTable( data, title );
+						add (new JScrollPane(table));
+
 		}
 }
 					

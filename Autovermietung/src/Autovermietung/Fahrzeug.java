@@ -14,22 +14,12 @@ public class Fahrzeug {
 	enum FahrzeugKlasse { Kleinwagen, Mittelklasse, Oberklasse };
 	
     /** Attributes */
-    /**
-     * 
-     */
+    
     private FahrzeugTyp Typ;
-    /**
-     * 
-     */
     private FahrzeugHersteller Hersteller;
-    /**
-     * 
-     */
     private String Modell;
-    /**
-     * 
-     */
     private String Kennzeichen;
+<<<<<<< Upstream, based on branch 'master' of https://github.com/JavaProjekt-Autovermietung/hello-world.git
     /**
      * 
      */
@@ -37,7 +27,12 @@ public class Fahrzeug {
     /**
      * 
      */
+=======
+    private ArrayList<KalenderEintrag> Kalender;
+>>>>>>> d9570a8 Milka 24.09.12h
     private FahrzeugKlasse Klasse;
+    
+    
     /**
      * Operation Fahrzeug
      *
@@ -48,12 +43,19 @@ public class Fahrzeug {
      * @ 						param Klasse fehlt!!
      * @return 
      */
+<<<<<<< Upstream, based on branch 'master' of https://github.com/JavaProjekt-Autovermietung/hello-world.git
     public Fahrzeug(String Kennzeichen, FahrzeugTyp Typ, FahrzeugHersteller Hersteller, String Modell, FahrzeugKlasse Klasse ){
     	this.Kennzeichen = Kennzeichen;
     	this.Typ = Typ;
     	this.Hersteller = Hersteller;
     	this.Modell = Modell;
     	this.Klasse = Klasse;
+=======
+    
+
+    public Fahrzeug(String Kennzeichen, FahrzeugTyp Typ, FahrzeugHersteller Hersteller, String Modell, FahrzeugKlasse Klasse){		//Parameter Klasse hinzu (?) MT
+    	
+>>>>>>> d9570a8 Milka 24.09.12h
     	Kalender = new ArrayList<KalenderEintrag>();
     }
     /**
@@ -109,7 +111,12 @@ public class Fahrzeug {
      */
     public void setModell(String neu){Modell =  neu;}
     
+<<<<<<< Upstream, based on branch 'master' of https://github.com/JavaProjekt-Autovermietung/hello-world.git
     public boolean verfuegbar(LocalDateTime von, LocalDateTime bis) 
+=======
+    
+    boolean verfuegbar (LocalDateTime von, LocalDateTime bis)
+>>>>>>> d9570a8 Milka 24.09.12h
     {
     	int zeitraum = DateTime.ZeitSpanneTage(von, bis);
     	LocalDateTime vonDatum = von;
@@ -128,14 +135,10 @@ public class Fahrzeug {
 							return true;
 						}	
     			}
-    			 
     			vonDatum.plusDays(1);
-    			
     		}
-		
 		return false; 
      }
-
     
     /**
      * Operation ausleihen
@@ -260,6 +263,7 @@ public class Fahrzeug {
     public void setKlasse(FahrzeugKlasse neu) {Klasse = neu;}
     
 	
+<<<<<<< Upstream, based on branch 'master' of https://github.com/JavaProjekt-Autovermietung/hello-world.git
     public boolean reserviert(int Kundennummer) {
     	
     	int zaehler =0;
@@ -280,4 +284,12 @@ public class Fahrzeug {
     
     }
     
+=======
+    /*
+    public boolean verfuegbar(LocalDateTime von, LocalDateTime bis) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	*/
+>>>>>>> d9570a8 Milka 24.09.12h
 }

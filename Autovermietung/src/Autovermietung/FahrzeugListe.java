@@ -5,18 +5,16 @@ import java.util.ArrayList;
 
 public class FahrzeugListe {
 
-    /** Attributes */
-    /**
-     * 
-     */
+/** Attributes */
     private ArrayList<Fahrzeug> fahrzeugListe;
     /**
      * Operation FahrzeugListe
      *
      * @return 
      */
-    public FahrzeugListe() {
-    	
+//Konstruktor
+    public FahrzeugListe() 
+    	{
     	fahrzeugListe = new ArrayList<Fahrzeug>();
     	}
     	
@@ -29,8 +27,8 @@ public class FahrzeugListe {
     public Fahrzeug sucheFahrzeug(String Kennzeichen) 
     	{ 
     	
-    	for (int i = 0;i<fahrzeugListe.size(); i++){
-    	    if (fahrzeugListe.get(i).getKennzeichen()== Kennzeichen)
+    	for (int i = 0; i<fahrzeugListe.size(); i++){
+    	    if (fahrzeugListe.get(i).getKennzeichen() == Kennzeichen)
     	    	return fahrzeugListe.get(i);
     	    else 
     	    {
@@ -40,6 +38,7 @@ public class FahrzeugListe {
     	}
     	return null;
     }
+    
     /**
      * Operation verfuegbar
      * Ist das gut, dass man direkt Zugriff auf die fahrzeugListe bekommt?
@@ -48,6 +47,7 @@ public class FahrzeugListe {
      * @param bis - 
      * @return ArrayList<Fahrzeug>
      */
+    
     public ArrayList<Fahrzeug> verfuegbar(LocalDateTime von, LocalDateTime bis) 
     	{ 
     		ArrayList<Fahrzeug> verfuegbareFahrzeuge = new ArrayList<Fahrzeug>();
@@ -64,7 +64,7 @@ public class FahrzeugListe {
     		}
     		return verfuegbareFahrzeuge;
     	}
-    		
+	
     /**
      * Operation hinzufuegen
      *
@@ -76,7 +76,7 @@ public class FahrzeugListe {
     public void hinzufuegen(String Kennzeichen, Fahrzeug.FahrzeugTyp Typ, Fahrzeug.FahrzeugHersteller Hersteller, String Modell,
     		Fahrzeug.FahrzeugKlasse Klasse)
     {
-    	Fahrzeug neuFahrzeug = new Fahrzeug(Kennzeichen, Typ, Hersteller, Modell, Klasse);
+    	Fahrzeug neuFahrzeug = new Fahrzeug (Kennzeichen, Typ, Hersteller, Modell, Klasse);
     	fahrzeugListe.add(neuFahrzeug);
     }
     /**
