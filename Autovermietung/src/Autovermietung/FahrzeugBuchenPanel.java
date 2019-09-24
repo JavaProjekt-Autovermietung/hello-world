@@ -12,12 +12,12 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JButton;
 
-public class FahrzeugBuchen extends JPanel {
+public class FahrzeugBuchenPanel extends JPanel {
 
 	/**
 	 * Create the panel.
 	 */
-	public FahrzeugBuchen() {
+	public FahrzeugBuchenPanel() {
 		setLayout(null);
 		
 		JLabel lblFahrzeug = new JLabel("Fahrzeug");

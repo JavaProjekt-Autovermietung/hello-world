@@ -32,14 +32,17 @@ public class Hauptprogramm {
 	static final String KundePanel = "KundePanel";
 	static final String KundeErstellen = "KundeErstellen";
 	static final String KundeSuche = "KundeSuche";
+	static final String RechnungenAusgabe = "RechnungenAusgabe";
 	
 	private RechnungsListe rechnungsListe = new RechnungsListe();
 	
 
 	private JFrame frame;
+	private RechnungenAusgabePanel rechnungenAusgabePanel;
 	
 	JFrame getFrame() { return frame; }
 	RechnungsListe getRechnungsListe() { return rechnungsListe; }
+	RechnungenAusgabePanel getRechnungAusgabePanel() { return rechnungenAusgabePanel; }
 
 	/**
 	 * Launch the application.
@@ -83,10 +86,10 @@ public class Hauptprogramm {
 		RechnungPanel rechnungPanel = new RechnungPanel(this);
 		frame.getContentPane().add(rechnungPanel, RechnungPanel);
 		
-		RechnungErstellen rechnungErstellen = new RechnungErstellen(this);
+		RechnungErstellenPanel rechnungErstellen = new RechnungErstellenPanel(this);
 		frame.getContentPane().add(rechnungErstellen, RechnungErstellen);
 		
-		RechnungSuche rechnungSuche = new RechnungSuche(this);
+		RechnungSuchePanel rechnungSuche = new RechnungSuchePanel(this);
 		frame.getContentPane().add(rechnungSuche, RechnungSuche);
 		
 		FahrzeugPanel fahrzeugPanel = new FahrzeugPanel(this);
@@ -95,11 +98,14 @@ public class Hauptprogramm {
 		KundePanel kundePanel = new KundePanel(this);
 		frame.getContentPane().add(kundePanel, KundePanel);
 		
-		KundeErstellen kundeErstellen = new KundeErstellen(this);
+		KundeErstellenPanel kundeErstellen = new KundeErstellenPanel(this);
 		frame.getContentPane().add(kundeErstellen, KundeErstellen);
 		
-		KundeSuche kundeSuche = new KundeSuche(this);
+		KundeSuchePanel kundeSuche = new KundeSuchePanel(this);
 		frame.getContentPane().add(kundeSuche, KundeSuche);
+		
+		rechnungenAusgabePanel = new RechnungenAusgabePanel(this);
+		frame.getContentPane().add(rechnungenAusgabePanel, RechnungenAusgabe);
 		
 		JMenuBar menuBar = new JMenuBar();
 		frame.setJMenuBar(menuBar);
@@ -107,7 +113,7 @@ public class Hauptprogramm {
 		JMenuItem mntmRechnung = new JMenuItem("Rechnung");
 		mntmRechnung.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				((CardLayout)getFrame().getContentPane().getLayout()).show(getFrame().getContentPane(), "RechnungPanel");
+				((CardLayout)getFrame().getContentPane().getLayout()).show(getFrame().getContentPane(), RechnungPanel);
 			}
 		});
 		menuBar.add(mntmRechnung);
@@ -115,7 +121,7 @@ public class Hauptprogramm {
 		JMenuItem mntmFahrzeug = new JMenuItem("Fahrzeug");
 		mntmFahrzeug.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				((CardLayout)getFrame().getContentPane().getLayout()).show(getFrame().getContentPane(), "FahrzeugPanel");
+				((CardLayout)getFrame().getContentPane().getLayout()).show(getFrame().getContentPane(), FahrzeugPanel);
 			}
 		});
 		menuBar.add(mntmFahrzeug);
@@ -123,9 +129,10 @@ public class Hauptprogramm {
 		JMenuItem mntmKunde = new JMenuItem("Kunde");
 		mntmKunde.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				((CardLayout)getFrame().getContentPane().getLayout()).show(getFrame().getContentPane(), "KundePanel");
+				((CardLayout)getFrame().getContentPane().getLayout()).show(getFrame().getContentPane(), KundePanel);
 			}
 		});
 		menuBar.add(mntmKunde);
+		
 	}
 }

@@ -17,13 +17,13 @@ import javax.swing.SwingConstants;
 import java.awt.Choice;
 import java.awt.List;
 
-public class KundeSuche extends JPanel {
+public class KundeSuchePanel extends JPanel {
 	private Hauptprogramm hauptprogramm;
 
 	/**
 	 * Create the panel.
 	 */
-	public KundeSuche(Hauptprogramm haupt) {
+	public KundeSuchePanel(Hauptprogramm haupt) {
 		hauptprogramm = haupt;
 		setLayout(null);
 		

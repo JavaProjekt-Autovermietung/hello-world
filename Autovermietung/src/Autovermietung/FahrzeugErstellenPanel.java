@@ -10,7 +10,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class FahrzeugErstellen extends JPanel {
+public class FahrzeugErstellenPanel extends JPanel {
 	private JTextField txtTyp;
 	private JTextField txtHersteller;
 	private JTextField txtModel;
@@ -20,7 +20,7 @@ public class FahrzeugErstellen extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public FahrzeugErstellen(Hauptprogramm haupt) {
+	public FahrzeugErstellenPanel(Hauptprogramm haupt) {
 		hauptprogramm = haupt;
 		setLayout(null);
 

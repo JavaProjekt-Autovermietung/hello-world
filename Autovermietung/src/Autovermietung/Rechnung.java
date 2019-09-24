@@ -9,12 +9,12 @@ public class Rechnung {
     private KalenderEintrag Ausleihdauer;
     private int Kundennummer;
     
-    Rechnung(int RechnungsNummer, double Preis, KalenderEintrag Ausleihdauer, Zahlungsart Zahlungsart, int Kundennummer) {
+    Rechnung(int RechnungsNummer, double Preis, KalenderEintrag Ausleihdauer, Zahlungsart Zahlungsart) {
     	this.RechnungsNummer = RechnungsNummer;
     	this.Preis = Preis;
     	this.Ausleihdauer = Ausleihdauer;
     	this.Zahlungsart = Zahlungsart;
-    	this.Kundennummer = Kundennummer;
+    	this.Kundennummer = Ausleihdauer.Kundennummer;
     }
     
     int getRechnungsNummer() { return RechnungsNummer; }

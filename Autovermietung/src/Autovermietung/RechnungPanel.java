@@ -47,6 +47,8 @@ public class RechnungPanel extends JPanel {
 		JButton btnAlleRechnungenAnzeigen = new JButton("Alle Rechnungen anzeigen");
 		btnAlleRechnungenAnzeigen.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				hauptprogramm.getRechnungAusgabePanel().setData(hauptprogramm.getRechnungsListe().getRechnungen());
+				((CardLayout)hauptprogramm.getFrame().getContentPane().getLayout()).show(hauptprogramm.getFrame().getContentPane(), Hauptprogramm.RechnungAusgabe);
 			}
 		});
 		btnAlleRechnungenAnzeigen.setBounds(113, 136, 220, 23);

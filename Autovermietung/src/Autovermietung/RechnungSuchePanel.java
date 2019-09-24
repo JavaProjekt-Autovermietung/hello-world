@@ -9,8 +9,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.JPopupMenu;
-
-import java.awt.Choice;
 import java.awt.Component;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -18,14 +16,15 @@ import javax.swing.JCheckBoxMenuItem;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
+import java.awt.Choice;
 
-public class RechnungSuche extends JPanel {
+public class RechnungSuchePanel extends JPanel {
 	private Hauptprogramm hauptprogramm;
 
 	/**
 	 * Create the panel.
 	 */
-	public RechnungSuche(Hauptprogramm haupt) {
+	public RechnungSuchePanel(Hauptprogramm haupt) {
 		hauptprogramm = haupt;
 		setLayout(null);
 
@@ -56,13 +55,14 @@ public class RechnungSuche extends JPanel {
 		add(btnRechnungAendern);
 		
 		Choice choice = new Choice();
-		choice.setBounds(146, 233, 141, 20);
+		choice.setBounds(146, 227, 154, 20);
 		add(choice);
 		choice.add("Sortieren nach...");
-		choice.add("Name");
-		choice.add("Rechnungsnummer");
 		choice.add("Kundennummer");
+		choice.add("Rechnungsnummer");
+		choice.add("Preis");
 		choice.add("Ausleihdauer");
+		
 	}
 	private static void addPopup(Component component, final JPopupMenu popup) {
 		component.addMouseListener(new MouseAdapter() {
