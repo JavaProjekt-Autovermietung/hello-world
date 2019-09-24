@@ -18,6 +18,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.AbstractTableModel;
 //copy ende
+import javax.swing.table.DefaultTableModel;
 
 
 public class FahrzeugeAusgabePanel extends JPanel {
@@ -30,7 +31,7 @@ public class FahrzeugeAusgabePanel extends JPanel {
 		{
 			hauptprogramm = haupt;
 			
-			
+			//data der Tabelle
 					Vector data = new Vector ();
 						Vector rowA = new Vector();
 							rowA.add(  "1" );
@@ -48,9 +49,9 @@ public class FahrzeugeAusgabePanel extends JPanel {
 							rowC.add( "11" );
 							rowC.add( "12" );
 					
-						data.add( rowA );
-						data.add( rowB );
-						data.add( rowC );
+							data.add( rowA );
+							data.add( rowB );
+							data.add( rowC );
 							
 // Die Titel für das Table
 
@@ -62,10 +63,29 @@ public class FahrzeugeAusgabePanel extends JPanel {
 						
 
 // Das JTable initialisieren
-						JTable table = new JTable( data, title );
+						table = new JTable( data, title );
+						table.setSurrendersFocusOnKeystroke(true);
 						add (new JScrollPane(table));
 
 		}
+	
+	void setData (ArrayList <Fahrzeug> fahrzeuge)
+	{
+		DefaultTableModel model = new DefaultTableModel(
+				new Object [] {"Kennzeichen", "Hersteller","Modell","Typ"}, 0);
+		
+		for (int i = 0; i < fahrzeuge.size(); i++)
+		{
+			Vector row = new Vector ();
+			row.add(fahrzeuge.get(i).getKennzeichen());
+			row.add(fahrzeuge.get(i).getHersteller());
+			row.add(fahrzeuge.get(i).getModell());
+			row.add(fahrzeuge.get(i).getTyp());
+			model.addRow(row);
+		}
+		
+		table.setModel(model);
+	}
 }
 					
 				

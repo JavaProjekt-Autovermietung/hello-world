@@ -5,6 +5,7 @@ import javax.swing.JPanel;
 import com.github.lgooddatepicker.components.DatePicker;
 import com.github.lgooddatepicker.components.DateTimePicker;
 
+import java.awt.CardLayout;
 import java.awt.Font;
 
 import javax.swing.JLabel;
@@ -48,10 +49,12 @@ public class FahrzeugPanel extends JPanel {
 		DateTimePicker vonDateTimePicker = new DateTimePicker();
 		vonDateTimePicker.setBounds(88, 111, 279, 23);
 		add(vonDateTimePicker);
+		vonDateTimePicker.setDateTimeStrict(LocalDateTime.now());
 		
 		DateTimePicker bisDateTimePicker = new DateTimePicker();
 		bisDateTimePicker.setBounds(88, 145, 279, 23);
 		add(bisDateTimePicker);		
+		bisDateTimePicker.setDateTimeStrict(LocalDateTime.now());
 		
 //Button Nach Fahrzeug suchen
 		JButton btnNachFahrzeugSuchen = new JButton("Nach Fahrzeug suchen");
@@ -73,6 +76,10 @@ public class FahrzeugPanel extends JPanel {
 //Init fahrzeugListe
 				ArrayList<Fahrzeug> fahrzeugListe = hauptprogramm.getFahrzeugListe().verfuegbar(von, bis);
 				//fahrzeugListe.verfuegbar(von,bis);
+				
+				hauptprogramm.getFahrzeugAusgabePanel().setData(fahrzeugListe);
+				
+				((CardLayout)hauptprogramm.getFrame().getContentPane().getLayout()).show(hauptprogramm.getFrame().getContentPane(), Hauptprogramm.FahrzeugeAusgabePanel);
 				
 //Hier AusgabePanel
 			}
