@@ -19,17 +19,7 @@ public class Fahrzeug {
     private FahrzeugHersteller Hersteller;
     private String Modell;
     private String Kennzeichen;
-<<<<<<< Upstream, based on branch 'master' of https://github.com/JavaProjekt-Autovermietung/hello-world.git
-    /**
-     * 
-     */
     private ArrayList<KalenderEintrag> Kalender = new ArrayList<KalenderEintrag>();
-    /**
-     * 
-     */
-=======
-    private ArrayList<KalenderEintrag> Kalender;
->>>>>>> d9570a8 Milka 24.09.12h
     private FahrzeugKlasse Klasse;
     
     
