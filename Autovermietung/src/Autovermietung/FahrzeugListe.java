@@ -121,16 +121,23 @@ public class FahrzeugListe {
      * @return ArrayList<Fahrzeug>
      */
     
-     public ArrayList<Fahrzeug> kundenReservierung(int Kundennummer) 
-    	{
-    	// ArrayList<Fahrzeug> kundeReservierungen = new ArrayList<Fahrzeug>();
-    	
+     public ArrayList<Fahrzeug> reserviert(int Kundennummer) 
+     {
+    	ArrayList<Fahrzeug> reserviertListe = new ArrayList<Fahrzeug>(); 
+    	 
     	for (int i=0; i <fahrzeugListe.size(); i++) 
 		{
-    		if (fahrzeugListe.get(i).reserviert(Kundennummer) )
-    			
+    		if (fahrzeugListe.get(i).reserviert(Kundennummer) == true)
+    		{
+    			reserviertListe.add(fahrzeugListe.get(i));
+    		}
  
+    	 }
     	
-    	return kundeReservierungen; }
-
+    	if (reserviertListe.size() != 0)
+    		return reserviertListe;
+    	else
+    		return null;
+     }
 }
+     

@@ -259,20 +259,33 @@ public class Fahrzeug {
      */
     public void setKlasse(FahrzeugKlasse neu) {Klasse = neu;}
     
-    /* public ArrayList<Fahrzeug> reserviert(int Kundennummer) {
+    
+    Fahrzeug(Fahrzeug cFahrzeug){
+    	Kennzeichen = cFahrzeug.Kennzeichen;
+    	Typ = cFahrzeug.Typ;
+    	Hersteller = cFahrzeug.Hersteller;
+    	Modell = cFahrzeug.Modell;
+    	Klasse = cFahrzeug.Klasse;
+		}
+	
+    public boolean reserviert(int Kundennummer) {
     	
-    	ArrayList<Fahrzeug> kundeReservierungen = new ArrayList<Fahrzeug>();
+    	int zaehler =0;
     	
     	for (int i=0; i < Kalender.size(); i++ ) 
     	{ 
     		if (Kalender.get(i).Kundennummer == Kundennummer &&
     				Kalender.get(i).Status == KalenderEintrag.Autostatus.reserviert)
-    			kundeReservierungen.Kalender.add(Kalender.get(i)) ;
-    				
+    				zaehler =+1;
     	}
     	
-    	return false;
-    	
-    	
-    }*/
+    	if (zaehler > 0) 
+    	{ 		
+    		return true;
+    	}
+    	else
+    	return false;	
+    
+    }
+    
 }
