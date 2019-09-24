@@ -48,7 +48,7 @@ public class RechnungPanel extends JPanel {
 		btnAlleRechnungenAnzeigen.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				hauptprogramm.getRechnungAusgabePanel().setData(hauptprogramm.getRechnungsListe().getRechnungen());
-				((CardLayout)hauptprogramm.getFrame().getContentPane().getLayout()).show(hauptprogramm.getFrame().getContentPane(), Hauptprogramm.RechnungAusgabe);
+				((CardLayout)hauptprogramm.getFrame().getContentPane().getLayout()).show(hauptprogramm.getFrame().getContentPane(), Hauptprogramm.RechnungenAusgabe);
 			}
 		});
 		btnAlleRechnungenAnzeigen.setBounds(113, 136, 220, 23);
