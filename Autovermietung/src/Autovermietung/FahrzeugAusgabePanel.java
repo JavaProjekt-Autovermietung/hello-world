@@ -22,7 +22,7 @@ import javax.swing.table.AbstractTableModel;
 
 public class FahrzeugAusgabePanel extends JPanel {
 	private Hauptprogramm hauptprogramm;
-	private JTable table;
+	//private JTable table;
 
 
 //Create the panel.
