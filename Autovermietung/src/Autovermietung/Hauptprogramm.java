@@ -34,7 +34,11 @@ public class Hauptprogramm {
 	static final String KundeErstellen = "KundeErstellen";
 	static final String KundeSuche = "KundeSuche";
 <<<<<<< HEAD
+<<<<<<< HEAD
 	static final String RechnungenAusgabe = "RechnungenAusgabe";
+=======
+	static final String FahrzeugeAusgabePanel = "FahrzeugeAusgabePanel";
+>>>>>>> branch 'master' of https://github.com/JavaProjekt-Autovermietung/hello-world.git
 =======
 	static final String FahrzeugeAusgabePanel = "FahrzeugeAusgabePanel";
 >>>>>>> branch 'master' of https://github.com/JavaProjekt-Autovermietung/hello-world.git
@@ -45,7 +49,11 @@ public class Hauptprogramm {
 
 	private JFrame frame;
 <<<<<<< HEAD
+<<<<<<< HEAD
 	private RechnungenAusgabePanel rechnungenAusgabePanel;
+=======
+	FahrzeugeAusgabePanel fahrzeugeAusgabePanel;
+>>>>>>> branch 'master' of https://github.com/JavaProjekt-Autovermietung/hello-world.git
 =======
 	FahrzeugeAusgabePanel fahrzeugeAusgabePanel;
 >>>>>>> branch 'master' of https://github.com/JavaProjekt-Autovermietung/hello-world.git
@@ -53,7 +61,14 @@ public class Hauptprogramm {
 	JFrame getFrame() { return frame; }
 	RechnungsListe getRechnungsListe() { return rechnungsListe; }
 <<<<<<< HEAD
+<<<<<<< HEAD
 	RechnungenAusgabePanel getRechnungAusgabePanel() { return rechnungenAusgabePanel; }
+=======
+	
+	FahrzeugListe getFahrzeugListe () { return fahrzeugListe; }
+	
+	FahrzeugeAusgabePanel getFahrzeugAusgabePanel() { return fahrzeugeAusgabePanel; }
+>>>>>>> branch 'master' of https://github.com/JavaProjekt-Autovermietung/hello-world.git
 =======
 	
 	FahrzeugListe getFahrzeugListe () { return fahrzeugListe; }
@@ -121,9 +136,23 @@ public class Hauptprogramm {
 		frame.getContentPane().add(kundeSuche, KundeSuche);
 		
 <<<<<<< HEAD
+<<<<<<< HEAD
 		rechnungenAusgabePanel = new RechnungenAusgabePanel(this);
 		frame.getContentPane().add(rechnungenAusgabePanel, RechnungenAusgabe);
 		
+=======
+		FahrzeugPanel fahrzeugPanel = new FahrzeugPanel(this);
+		frame.getContentPane().add(fahrzeugPanel, FahrzeugPanel);
+		
+		//Member
+		fahrzeugeAusgabePanel = new FahrzeugeAusgabePanel(this);
+		frame.getContentPane().add(fahrzeugeAusgabePanel, FahrzeugeAusgabePanel);
+		
+		
+		
+		
+		//Menue Reiter
+>>>>>>> branch 'master' of https://github.com/JavaProjekt-Autovermietung/hello-world.git
 =======
 		FahrzeugPanel fahrzeugPanel = new FahrzeugPanel(this);
 		frame.getContentPane().add(fahrzeugPanel, FahrzeugPanel);
@@ -164,5 +193,16 @@ public class Hauptprogramm {
 		});
 		menuBar.add(mntmKunde);
 		
+		//((CardLayout)getFrame().getContentPane().getLayout()).show(getFrame().getContentPane(), FahrzeugeAusgabePanel);
+		
+/*		ArrayList<Fahrzeug> temp = new ArrayList <Fahrzeug>();
+		for (int i = 0; i < 100; i++)
+		{
+			Fahrzeug f = new Fahrzeug ("B ML-1234",Fahrzeug.FahrzeugTyp.Cabrio, Fahrzeug.FahrzeugHersteller.Skoda, "Octavia", Fahrzeug.FahrzeugKlasse.Kleinwagen);
+			Fahrzeug f2 = new Fahrzeug ("D MT-123",Fahrzeug.FahrzeugTyp.Kombi, Fahrzeug.FahrzeugHersteller.VW, "Golf", Fahrzeug.FahrzeugKlasse.Mittelklasse);		
+					temp.add(f);
+					temp.add(f2);
+		}
+		fahrzeugeAusgabePanel.setData (temp);*/
 	}
 }
