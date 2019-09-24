@@ -109,7 +109,7 @@ public class Fahrzeug {
      */
     public void setModell(String neu){Modell =  neu;}
     
-    public boolean verfuegbar(LocalDateTime von, LocalDateTime bis) //private?? ->public -- Kundennummer ist Unsinn!
+    public boolean verfuegbar(LocalDateTime von, LocalDateTime bis) 
     {
     	int zeitraum = DateTime.ZeitSpanneTage(von, bis);
     	LocalDateTime vonDatum = von;
@@ -259,14 +259,6 @@ public class Fahrzeug {
      */
     public void setKlasse(FahrzeugKlasse neu) {Klasse = neu;}
     
-    
-    Fahrzeug(Fahrzeug cFahrzeug){
-    	Kennzeichen = cFahrzeug.Kennzeichen;
-    	Typ = cFahrzeug.Typ;
-    	Hersteller = cFahrzeug.Hersteller;
-    	Modell = cFahrzeug.Modell;
-    	Klasse = cFahrzeug.Klasse;
-		}
 	
     public boolean reserviert(int Kundennummer) {
     	
