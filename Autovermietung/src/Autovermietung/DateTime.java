@@ -20,7 +20,7 @@ public class DateTime {
 	LocalDateTime setDate(int uJahr, int uMonat, int uTag) {return LocalDateTime.of(uJahr, uMonat, uTag, 0, 0);}
 	LocalDateTime setDate(int uJahr, int uMonat, int uTag, int uStunde, int uMinute){return LocalDateTime.of(uJahr, uMonat, uTag, uStunde, uMinute);}
 	
-	double ZeitSpanneStuden(LocalDateTime anfangsDatum, LocalDateTime endDatum) {
+	static double ZeitSpanneStunden(LocalDateTime anfangsDatum, LocalDateTime endDatum) {
 		
 		double zsStunden = anfangsDatum.until(endDatum, ChronoUnit.MINUTES);
 		
