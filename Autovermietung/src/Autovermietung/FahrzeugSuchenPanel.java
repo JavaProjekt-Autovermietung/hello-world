@@ -13,6 +13,8 @@ import java.awt.Choice;
 import java.awt.Color;
 import java.awt.Button;
 import java.awt.ScrollPane;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class FahrzeugSuchenPanel extends JPanel {
 
@@ -35,11 +37,19 @@ public class FahrzeugSuchenPanel extends JPanel {
 		add(label);
 		
 		JButton btnAnsehen = new JButton("Ansehen");
+		btnAnsehen.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnAnsehen.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		btnAnsehen.setBounds(72, 89, 100, 21);
 		add(btnAnsehen);
 		
 		JButton btnLschen = new JButton("L\u00F6schen");
+		btnLschen.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnLschen.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		btnLschen.setBounds(179, 89, 100, 21);
 		add(btnLschen);

@@ -13,6 +13,7 @@ import javax.swing.event.MenuKeyListener;
 
 import javax.swing.event.MenuKeyEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
 import java.awt.CardLayout; 
@@ -32,17 +33,33 @@ public class Hauptprogramm {
 	static final String KundePanel = "KundePanel";
 	static final String KundeErstellen = "KundeErstellen";
 	static final String KundeSuche = "KundeSuche";
+<<<<<<< HEAD
 	static final String RechnungenAusgabe = "RechnungenAusgabe";
+=======
+	static final String FahrzeugeAusgabePanel = "FahrzeugeAusgabePanel";
+>>>>>>> branch 'master' of https://github.com/JavaProjekt-Autovermietung/hello-world.git
 	
 	private RechnungsListe rechnungsListe = new RechnungsListe();
+	private FahrzeugListe fahrzeugListe = new FahrzeugListe();
 	
 
 	private JFrame frame;
+<<<<<<< HEAD
 	private RechnungenAusgabePanel rechnungenAusgabePanel;
+=======
+	FahrzeugeAusgabePanel fahrzeugeAusgabePanel;
+>>>>>>> branch 'master' of https://github.com/JavaProjekt-Autovermietung/hello-world.git
 	
 	JFrame getFrame() { return frame; }
 	RechnungsListe getRechnungsListe() { return rechnungsListe; }
+<<<<<<< HEAD
 	RechnungenAusgabePanel getRechnungAusgabePanel() { return rechnungenAusgabePanel; }
+=======
+	
+	FahrzeugListe getFahrzeugListe () { return fahrzeugListe; }
+	
+	FahrzeugeAusgabePanel getFahrzeugAusgabePanel() { return fahrzeugeAusgabePanel; }
+>>>>>>> branch 'master' of https://github.com/JavaProjekt-Autovermietung/hello-world.git
 
 	/**
 	 * Launch the application.
@@ -53,7 +70,8 @@ public class Hauptprogramm {
 				try {
 					Hauptprogramm window = new Hauptprogramm();
 					window.frame.setVisible(true);
-				} catch (Exception e) {
+					} 
+				catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
@@ -81,7 +99,8 @@ public class Hauptprogramm {
 		//Alle einzelnen Panels so aufrufen
 		
 		StartPanel startPanel = new StartPanel(this);
-		frame.getContentPane().add(startPanel, RechnungPanel);
+		//frame.getContentPane().add(startPanel, RechnungPanel);
+		frame.getContentPane().add(startPanel, StartPanel);
 		
 		RechnungPanel rechnungPanel = new RechnungPanel(this);
 		frame.getContentPane().add(rechnungPanel, RechnungPanel);
@@ -92,9 +111,6 @@ public class Hauptprogramm {
 		RechnungSuchePanel rechnungSuche = new RechnungSuchePanel(this);
 		frame.getContentPane().add(rechnungSuche, RechnungSuche);
 		
-		FahrzeugPanel fahrzeugPanel = new FahrzeugPanel(this);
-		frame.getContentPane().add(fahrzeugPanel, FahrzeugPanel);
-		
 		KundePanel kundePanel = new KundePanel(this);
 		frame.getContentPane().add(kundePanel, KundePanel);
 		
@@ -104,9 +120,23 @@ public class Hauptprogramm {
 		KundeSuchePanel kundeSuche = new KundeSuchePanel(this);
 		frame.getContentPane().add(kundeSuche, KundeSuche);
 		
+<<<<<<< HEAD
 		rechnungenAusgabePanel = new RechnungenAusgabePanel(this);
 		frame.getContentPane().add(rechnungenAusgabePanel, RechnungenAusgabe);
 		
+=======
+		FahrzeugPanel fahrzeugPanel = new FahrzeugPanel(this);
+		frame.getContentPane().add(fahrzeugPanel, FahrzeugPanel);
+		
+		//Member
+		fahrzeugeAusgabePanel = new FahrzeugeAusgabePanel(this);
+		frame.getContentPane().add(fahrzeugeAusgabePanel, FahrzeugeAusgabePanel);
+		
+		
+		
+		
+		//Menue Reiter
+>>>>>>> branch 'master' of https://github.com/JavaProjekt-Autovermietung/hello-world.git
 		JMenuBar menuBar = new JMenuBar();
 		frame.setJMenuBar(menuBar);
 		
