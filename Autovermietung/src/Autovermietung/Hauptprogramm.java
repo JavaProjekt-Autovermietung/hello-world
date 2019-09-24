@@ -43,13 +43,14 @@ public class Hauptprogramm {
 	private JFrame frame;
 	private RechnungenAusgabePanel rechnungenAusgabePanel;
 	private FahrzeugeAusgabePanel fahrzeugeAusgabePanel;
+	FahrzeugeAusgabePanel fahrzeugeAusgabePanel;
 	
 	JFrame getFrame() { return frame; }
 	RechnungsListe getRechnungsListe() { return rechnungsListe; }
 	RechnungenAusgabePanel getRechnungAusgabePanel() { return rechnungenAusgabePanel; }
 	FahrzeugListe getFahrzeugListe () { return fahrzeugListe; }
 	FahrzeugeAusgabePanel getFahrzeugAusgabePanel() { return fahrzeugeAusgabePanel; }
-	
+
 
 	/**
 	 * Launch the application.
