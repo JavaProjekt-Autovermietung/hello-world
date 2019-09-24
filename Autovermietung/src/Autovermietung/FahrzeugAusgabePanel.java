@@ -23,6 +23,7 @@ import javax.swing.table.AbstractTableModel;
 public class FahrzeugAusgabePanel extends JPanel {
 	private Hauptprogramm hauptprogramm;
 	//private JTable table;
+	//test
 
 
 //Create the panel.
@@ -36,11 +37,11 @@ public class FahrzeugAusgabePanel extends JPanel {
 			JLabel lblFahrzeug = new JLabel("Ausgabe");
 			lblFahrzeug.setBounds(180, 11, 98, 29);
 			lblFahrzeug.setFont(new Font("Tahoma", Font.PLAIN, 24));
-			add(lblFahrzeug);
+			//add(lblFahrzeug);
 			
-			table = new JTable();
-			table.setBounds(60, 222, 307, -129);
-			add(table);
+			//table = new JTable();
+			//table.setBounds(60, 222, 307, -129);
+			//add(table);
 			
 			//{
 			// Die Anzahl Columns (Breite) der Tabelle
@@ -78,6 +79,8 @@ public class FahrzeugAusgabePanel extends JPanel {
 						title.add( "C" );
 						title.add( "D" );
 						*/
+		}
+}
 					
 				
 
