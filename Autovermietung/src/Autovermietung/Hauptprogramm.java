@@ -78,9 +78,9 @@ public class Hauptprogramm {
 		});
 	}
 
-	/**
-	 * Create the application.
-	 */
+
+//Create the application.
+
 	public Hauptprogramm() {
 		initialize();
 	}
