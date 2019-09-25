@@ -14,29 +14,12 @@ public class Fahrzeug {
 	enum FahrzeugKlasse { Kleinwagen, Mittelklasse, Oberklasse };
 	
     /** Attributes */
-    /**
-     * 
-     */
+    
     private FahrzeugTyp Typ;
-    /**
-     * 
-     */
     private FahrzeugHersteller Hersteller;
-    /**
-     * 
-     */
     private String Modell;
-    /**
-     * 
-     */
     private String Kennzeichen;
-    /**
-     * 
-     */
     private ArrayList<KalenderEintrag> Kalender = new ArrayList<KalenderEintrag>();
-    /**
-     * 
-     */
     private FahrzeugKlasse Klasse;
     /**
      * Operation Fahrzeug
@@ -56,57 +39,21 @@ public class Fahrzeug {
     	this.Klasse = Klasse;
     	Kalender = new ArrayList<KalenderEintrag>();
     }
-    /**
-     * Operation getKennzeichen
-     *
-     * @return String
-     */
+    
     public String getKennzeichen() { return Kennzeichen; }
-    /**
-     * Operation setKennzeichen
-     *
-     * @param neu - 
-     * @return 
-     */
+    
     public void setKennzeichen(String neu){Kennzeichen = neu;}
-    /**
-     * Operation getTyp
-     *
-     * @return FahrzeugTyp
-     */
+    
     public FahrzeugTyp getTyp() { return Typ; }
-    /**
-     * Operation setTyp
-     *
-     * @param neu - 
-     * @return 
-     */
+    
     public void setTyp(FahrzeugTyp neu) {Typ = neu;}
-    /**
-     * Operation getHersteller
-     *
-     * @return FahrzeugHersteller
-     */
+    
     public FahrzeugHersteller getHersteller() { return Hersteller; }
-    /**
-     * Operation setHersteller
-     *
-     * @param neu - 
-     * @return 
-     */
+    
     public void setHersteller( FahrzeugHersteller neu) {Hersteller = neu;}
-    /**
-     * Operation getModell
-     *
-     * @return String
-     */
+    
     public String getModell(){ return Modell; }
-    /**
-     * Operation setModell
-     *
-     * @param neu - 
-     * @return 
-     */
+    
     public void setModell(String neu){Modell =  neu;}
     
     public boolean verfuegbar(LocalDateTime von, LocalDateTime bis) 
