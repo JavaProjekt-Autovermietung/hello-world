@@ -24,7 +24,7 @@ import javax.swing.JButton;
 
 public class Hauptprogramm {
 	
-	//Konstante für Panel Namen
+	//Konstanten für Panel Namen (statt Strings)
 	static final String StartPanel = "StartPanel";
 	static final String RechnungSuche = "RechnungSuche";
 	static final String RechnungErstellen = "RechnungErstellen";
@@ -34,24 +34,36 @@ public class Hauptprogramm {
 	static final String KundeErstellen = "KundeErstellen";
 	static final String KundeSuche = "KundeSuche";
 	static final String FahrzeugeAusgabePanel = "FahrzeugeAusgabePanel";
+	static final String FahrzeugHinzufuegenPanel = "FahrzeugHinzufuegenPanel";
+	static final String FahrzeugSuchenPanel = "FahrzeugSuchenPanel";
 	
 	private RechnungsListe rechnungsListe = new RechnungsListe();
 	private FahrzeugListe fahrzeugListe = new FahrzeugListe();
 	
-
+	//Panel
 	private JFrame frame;
+	
 	FahrzeugeAusgabePanel fahrzeugeAusgabePanel;
 	
-	JFrame getFrame() { return frame; }
-	RechnungsListe getRechnungsListe() { return rechnungsListe; }
+	JFrame getFrame() 
+	  { 
+		return frame;
+	  }
+	RechnungsListe getRechnungsListe() 
+	  { return rechnungsListe;
+	  }
 	
-	FahrzeugListe getFahrzeugListe () { return fahrzeugListe; }
+	FahrzeugListe getFahrzeugListe () 
+	  { 
+		return fahrzeugListe; 
+	  }
 	
-	FahrzeugeAusgabePanel getFahrzeugAusgabePanel() { return fahrzeugeAusgabePanel; }
+	FahrzeugeAusgabePanel getFahrzeugAusgabePanel() 
+	  { 
+		return fahrzeugeAusgabePanel; 
+	  }
 
-	/**
-	 * Launch the application.
-	 */
+	//Launch the application.
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -73,9 +85,8 @@ public class Hauptprogramm {
 		initialize();
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
+	//Initialize the contents of the frame.
+
 	private void initialize() {
 		frame = new JFrame();
 		frame.setResizable(false);
@@ -84,7 +95,7 @@ public class Hauptprogramm {
 		frame.getContentPane().setLayout(new CardLayout(0, 0));
 		
 		
-		//Alle einzelnen Panels so aufrufen
+	//Alle einzelnen Panels so aufrufen
 		
 		StartPanel startPanel = new StartPanel(this);
 		//frame.getContentPane().add(startPanel, RechnungPanel);
@@ -111,14 +122,19 @@ public class Hauptprogramm {
 		FahrzeugPanel fahrzeugPanel = new FahrzeugPanel(this);
 		frame.getContentPane().add(fahrzeugPanel, FahrzeugPanel);
 		
-		//Member
+		FahrzeugHinzufuegenPanel fahrzeugHinzufuegenPanel = new FahrzeugHinzufuegenPanel(this);
+		frame.getContentPane().add(fahrzeugHinzufuegenPanel, FahrzeugHinzufuegenPanel);
+		
+		FahrzeugSuchenPanel fahrzeugSuchenPanel = new FahrzeugSuchenPanel(this);
+		frame.getContentPane().add(fahrzeugSuchenPanel, FahrzeugSuchenPanel);
+		
+	//als Member
 		fahrzeugeAusgabePanel = new FahrzeugeAusgabePanel(this);
 		frame.getContentPane().add(fahrzeugeAusgabePanel, FahrzeugeAusgabePanel);
+	
 		
-		
-		
-		
-		//Menue Reiter
+	
+	//Menue Reiter
 		JMenuBar menuBar = new JMenuBar();
 		frame.setJMenuBar(menuBar);
 		
@@ -148,6 +164,7 @@ public class Hauptprogramm {
 		
 		//((CardLayout)getFrame().getContentPane().getLayout()).show(getFrame().getContentPane(), FahrzeugeAusgabePanel);
 		
+	//Zum testen
 		ArrayList<Fahrzeug> temp = new ArrayList <Fahrzeug>();
 		for (int i = 0; i < 100; i++)
 		{
@@ -156,6 +173,8 @@ public class Hauptprogramm {
 					temp.add(f);
 					temp.add(f2);
 		}
+		
+		
 		fahrzeugeAusgabePanel.setData (temp);
 	}
 }

@@ -41,8 +41,9 @@ public class FahrzeugPanel extends JPanel {
 		btnFahrzeugHinzufuegen.setBounds(88, 51, 279, 23);
 		btnFahrzeugHinzufuegen.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+			  ((CardLayout)hauptprogramm.getFrame().getContentPane().getLayout()).show(hauptprogramm.getFrame().getContentPane(), hauptprogramm.FahrzeugHinzufuegenPanel);
 			}
-		});
+			});
 		add(btnFahrzeugHinzufuegen);
 		
 //DateTimePicker Positionen
@@ -54,10 +55,16 @@ public class FahrzeugPanel extends JPanel {
 		DateTimePicker bisDateTimePicker = new DateTimePicker();
 		bisDateTimePicker.setBounds(88, 145, 279, 23);
 		add(bisDateTimePicker);		
-		bisDateTimePicker.setDateTimeStrict(LocalDateTime.now());
+		bisDateTimePicker.setDateTimeStrict(LocalDateTime.now().plusDays(1));
 		
 //Button Nach Fahrzeug suchen
 		JButton btnNachFahrzeugSuchen = new JButton("Nach Fahrzeug suchen");
+		btnNachFahrzeugSuchen.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				((CardLayout)hauptprogramm.getFrame().getContentPane().getLayout()).show(hauptprogramm.getFrame().getContentPane(), Hauptprogramm.FahrzeugSuchenPanel);
+				
+			}
+		});
 		btnNachFahrzeugSuchen.setBounds(88, 236, 279, 23);
 		add(btnNachFahrzeugSuchen);
 		
@@ -81,7 +88,7 @@ public class FahrzeugPanel extends JPanel {
 				
 				((CardLayout)hauptprogramm.getFrame().getContentPane().getLayout()).show(hauptprogramm.getFrame().getContentPane(), Hauptprogramm.FahrzeugeAusgabePanel);
 				
-//Hier AusgabePanel
+//Hier AusgabePanel Verfügbarkeit
 			}
 		});
 		btnVerfuegbarkeitPruefen.setBounds(88, 179, 279, 23);
