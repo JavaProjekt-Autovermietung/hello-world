@@ -36,7 +36,6 @@ public class DateTime {
 	
 	/* void test()
 	{
-		
 		LocalDateTime date10 = setDate();
 		System.out.println(date10);
 		
@@ -57,9 +56,5 @@ public class DateTime {
 		System.out.println("Tage :" + dauerLD/24);
 		
 		System.out.println("Ein Tag später ist der: " + date12.plusDays(1));
-		
-		
-		
-	} */
-	
+	} */	
 }

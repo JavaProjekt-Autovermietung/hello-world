@@ -21,6 +21,8 @@ public class Fahrzeug {
     private String Kennzeichen;
     private ArrayList<KalenderEintrag> Kalender = new ArrayList<KalenderEintrag>();
     private FahrzeugKlasse Klasse;
+    
+    
     /**
      * Operation Fahrzeug
      *
@@ -79,9 +81,9 @@ public class Fahrzeug {
 							return true;
 						}	
     			}
-    			 
     			vonDatum.plusDays(1);
     		}
+<<<<<<< HEAD
     	}
     	else if (zeitraum == 1 && stunden > 0) {
     		
@@ -99,9 +101,10 @@ public class Fahrzeug {
     		vonDatum.plusHours(1);
     	}
     	
+=======
+>>>>>>> branch 'master' of https://github.com/JavaProjekt-Autovermietung/hello-world.git
 		return false; 
      }
-
     
     /**
      * Operation ausleihen
