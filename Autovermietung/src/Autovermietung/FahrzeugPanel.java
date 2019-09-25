@@ -25,7 +25,7 @@ public class FahrzeugPanel extends JPanel {
 	private Hauptprogramm hauptprogramm;
 
 
-//Create the panel
+//Create the panel//
 	public FahrzeugPanel(Hauptprogramm haupt) {
 		hauptprogramm = haupt;
 		setLayout(null);
