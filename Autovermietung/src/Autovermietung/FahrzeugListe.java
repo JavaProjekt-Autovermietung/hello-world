@@ -12,6 +12,8 @@ public class FahrzeugListe {
      *
      * @return 
      */
+    
+    ArrayList<Fahrzeug> getFahrzeugListe() { return fahrzeugListe; }
 //Konstruktor
     public FahrzeugListe() 
     	{
@@ -27,8 +29,8 @@ public class FahrzeugListe {
     public Fahrzeug sucheFahrzeug(String Kennzeichen) 
     	{ 
     	
-    	for (int i = 0; i<fahrzeugListe.size(); i++){
-    	    if (fahrzeugListe.get(i).getKennzeichen() == Kennzeichen)
+    	for (int i = 0; i < fahrzeugListe.size(); i++){
+    	    if (fahrzeugListe.get(i).getKennzeichen().compareTo(Kennzeichen) == 0)
     	    	return fahrzeugListe.get(i);
     	    else 
     	    {
@@ -98,7 +100,7 @@ public class FahrzeugListe {
     	
     		for (int i=0; i <fahrzeugListe.size(); i++) 
     		{
-				if (fahrzeugListe.get(i).getKennzeichen() == Kennzeichen )
+				if (fahrzeugListe.get(i).getKennzeichen().compareTo(Kennzeichen) == 0 )
 				{	
 					System.out.println("Fahrzeug gefunden.");
 					System.out.println(fahrzeugListe.get(i));
@@ -131,7 +133,6 @@ public class FahrzeugListe {
     		{
     			reserviertListe.add(fahrzeugListe.get(i));
     		}
-
     	 }
     	
     	if (reserviertListe.size() != 0)

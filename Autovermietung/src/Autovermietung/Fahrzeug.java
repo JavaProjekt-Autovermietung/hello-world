@@ -9,7 +9,7 @@ import java.time.LocalDate;
 
 public class Fahrzeug {
 
-	enum FahrzeugTyp { Kombi, Limosine, Cabrio };
+	enum FahrzeugTyp { Kombi, Limousine, Cabrio };
 	enum FahrzeugHersteller { BMW, Skoda, VW, Mercedes };
 	enum FahrzeugKlasse { Kleinwagen, Mittelklasse, Oberklasse };
 	
@@ -82,8 +82,10 @@ public class Fahrzeug {
 						}	
     			}
     			vonDatum.plusDays(1);
+
     		}
-    	}
+    		}
+
     	else if (zeitraum == 1 && stunden > 0) {
     		
     		for (int jarray=0; jarray < Kalender.size(); jarray++) {
@@ -98,8 +100,9 @@ public class Fahrzeug {
     			}
     		}
     		vonDatum.plusHours(1);
+
     	}
-    	
+
 		return false; 
      }
     
