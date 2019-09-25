@@ -17,11 +17,13 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class FahrzeugSuchenPanel extends JPanel {
+	private Hauptprogramm hauptprogramm;
 
 	/**
 	 * Create the panel.
 	 */
-	public FahrzeugSuchenPanel() {
+	public FahrzeugSuchenPanel(Hauptprogramm haupt) {
+		hauptprogramm = haupt;
 		setLayout(null);
 		
 		JLabel lblFahrzeug = new JLabel("Fahrzeug");

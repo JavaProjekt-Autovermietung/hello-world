@@ -66,6 +66,13 @@ public class FahrzeugeAusgabePanel extends JPanel {
 						table = new JTable( data, title );
 						table.setSurrendersFocusOnKeystroke(true);
 						add (new JScrollPane(table));
+						
+						
+						JFrame f = new JFrame();
+					    f.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
+
+						
+						
 
 		}
 	
