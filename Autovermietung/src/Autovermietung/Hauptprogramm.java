@@ -23,7 +23,7 @@ import java.awt.Button;
 import javax.swing.JButton;
 
 public class Hauptprogramm {
-	
+	//hhjk,j
 	//Konstanten für Panel Namen (statt Strings)
 	static final String StartPanel = "StartPanel";
 	static final String RechnungSuche = "RechnungSuche";
