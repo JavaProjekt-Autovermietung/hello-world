@@ -81,10 +81,12 @@ public class FahrzeugPanel extends JPanel {
 				//JOptionPane.showMessageDialog(null, bis.toString());
 				
 //Init fahrzeugListe
-				ArrayList<Fahrzeug> fahrzeugListe = hauptprogramm.getFahrzeugListe().verfuegbar(von, bis);
+				//ArrayList<Fahrzeug> fahrzeugListe = hauptprogramm.getFahrzeugListe().verfuegbar(von, bis);
+				//ArrayList<Fahrzeug> fahrzeugListe = hauptprogramm.getFahrzeugListe();
 				//fahrzeugListe.verfuegbar(von,bis);
 				
-				hauptprogramm.getFahrzeugAusgabePanel().setData(fahrzeugListe);
+//				hauptprogramm.getFahrzeugAusgabePanel().setData(fahrzeugListe);
+				hauptprogramm.getFahrzeugAusgabePanel().setData(hauptprogramm.getFahrzeugListe().getFahrzeugListe());
 				
 				((CardLayout)hauptprogramm.getFrame().getContentPane().getLayout()).show(hauptprogramm.getFrame().getContentPane(), Hauptprogramm.FahrzeugeAusgabePanel);
 				

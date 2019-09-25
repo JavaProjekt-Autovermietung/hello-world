@@ -12,6 +12,8 @@ public class FahrzeugListe {
      *
      * @return 
      */
+    
+    ArrayList<Fahrzeug> getFahrzeugListe() { return fahrzeugListe; }
 //Konstruktor
     public FahrzeugListe() 
     	{
@@ -131,7 +133,6 @@ public class FahrzeugListe {
     		{
     			reserviertListe.add(fahrzeugListe.get(i));
     		}
-
     	 }
     	
     	if (reserviertListe.size() != 0)

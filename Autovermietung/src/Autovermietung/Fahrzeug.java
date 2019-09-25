@@ -9,7 +9,7 @@ import java.time.LocalDate;
 
 public class Fahrzeug {
 
-	enum FahrzeugTyp { Kombi, Limosine, Cabrio };
+	enum FahrzeugTyp { Kombi, Limousine, Cabrio };
 	enum FahrzeugHersteller { BMW, Skoda, VW, Mercedes };
 	enum FahrzeugKlasse { Kleinwagen, Mittelklasse, Oberklasse };
 	
@@ -83,7 +83,6 @@ public class Fahrzeug {
     			}
     			vonDatum.plusDays(1);
     		}
-<<<<<<< HEAD
     	}
     	else if (zeitraum == 1 && stunden > 0) {
     		
@@ -100,9 +99,6 @@ public class Fahrzeug {
     		}
     		vonDatum.plusHours(1);
     	}
-    	
-=======
->>>>>>> branch 'master' of https://github.com/JavaProjekt-Autovermietung/hello-world.git
 		return false; 
      }
     

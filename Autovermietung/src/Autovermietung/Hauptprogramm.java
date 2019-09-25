@@ -23,7 +23,7 @@ import java.awt.Button;
 import javax.swing.JButton;
 
 public class Hauptprogramm {
-	//hhjk,j
+
 	//Konstanten für Panel Namen (statt Strings)
 	static final String StartPanel = "StartPanel";
 	static final String RechnungSuche = "RechnungSuche";
@@ -165,16 +165,10 @@ public class Hauptprogramm {
 		//((CardLayout)getFrame().getContentPane().getLayout()).show(getFrame().getContentPane(), FahrzeugeAusgabePanel);
 		
 	//Zum testen
-		ArrayList<Fahrzeug> temp = new ArrayList <Fahrzeug>();
-		for (int i = 0; i < 100; i++)
+		for (int i = 0; i < 10; i++)
 		{
-			Fahrzeug f = new Fahrzeug ("B ML-1234",Fahrzeug.FahrzeugTyp.Cabrio, Fahrzeug.FahrzeugHersteller.Skoda, "Octavia", Fahrzeug.FahrzeugKlasse.Kleinwagen);
-			Fahrzeug f2 = new Fahrzeug ("D MT-123",Fahrzeug.FahrzeugTyp.Kombi, Fahrzeug.FahrzeugHersteller.VW, "Golf", Fahrzeug.FahrzeugKlasse.Mittelklasse);		
-					temp.add(f);
-					temp.add(f2);
-		}
-		
-		
-		fahrzeugeAusgabePanel.setData (temp);
+			fahrzeugListe.hinzufuegen("B ML-1234",Fahrzeug.FahrzeugTyp.Cabrio, Fahrzeug.FahrzeugHersteller.Skoda, "Octavia", Fahrzeug.FahrzeugKlasse.Kleinwagen);
+			fahrzeugListe.hinzufuegen("D MT-123",Fahrzeug.FahrzeugTyp.Kombi, Fahrzeug.FahrzeugHersteller.VW, "Golf", Fahrzeug.FahrzeugKlasse.Mittelklasse);
+		}		
 	}
 }
