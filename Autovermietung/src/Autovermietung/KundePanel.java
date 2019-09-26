@@ -28,7 +28,7 @@ public class KundePanel extends JPanel {
 		JButton btnKundeAnlegen = new JButton("Neuen Kunden anlegen");
 		btnKundeAnlegen.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				((CardLayout)hauptprogramm.getFrame().getContentPane().getLayout()).show(hauptprogramm.getFrame().getContentPane(), Hauptprogramm.KundeErstellen);
+				hauptprogramm.show(Hauptprogramm.KundeErstellen);
 			}
 		});
 		btnKundeAnlegen.setBounds(113, 102, 220, 23);
@@ -47,7 +47,7 @@ public class KundePanel extends JPanel {
 		JButton btnNachKundensuchen = new JButton("Nach Kunden suchen");
 		btnNachKundensuchen.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				((CardLayout)hauptprogramm.getFrame().getContentPane().getLayout()).show(hauptprogramm.getFrame().getContentPane(), "KundeSuche");
+				hauptprogramm.show(Hauptprogramm.KundeSuche);
 			}
 		});
 		btnNachKundensuchen.setBounds(113, 220, 220, 23);

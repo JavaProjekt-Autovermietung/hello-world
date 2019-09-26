@@ -12,8 +12,9 @@ public class FahrzeugListe {
      *
      * @return 
      */
-    
+//übergangsweise Methode
     ArrayList<Fahrzeug> getFahrzeugListe() { return fahrzeugListe; }
+    
 //Konstruktor
     public FahrzeugListe() 
     	{
@@ -85,7 +86,7 @@ public class FahrzeugListe {
      * @param neu - 
      * @return 
      */
-    // 					public void hinzufuegen ( Fahrzeug neu ){}			Wofür???? Siehe oben!
+    // 					public void hinzufuegen ( Fahrzeug neu ){}   Wofür???? Siehe oben!
     
     /**
      * Operation loeschen

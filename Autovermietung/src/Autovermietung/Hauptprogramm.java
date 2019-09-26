@@ -36,7 +36,12 @@ public class Hauptprogramm {
 	static final String FahrzeugeAusgabePanel = "FahrzeugeAusgabePanel";
 	static final String FahrzeugHinzufuegenPanel = "FahrzeugHinzufuegenPanel";
 	static final String FahrzeugSuchenPanel = "FahrzeugSuchenPanel";
+	static final String FahrzeugBuchenPanel = "FahrzeugBuchenPanel";
+	static final String FahrzeugReservierenPanel = "FahrzeugReservierenPanel";
+	
+	
 	static final String EinFahrzeugAusgabePanel = "EinFahrzeugAusgabePanel";
+
 	
 	private RechnungsListe rechnungsListe = new RechnungsListe();
 	private FahrzeugListe fahrzeugListe = new FahrzeugListe();
@@ -45,6 +50,7 @@ public class Hauptprogramm {
 	private JFrame frame;
 	
 	FahrzeugeAusgabePanel fahrzeugeAusgabePanel;
+	FahrzeugReservierenPanel fahrzeugReservierenPanel;
 	
 	EinFahrzeugAusgabePanel einFahrzeugAusgabePanel;
 	
@@ -71,6 +77,15 @@ public class Hauptprogramm {
 		return einFahrzeugAusgabePanel; 
 	  }
 	
+	FahrzeugReservierenPanel getFahrzeugReservierenPanel()
+	{
+		return fahrzeugReservierenPanel;
+	}
+	
+	void show(String PanelName)
+	{
+		((CardLayout)getFrame().getContentPane().getLayout()).show(getFrame().getContentPane(), PanelName);
+	}
 
 	//Launch the application.
 	public static void main(String[] args) {
@@ -99,7 +114,7 @@ public class Hauptprogramm {
 	private void initialize() {
 		frame = new JFrame();
 		frame.setResizable(false);
-		frame.setBounds(100, 100, 458, 441);
+		frame.setBounds(100, 100, 500, 500);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(new CardLayout(0, 0));
 		
@@ -136,6 +151,9 @@ public class Hauptprogramm {
 		
 		FahrzeugSuchenPanel fahrzeugSuchenPanel = new FahrzeugSuchenPanel(this);
 		frame.getContentPane().add(fahrzeugSuchenPanel, FahrzeugSuchenPanel);
+
+		FahrzeugBuchenPanel fahrzeugBuchenPanel = new FahrzeugBuchenPanel(this);
+		frame.getContentPane().add(fahrzeugBuchenPanel, FahrzeugBuchenPanel);
 		
 	//als Member
 		fahrzeugeAusgabePanel = new FahrzeugeAusgabePanel(this);
@@ -144,6 +162,9 @@ public class Hauptprogramm {
 		einFahrzeugAusgabePanel = new EinFahrzeugAusgabePanel(this);
 		frame.getContentPane().add(einFahrzeugAusgabePanel, EinFahrzeugAusgabePanel);
 		
+		fahrzeugReservierenPanel = new FahrzeugReservierenPanel(this);
+		frame.getContentPane().add(fahrzeugReservierenPanel, FahrzeugReservierenPanel);
+
 	
 	//Menue Reiter
 		JMenuBar menuBar = new JMenuBar();
@@ -152,7 +173,7 @@ public class Hauptprogramm {
 		JMenuItem mntmRechnung = new JMenuItem("Rechnung");
 		mntmRechnung.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				((CardLayout)getFrame().getContentPane().getLayout()).show(getFrame().getContentPane(), RechnungPanel);
+				show(RechnungPanel);
 			}
 		});
 		menuBar.add(mntmRechnung);
@@ -160,7 +181,7 @@ public class Hauptprogramm {
 		JMenuItem mntmFahrzeug = new JMenuItem("Fahrzeug");
 		mntmFahrzeug.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				((CardLayout)getFrame().getContentPane().getLayout()).show(getFrame().getContentPane(), FahrzeugPanel);
+				show(FahrzeugPanel);
 			}
 		});
 		menuBar.add(mntmFahrzeug);
@@ -168,7 +189,7 @@ public class Hauptprogramm {
 		JMenuItem mntmKunde = new JMenuItem("Kunde");
 		mntmKunde.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				((CardLayout)getFrame().getContentPane().getLayout()).show(getFrame().getContentPane(), KundePanel);
+				show(KundePanel);
 			}
 		});
 		menuBar.add(mntmKunde);
@@ -176,7 +197,7 @@ public class Hauptprogramm {
 		//((CardLayout)getFrame().getContentPane().getLayout()).show(getFrame().getContentPane(), FahrzeugeAusgabePanel);
 		
 	//Zum testen
-		for (int i = 0; i < 10; i++)
+		for (int i = 0; i < 6; i++)
 		{
 			fahrzeugListe.hinzufuegen("B ML-1234",Fahrzeug.FahrzeugTyp.Cabrio, Fahrzeug.FahrzeugHersteller.Skoda, "Octavia", Fahrzeug.FahrzeugKlasse.Kleinwagen);
 			fahrzeugListe.hinzufuegen("D MT-123",Fahrzeug.FahrzeugTyp.Kombi, Fahrzeug.FahrzeugHersteller.VW, "Golf", Fahrzeug.FahrzeugKlasse.Mittelklasse);

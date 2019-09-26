@@ -2,6 +2,7 @@ package Autovermietung;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import java.awt.CardLayout;
 import java.awt.Container;
 import java.awt.Font;
 
@@ -20,13 +21,13 @@ import javax.swing.table.AbstractTableModel;
 import javax.swing.table.DefaultTableModel;
 
 
-public class EinFahrzeugAusgabePanel extends JPanel {
+public class KundenAusgabePanel extends JPanel {
 	private Hauptprogramm hauptprogramm;
 	private JTable table;
 
 //Create the panel.
 	
-	public EinFahrzeugAusgabePanel(Hauptprogramm haupt) 
+	public KundenAusgabePanel(Hauptprogramm haupt) 
 		{
 			hauptprogramm = haupt;
 			
@@ -42,15 +43,15 @@ public class EinFahrzeugAusgabePanel extends JPanel {
 							rowB.add(  "6" );
 							rowB.add(  "7" );
 							rowB.add(  "8" );
-					/*	Vector rowC = new Vector();
+						Vector rowC = new Vector();
 							rowC.add(  "9" );
 							rowC.add( "10" );
 							rowC.add( "11" );
-							rowC.add( "12" ); */
+							rowC.add( "12" );
 					
 							data.add( rowA );
 							data.add( rowB );
-						//	data.add( rowC );
+							data.add( rowC );
 							
 // Die Titel für das Table
 
@@ -65,32 +66,21 @@ public class EinFahrzeugAusgabePanel extends JPanel {
 						table = new JTable( data, title );
 						table.setSurrendersFocusOnKeystroke(true);
 						add (new JScrollPane(table));
-						
-						
-						JFrame f = new JFrame();
-					    f.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );				
 
 		}
 	
-	void setData (Fahrzeug fahrzeug)
+	void setData (ArrayList <Fahrzeug> fahrzeuge)
 	{
 		DefaultTableModel model = new DefaultTableModel(
-				new Object [] {"Kennzeichen", "Hersteller","Modell","Typ","Klasse"}, 0);
+				new Object [] {"Kennzeichen", "Hersteller","Modell","Typ"}, 0);
 		
-		if (fahrzeug == null)
-			{ 
+		for (int i = 0; i < fahrzeuge.size(); i++)
+		{
 			Vector row = new Vector ();
-			row.add("Auto nicht gefunden!");
-			model.addRow(row);
-			} 
-		
-		else {  
-			Vector row = new Vector ();
-			row.add(fahrzeug.getKennzeichen());
-			row.add(fahrzeug.getHersteller());
-			row.add(fahrzeug.getModell());
-			row.add(fahrzeug.getTyp());
-			row.add(fahrzeug.getKlasse());
+			row.add(fahrzeuge.get(i).getKennzeichen());
+			row.add(fahrzeuge.get(i).getHersteller());
+			row.add(fahrzeuge.get(i).getModell());
+			row.add(fahrzeuge.get(i).getTyp());
 			model.addRow(row);
 		}
 		
