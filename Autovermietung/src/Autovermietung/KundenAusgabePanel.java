@@ -1,23 +1,20 @@
 package Autovermietung;
 
-import javax.swing.JLabel;
-import javax.swing.JPanel;
 import java.awt.CardLayout;
 import java.awt.Container;
 import java.awt.Font;
 
-import javax.swing.JTextField;
-import javax.swing.JTable;
-
 import java.util.ArrayList;
-//copy
 import java.util.Vector;
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.JTable;
 import javax.swing.table.AbstractTableModel;
-//copy ende
 import javax.swing.table.DefaultTableModel;
 
 
@@ -30,57 +27,68 @@ public class KundenAusgabePanel extends JPanel {
 	public KundenAusgabePanel(Hauptprogramm haupt) 
 		{
 			hauptprogramm = haupt;
-			
-			//data der Tabelle
-					Vector data = new Vector ();
-						Vector rowA = new Vector();
-							rowA.add(  "1" );
-							rowA.add(  "2" );
-							rowA.add(  "3" );
-							rowA.add(  "4" );
-						Vector rowB = new Vector();
-							rowB.add(  "5" );
-							rowB.add(  "6" );
-							rowB.add(  "7" );
-							rowB.add(  "8" );
-						Vector rowC = new Vector();
-							rowC.add(  "9" );
-							rowC.add( "10" );
-							rowC.add( "11" );
-							rowC.add( "12" );
-					
-							data.add( rowA );
-							data.add( rowB );
-							data.add( rowC );
-							
-// Die Titel für das Table
-
-					Vector title = new Vector();
-						title.add( "Kennzeichen" );
-						title.add( "Hersteller" );
-						title.add( "Modell" );
-						title.add( "Typ" );
+		
+		// data der Tabelle
+				Vector data = new Vector ();
+					Vector rowA = new Vector();
+						rowA.add(  "A1" );
+						rowA.add(  "A2" );
+						rowA.add(  "A3" );
+						rowA.add(  "A4" );
+						rowA.add(  "A5" );
+						rowA.add(  "A6" );
+					Vector rowB = new Vector();
+						rowB.add(  "B1" );
+						rowB.add(  "B2" );
+						rowB.add(  "B3" );
+						rowB.add(  "B4" );
+						rowB.add(  "B5" );
+						rowB.add(  "B6" );
+					Vector rowC = new Vector();
+						rowC.add(  "C1" );
+						rowC.add(  "C2" );
+						rowC.add(  "C3" );
+						rowC.add(  "C4" );
+						rowC.add(  "C5" );
+						rowC.add(  "C6" );
+				
+						data.add( rowA );
+						data.add( rowB );
+						data.add( rowC );
 						
-
-// Das JTable initialisieren
-						table = new JTable( data, title );
-						table.setSurrendersFocusOnKeystroke(true);
-						add (new JScrollPane(table));
+		// Die Spaltentitel für das JTable
+	
+				Vector title = new Vector();
+					title.add( "Kundennummer" );
+					title.add( "Nachname" );
+					title.add( "Vorname" );
+					title.add( "Adresse" );
+					title.add( "PLZ" );
+					title.add( "Ort" );
+					
+					
+	
+	// Das JTable initialisieren
+					table = new JTable( data, title );
+					table.setSurrendersFocusOnKeystroke(true);
+					add (new JScrollPane(table));
 
 		}
 	
-	void setData (ArrayList <Fahrzeug> fahrzeuge)
+	void setData (ArrayList <Kunde> kunden)
 	{
 		DefaultTableModel model = new DefaultTableModel(
-				new Object [] {"Kennzeichen", "Hersteller","Modell","Typ"}, 0);
+				new Object [] {"Kundennummer", "Nachname","Vorname","Adresse", "PLZ", "Ort"}, 0);
 		
-		for (int i = 0; i < fahrzeuge.size(); i++)
+		for (int i = 0; i < kunden.size(); i++)
 		{
 			Vector row = new Vector ();
-			row.add(fahrzeuge.get(i).getKennzeichen());
-			row.add(fahrzeuge.get(i).getHersteller());
-			row.add(fahrzeuge.get(i).getModell());
-			row.add(fahrzeuge.get(i).getTyp());
+			row.add(kunden.get(i).getKundennummer());
+			row.add(kunden.get(i).getNachname());
+			row.add(kunden.get(i).getVorname());
+			row.add(kunden.get(i).getAdresse());
+			row.add(kunden.get(i).getPLZ());
+			row.add(kunden.get(i).getOrt());
 			model.addRow(row);
 		}
 		

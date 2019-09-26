@@ -33,12 +33,12 @@ public class Hauptprogramm {
 	static final String KundePanel = "KundePanel";
 	static final String KundeErstellen = "KundeErstellen";
 	static final String KundeSuche = "KundeSuche";
+	static final String KundenAusgabePanel = "KundenAusgabePanel";
 	static final String FahrzeugeAusgabePanel = "FahrzeugeAusgabePanel";
 	static final String FahrzeugHinzufuegenPanel = "FahrzeugHinzufuegenPanel";
 	static final String FahrzeugSuchenPanel = "FahrzeugSuchenPanel";
 	static final String FahrzeugBuchenPanel = "FahrzeugBuchenPanel";
 	static final String FahrzeugReservierenPanel = "FahrzeugReservierenPanel";
-	
 	
 	static final String EinFahrzeugAusgabePanel = "EinFahrzeugAusgabePanel";
 
@@ -62,7 +62,7 @@ public class Hauptprogramm {
 	  { return rechnungsListe;
 	  }
 	
-	FahrzeugListe getFahrzeugListe () 
+	FahrzeugListe getFahrzeugListe ()
 	  { 
 		return fahrzeugListe; 
 	  }
