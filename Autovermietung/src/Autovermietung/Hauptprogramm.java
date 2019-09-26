@@ -36,10 +36,11 @@ public class Hauptprogramm {
 	static final String FahrzeugeAusgabePanel = "FahrzeugeAusgabePanel";
 	static final String FahrzeugHinzufuegenPanel = "FahrzeugHinzufuegenPanel";
 	static final String FahrzeugSuchenPanel = "FahrzeugSuchenPanel";
-
-	static final String EinFahrzeugAusgabePanel = "EinFahrzeugAusgabePanel";
-
+	static final String FahrzeugBuchenPanel = "FahrzeugBuchenPanel";
 	static final String FahrzeugReservierenPanel = "FahrzeugReservierenPanel";
+	
+	
+	static final String EinFahrzeugAusgabePanel = "EinFahrzeugAusgabePanel";
 
 	
 	private RechnungsListe rechnungsListe = new RechnungsListe();
@@ -139,6 +140,10 @@ public class Hauptprogramm {
 		FahrzeugReservierenPanel fahrzeugReservierenPanel = new FahrzeugReservierenPanel(this);
 		frame.getContentPane().add(fahrzeugReservierenPanel, FahrzeugReservierenPanel);
 
+		
+		FahrzeugBuchenPanel fahrzeugBuchenPanel = new FahrzeugBuchenPanel(this);
+		frame.getContentPane().add(fahrzeugBuchenPanel, FahrzeugBuchenPanel);
+		
 		
 	//als Member
 		fahrzeugeAusgabePanel = new FahrzeugeAusgabePanel(this);

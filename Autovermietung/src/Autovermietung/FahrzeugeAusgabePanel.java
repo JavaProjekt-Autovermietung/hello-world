@@ -85,6 +85,12 @@ public class FahrzeugeAusgabePanel extends JPanel {
 						add(btnReservieren);
 						
 						JButton btnBuchen = new JButton("Buchen");
+						btnBuchen.addActionListener(new ActionListener() {
+							public void actionPerformed(ActionEvent e) {
+								
+								((CardLayout)hauptprogramm.getFrame().getContentPane().getLayout()).show(hauptprogramm.getFrame().getContentPane(), hauptprogramm.FahrzeugBuchenPanel);
+							}
+						});
 						btnBuchen.setBounds(245, 244, 194, 23);
 						add(btnBuchen);
 						

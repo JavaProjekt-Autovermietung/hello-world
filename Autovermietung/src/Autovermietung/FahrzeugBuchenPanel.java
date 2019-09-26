@@ -1,6 +1,7 @@
 package Autovermietung;
 
 import javax.swing.JPanel;
+import javax.swing.JTable;
 
 import com.github.lgooddatepicker.components.DatePicker;
 import com.github.lgooddatepicker.components.DateTimePicker;
@@ -13,39 +14,37 @@ import java.awt.event.ActionEvent;
 import javax.swing.JButton;
 
 public class FahrzeugBuchenPanel extends JPanel {
+	private Hauptprogramm hauptprogramm;
+	private JTable table;
 
-	/**
-	 * Create the panel.
-	 */
-	public FahrzeugBuchenPanel() {
+
+//Create the panel.
+	public FahrzeugBuchenPanel(Hauptprogramm haupt) {
+		hauptprogramm = haupt;
 		setLayout(null);
 		
+//Label
 		JLabel lblFahrzeug = new JLabel("Fahrzeug");
 		lblFahrzeug.setBounds(169, 40, 104, 29);
 		lblFahrzeug.setFont(new Font("Tahoma", Font.PLAIN, 24));
 		add(lblFahrzeug);
 		
-		DateTimePicker dateTimePicker = new DateTimePicker();
-		dateTimePicker.setBounds(72, 173, 217, 23);
-		add(dateTimePicker);
-		dateTimePicker.datePicker.setDateToToday();
-		dateTimePicker.timePicker.setTimeToNow();
+		JLabel lblAuswahl = new JLabel("Kombi / VW / Golf / B-LNK4 / Mittelklasse");
+		lblAuswahl.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		lblAuswahl.setBounds(72, 79, 244, 20);
+		add(lblAuswahl);
 		
-		JLabel lblNewLabel = new JLabel("Kombi / VW / Golf / B-LNK4 / Mittelklasse");
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		lblNewLabel.setBounds(72, 79, 244, 20);
-		add(lblNewLabel);
+		JLabel lblAnfangsdatum = new JLabel("Anfangsdatum:");
+		lblAnfangsdatum.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		lblAnfangsdatum.setBounds(72, 110, 104, 13);
+		add(lblAnfangsdatum);
 		
-		JLabel lblNewLabel_1 = new JLabel("Anfangsdatum:");
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		lblNewLabel_1.setBounds(72, 110, 104, 13);
-		add(lblNewLabel_1);
+		JLabel lblEnddatum = new JLabel("Enddatum:");
+		lblEnddatum.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		lblEnddatum.setBounds(71, 158, 104, 13);
+		add(lblEnddatum);
 		
-		JLabel lblZurckAm = new JLabel("Enddatum:");
-		lblZurckAm.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		lblZurckAm.setBounds(71, 158, 104, 13);
-		add(lblZurckAm);
-		
+//Buttons
 		JButton btnBuchen = new JButton("Buchen");
 		btnBuchen.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		btnBuchen.setBounds(71, 235, 90, 21);
@@ -61,9 +60,16 @@ public class FahrzeugBuchenPanel extends JPanel {
 		btnWartung.setBounds(269, 235, 90, 21);
 		add(btnWartung);
 		
-		DateTimePicker dateTimePicker_1 = new DateTimePicker();
-		dateTimePicker_1.setBounds(71, 125, 217, 23);
-		add(dateTimePicker_1);
+//DateTimePicker
+		DateTimePicker von_DateTimePicker = new DateTimePicker();
+		von_DateTimePicker.setBounds(72, 173, 217, 23);
+		add(von_DateTimePicker);
+		von_DateTimePicker.datePicker.setDateToToday();
+		von_DateTimePicker.timePicker.setTimeToNow();
+		
+		DateTimePicker bis_DateTimePicker = new DateTimePicker();
+		bis_DateTimePicker.setBounds(71, 125, 217, 23);
+		add(bis_DateTimePicker);
 
 		
 
