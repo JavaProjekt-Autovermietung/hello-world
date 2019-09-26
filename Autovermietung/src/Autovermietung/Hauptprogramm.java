@@ -129,7 +129,6 @@ public class Hauptprogramm {
 	//Alle einzelnen Panels so aufrufen
 		
 		StartPanel startPanel = new StartPanel(this);
-		//frame.getContentPane().add(startPanel, RechnungPanel);
 		frame.getContentPane().add(startPanel, StartPanel);
 		
 		RechnungPanel rechnungPanel = new RechnungPanel(this);
@@ -165,6 +164,9 @@ public class Hauptprogramm {
 		
 		FahrzeugSuchenPanel fahrzeugSuchenPanel = new FahrzeugSuchenPanel(this);
 		frame.getContentPane().add(fahrzeugSuchenPanel, FahrzeugSuchenPanel);
+
+		EinFahrzeugAusgabePanel einFahrzeugAusgabePanel = new EinFahrzeugAusgabePanel(this);
+		frame.getContentPane().add(einFahrzeugAusgabePanel, EinFahrzeugAusgabePanel);
 
 		FahrzeugBuchenPanel fahrzeugBuchenPanel = new FahrzeugBuchenPanel(this);
 		frame.getContentPane().add(fahrzeugBuchenPanel, FahrzeugBuchenPanel);
@@ -208,10 +210,8 @@ public class Hauptprogramm {
 		});
 		menuBar.add(mntmKunde);
 		
-		//((CardLayout)getFrame().getContentPane().getLayout()).show(getFrame().getContentPane(), FahrzeugeAusgabePanel);
-		
-	//Zum testen
-		for (int i = 0; i < 6; i++)
+//Zum testen der Tabelle
+		for (int i = 0; i < 1; i++)
 		{
 			fahrzeugListe.hinzufuegen("B ML-1234",Fahrzeug.FahrzeugTyp.Cabrio, Fahrzeug.FahrzeugHersteller.Skoda, "Octavia", Fahrzeug.FahrzeugKlasse.Kleinwagen);
 			fahrzeugListe.hinzufuegen("D MT-123",Fahrzeug.FahrzeugTyp.Kombi, Fahrzeug.FahrzeugHersteller.VW, "Golf", Fahrzeug.FahrzeugKlasse.Mittelklasse);

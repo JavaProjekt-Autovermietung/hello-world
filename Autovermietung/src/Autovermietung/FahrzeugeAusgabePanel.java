@@ -75,10 +75,11 @@ public class FahrzeugeAusgabePanel extends JPanel {
 				table.setBounds (5, 5, 400, 0);
 
 						
-//Buttons Reservieren und Buchen
+//Button Reservieren
 				JButton btnReservieren = new JButton("Reservieren");
 				btnReservieren.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
+						
 						DefaultTableModel model = (DefaultTableModel)table.getModel();
 						String sKennzeichen = (String)model.getValueAt(table.getSelectedRow(), 0);
 						
@@ -91,6 +92,7 @@ public class FahrzeugeAusgabePanel extends JPanel {
 				btnReservieren.setBounds(10, 244, 194, 23);
 				add(btnReservieren);
 				
+//Button Buchen
 				JButton btnBuchen = new JButton("Buchen");
 				btnBuchen.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
@@ -123,7 +125,6 @@ public class FahrzeugeAusgabePanel extends JPanel {
 		}
 		
 		table.setModel(model);
-		//table.getSelectedRow();
 	}
 }
 					

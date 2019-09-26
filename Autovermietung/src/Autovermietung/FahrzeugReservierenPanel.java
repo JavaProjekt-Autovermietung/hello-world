@@ -10,6 +10,8 @@ import javax.swing.SwingConstants;
 
 import com.github.lgooddatepicker.components.DateTimePicker;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class FahrzeugReservierenPanel extends JPanel {
 	private Hauptprogramm hauptprogramm;
@@ -20,7 +22,6 @@ public class FahrzeugReservierenPanel extends JPanel {
 
 
 //Create the panel.
-
 	public FahrzeugReservierenPanel(Hauptprogramm haupt) {
 		hauptprogramm = haupt;
 		setLayout(null);
@@ -32,12 +33,9 @@ public class FahrzeugReservierenPanel extends JPanel {
 		lblReservieren.setFont(new Font("Tahoma", Font.PLAIN, 24));
 		add(lblReservieren);
 		
-//Textfeld ausgewählte Fahrzeuge
-		//JLabel lblAuswahl = new JLabel("... ihre Auswahl");
+//Textfelder ausgewähltes Fahrzeug / ausgewählte zeile der Tabelle
 		lblKennzeichen = new JLabel("Kennzeichen");
 		lblKennzeichen.setHorizontalAlignment(SwingConstants.CENTER);
-		//lblAuswahl = hauptprogramm.fahrzeugeAusgabePanel.table.getSelectedRow();
-		
 		lblKennzeichen.setBounds(88, 80, 279, 14);
 		add(lblKennzeichen);
 
@@ -62,11 +60,16 @@ public class FahrzeugReservierenPanel extends JPanel {
 		add(bisDateTimePicker);		
 		bisDateTimePicker.setDateTimeStrict(LocalDateTime.now().plusDays(1));
 		
+//Button jetzt reservieren
 		JButton btnJetztReservieren = new JButton("jetzt reservieren");
+		btnJetztReservieren.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//befehl zum reservieren
+			}
+		});
 		btnJetztReservieren.setBounds(130, 242, 200, 23);
 		add(btnJetztReservieren);
-		
-		
+	
 	}
 	
 	void setData(Fahrzeug fahrzeug)

@@ -72,7 +72,5 @@ public class FahrzeugBuchenPanel extends JPanel {
 		bis_DateTimePicker.datePicker.setDateToToday();
 		bis_DateTimePicker.timePicker.setTimeToNow();
 
-		
-
 	}
 }
