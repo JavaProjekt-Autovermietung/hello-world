@@ -36,7 +36,11 @@ public class Hauptprogramm {
 	static final String FahrzeugeAusgabePanel = "FahrzeugeAusgabePanel";
 	static final String FahrzeugHinzufuegenPanel = "FahrzeugHinzufuegenPanel";
 	static final String FahrzeugSuchenPanel = "FahrzeugSuchenPanel";
+
 	static final String EinFahrzeugAusgabePanel = "EinFahrzeugAusgabePanel";
+
+	static final String FahrzeugReservierenPanel = "FahrzeugReservierenPanel";
+
 	
 	private RechnungsListe rechnungsListe = new RechnungsListe();
 	private FahrzeugListe fahrzeugListe = new FahrzeugListe();
@@ -91,7 +95,7 @@ public class Hauptprogramm {
 	private void initialize() {
 		frame = new JFrame();
 		frame.setResizable(false);
-		frame.setBounds(100, 100, 458, 441);
+		frame.setBounds(100, 100, 500, 500);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(new CardLayout(0, 0));
 		
@@ -131,12 +135,14 @@ public class Hauptprogramm {
 		
 		EinFahrzeugAusgabePanel einFahrzeugAusgabePanel = new EinFahrzeugAusgabePanel(this);
 		frame.getContentPane().add(einFahrzeugAusgabePanel, EinFahrzeugAusgabePanel);
+
+		FahrzeugReservierenPanel fahrzeugReservierenPanel = new FahrzeugReservierenPanel(this);
+		frame.getContentPane().add(fahrzeugReservierenPanel, FahrzeugReservierenPanel);
+
 		
 	//als Member
 		fahrzeugeAusgabePanel = new FahrzeugeAusgabePanel(this);
 		frame.getContentPane().add(fahrzeugeAusgabePanel, FahrzeugeAusgabePanel);
-	
-		
 	
 	//Menue Reiter
 		JMenuBar menuBar = new JMenuBar();
@@ -169,7 +175,7 @@ public class Hauptprogramm {
 		//((CardLayout)getFrame().getContentPane().getLayout()).show(getFrame().getContentPane(), FahrzeugeAusgabePanel);
 		
 	//Zum testen
-		for (int i = 0; i < 10; i++)
+		for (int i = 0; i < 6; i++)
 		{
 			fahrzeugListe.hinzufuegen("B ML-1234",Fahrzeug.FahrzeugTyp.Cabrio, Fahrzeug.FahrzeugHersteller.Skoda, "Octavia", Fahrzeug.FahrzeugKlasse.Kleinwagen);
 			fahrzeugListe.hinzufuegen("D MT-123",Fahrzeug.FahrzeugTyp.Kombi, Fahrzeug.FahrzeugHersteller.VW, "Golf", Fahrzeug.FahrzeugKlasse.Mittelklasse);

@@ -19,6 +19,9 @@ import javax.swing.JTable;
 import javax.swing.table.AbstractTableModel;
 //copy ende
 import javax.swing.table.DefaultTableModel;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 
 public class FahrzeugeAusgabePanel extends JPanel {
@@ -30,6 +33,7 @@ public class FahrzeugeAusgabePanel extends JPanel {
 	public FahrzeugeAusgabePanel(Hauptprogramm haupt) 
 		{
 			hauptprogramm = haupt;
+			
 			
 			//data der Tabelle
 					Vector data = new Vector ();
@@ -60,24 +64,41 @@ public class FahrzeugeAusgabePanel extends JPanel {
 						title.add( "Hersteller" );
 						title.add( "Modell" );
 						title.add( "Typ" );
+						setLayout(null);
 						
 
 // Das JTable initialisieren
 						table = new JTable( data, title );
-						table.setSurrendersFocusOnKeystroke(true);
-						add (new JScrollPane(table));
+						JScrollPane scrollPane = new JScrollPane(table);
+						scrollPane.setBounds(10, 5, 431, 200);
+						add (scrollPane);
+						table.setBounds (5, 5, 400, 0);
 						
+//Buttons Reservieren und Buchen
+						JButton btnReservieren = new JButton("Reservieren");
+						btnReservieren.addActionListener(new ActionListener() {
+							public void actionPerformed(ActionEvent e) {
+								((CardLayout)hauptprogramm.getFrame().getContentPane().getLayout()).show(hauptprogramm.getFrame().getContentPane(), hauptprogramm.FahrzeugReservierenPanel);
+							}
+						});
+						btnReservieren.setBounds(10, 244, 194, 23);
+						add(btnReservieren);
+						
+						JButton btnBuchen = new JButton("Buchen");
+						btnBuchen.setBounds(245, 244, 194, 23);
+						add(btnBuchen);
 						
 						JFrame f = new JFrame();
-					    f.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );				
 
+					    f.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );				
 		}
 	
 	void setData (ArrayList <Fahrzeug> fahrzeuge)
 	{
 		DefaultTableModel model = new DefaultTableModel(
+
 				new Object [] {"Kennzeichen", "Hersteller","Modell","Typ","Klasse"}, 0);
-		
+
 		for (int i = 0; i < fahrzeuge.size(); i++)
 		{
 			Vector row = new Vector ();
@@ -90,6 +111,7 @@ public class FahrzeugeAusgabePanel extends JPanel {
 		}
 		
 		table.setModel(model);
+		//table.getSelectedRow();
 	}
 }
 					
