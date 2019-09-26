@@ -38,8 +38,7 @@ public class Hauptprogramm {
 	static final String FahrzeugHinzufuegenPanel = "FahrzeugHinzufuegenPanel";
 	static final String FahrzeugSuchenPanel = "FahrzeugSuchenPanel";
 	static final String FahrzeugBuchenPanel = "FahrzeugBuchenPanel";
-	static final String FahrzeugReservierenPanel = "FahrzeugReservierenPanel";
-	
+	static final String FahrzeugReservierenPanel = "FahrzeugReservierenPanel";	
 	static final String EinFahrzeugAusgabePanel = "EinFahrzeugAusgabePanel";
 
 	
