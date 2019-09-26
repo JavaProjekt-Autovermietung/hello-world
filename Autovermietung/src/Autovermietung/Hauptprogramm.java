@@ -16,7 +16,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
-import java.awt.CardLayout; 
+import java.awt.CardLayout;
 import java.awt.FlowLayout;
 import com.github.lgooddatepicker.components.DateTimePicker;
 import java.awt.Button;
