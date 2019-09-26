@@ -46,6 +46,8 @@ public class Hauptprogramm {
 	
 	FahrzeugeAusgabePanel fahrzeugeAusgabePanel;
 	
+	EinFahrzeugAusgabePanel einFahrzeugAusgabePanel;
+	
 	JFrame getFrame() 
 	  { 
 		return frame;
@@ -63,6 +65,12 @@ public class Hauptprogramm {
 	  { 
 		return fahrzeugeAusgabePanel; 
 	  }
+	
+	EinFahrzeugAusgabePanel getEinFahrzeugAusgabePanel() 
+	  { 
+		return einFahrzeugAusgabePanel; 
+	  }
+	
 
 	//Launch the application.
 	public static void main(String[] args) {
@@ -129,13 +137,12 @@ public class Hauptprogramm {
 		FahrzeugSuchenPanel fahrzeugSuchenPanel = new FahrzeugSuchenPanel(this);
 		frame.getContentPane().add(fahrzeugSuchenPanel, FahrzeugSuchenPanel);
 		
-		EinFahrzeugAusgabePanel einFahrzeugAusgabePanel = new EinFahrzeugAusgabePanel(this);
-		frame.getContentPane().add(einFahrzeugAusgabePanel, EinFahrzeugAusgabePanel);
-		
 	//als Member
 		fahrzeugeAusgabePanel = new FahrzeugeAusgabePanel(this);
 		frame.getContentPane().add(fahrzeugeAusgabePanel, FahrzeugeAusgabePanel);
-	
+		
+		einFahrzeugAusgabePanel = new EinFahrzeugAusgabePanel(this);
+		frame.getContentPane().add(einFahrzeugAusgabePanel, EinFahrzeugAusgabePanel);
 		
 	
 	//Menue Reiter

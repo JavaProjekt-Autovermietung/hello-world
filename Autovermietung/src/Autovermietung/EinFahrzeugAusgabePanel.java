@@ -78,8 +78,14 @@ public class EinFahrzeugAusgabePanel extends JPanel {
 		DefaultTableModel model = new DefaultTableModel(
 				new Object [] {"Kennzeichen", "Hersteller","Modell","Typ","Klasse"}, 0);
 		
+		if (fahrzeug == null)
+			{ 
+			Vector row = new Vector ();
+			row.add("Auto nicht gefunden!");
+			model.addRow(row);
+			} 
 		
-		
+		else {  
 			Vector row = new Vector ();
 			row.add(fahrzeug.getKennzeichen());
 			row.add(fahrzeug.getHersteller());
@@ -87,6 +93,7 @@ public class EinFahrzeugAusgabePanel extends JPanel {
 			row.add(fahrzeug.getTyp());
 			row.add(fahrzeug.getKlasse());
 			model.addRow(row);
+		}
 		
 		table.setModel(model);
 	}
