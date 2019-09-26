@@ -41,7 +41,7 @@ public class FahrzeugPanel extends JPanel {
 		btnFahrzeugHinzufuegen.setBounds(88, 51, 279, 23);
 		btnFahrzeugHinzufuegen.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			  ((CardLayout)hauptprogramm.getFrame().getContentPane().getLayout()).show(hauptprogramm.getFrame().getContentPane(), hauptprogramm.FahrzeugHinzufuegenPanel);
+			  hauptprogramm.show(hauptprogramm.FahrzeugHinzufuegenPanel);
 			}
 			});
 		add(btnFahrzeugHinzufuegen);
@@ -61,7 +61,7 @@ public class FahrzeugPanel extends JPanel {
 		JButton btnNachFahrzeugSuchen = new JButton("Nach Fahrzeug suchen");
 		btnNachFahrzeugSuchen.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				((CardLayout)hauptprogramm.getFrame().getContentPane().getLayout()).show(hauptprogramm.getFrame().getContentPane(), Hauptprogramm.FahrzeugSuchenPanel);
+				hauptprogramm.show(Hauptprogramm.FahrzeugSuchenPanel);
 				
 			}
 		});
@@ -88,7 +88,7 @@ public class FahrzeugPanel extends JPanel {
 //				hauptprogramm.getFahrzeugAusgabePanel().setData(fahrzeugListe);
 				hauptprogramm.getFahrzeugAusgabePanel().setData(hauptprogramm.getFahrzeugListe().getFahrzeugListe());
 				
-				((CardLayout)hauptprogramm.getFrame().getContentPane().getLayout()).show(hauptprogramm.getFrame().getContentPane(), Hauptprogramm.FahrzeugeAusgabePanel);
+				hauptprogramm.show(Hauptprogramm.FahrzeugeAusgabePanel);
 				
 //Hier AusgabePanel Verfügbarkeit
 			}

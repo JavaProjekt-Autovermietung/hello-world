@@ -29,9 +29,10 @@ public class FahrzeugBuchenPanel extends JPanel {
 		lblFahrzeug.setFont(new Font("Tahoma", Font.PLAIN, 24));
 		add(lblFahrzeug);
 		
-		JLabel lblAuswahl = new JLabel("Kombi / VW / Golf / B-LNK4 / Mittelklasse");
+		//JLabel lblAuswahl = new JLabel("Kombi / VW / Golf / B-LNK4 / Mittelklasse");
+		JLabel lblAuswahl = new JLabel("bla");
 		lblAuswahl.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		lblAuswahl.setBounds(72, 79, 244, 20);
+		lblAuswahl.setBounds(72, 79, 287, 20);
 		add(lblAuswahl);
 		
 		JLabel lblAnfangsdatum = new JLabel("Anfangsdatum:");
@@ -60,16 +61,16 @@ public class FahrzeugBuchenPanel extends JPanel {
 		btnWartung.setBounds(269, 235, 90, 21);
 		add(btnWartung);
 		
-//DateTimePicker
 		DateTimePicker von_DateTimePicker = new DateTimePicker();
-		von_DateTimePicker.setBounds(72, 173, 217, 23);
+		von_DateTimePicker.setBounds(71, 125, 288, 23);
 		add(von_DateTimePicker);
-		von_DateTimePicker.datePicker.setDateToToday();
-		von_DateTimePicker.timePicker.setTimeToNow();
 		
+//DateTimePicker
 		DateTimePicker bis_DateTimePicker = new DateTimePicker();
-		bis_DateTimePicker.setBounds(71, 125, 217, 23);
+		bis_DateTimePicker.setBounds(72, 173, 287, 23);
 		add(bis_DateTimePicker);
+		bis_DateTimePicker.datePicker.setDateToToday();
+		bis_DateTimePicker.timePicker.setTimeToNow();
 
 		
 

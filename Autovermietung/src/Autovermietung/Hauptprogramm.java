@@ -50,6 +50,7 @@ public class Hauptprogramm {
 	private JFrame frame;
 	
 	FahrzeugeAusgabePanel fahrzeugeAusgabePanel;
+	FahrzeugReservierenPanel fahrzeugReservierenPanel;
 	
 	JFrame getFrame() 
 	  { 
@@ -68,6 +69,15 @@ public class Hauptprogramm {
 	  { 
 		return fahrzeugeAusgabePanel; 
 	  }
+	FahrzeugReservierenPanel getFahrzeugReservierenPanel()
+	{
+		return fahrzeugReservierenPanel;
+	}
+	
+	void show(String PanelName)
+	{
+		((CardLayout)getFrame().getContentPane().getLayout()).show(getFrame().getContentPane(), PanelName);
+	}
 
 	//Launch the application.
 	public static void main(String[] args) {
@@ -137,9 +147,7 @@ public class Hauptprogramm {
 		EinFahrzeugAusgabePanel einFahrzeugAusgabePanel = new EinFahrzeugAusgabePanel(this);
 		frame.getContentPane().add(einFahrzeugAusgabePanel, EinFahrzeugAusgabePanel);
 
-		FahrzeugReservierenPanel fahrzeugReservierenPanel = new FahrzeugReservierenPanel(this);
-		frame.getContentPane().add(fahrzeugReservierenPanel, FahrzeugReservierenPanel);
-
+		
 		
 		FahrzeugBuchenPanel fahrzeugBuchenPanel = new FahrzeugBuchenPanel(this);
 		frame.getContentPane().add(fahrzeugBuchenPanel, FahrzeugBuchenPanel);
@@ -148,6 +156,10 @@ public class Hauptprogramm {
 	//als Member
 		fahrzeugeAusgabePanel = new FahrzeugeAusgabePanel(this);
 		frame.getContentPane().add(fahrzeugeAusgabePanel, FahrzeugeAusgabePanel);
+		
+		fahrzeugReservierenPanel = new FahrzeugReservierenPanel(this);
+		frame.getContentPane().add(fahrzeugReservierenPanel, FahrzeugReservierenPanel);
+
 	
 	//Menue Reiter
 		JMenuBar menuBar = new JMenuBar();
@@ -156,7 +168,7 @@ public class Hauptprogramm {
 		JMenuItem mntmRechnung = new JMenuItem("Rechnung");
 		mntmRechnung.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				((CardLayout)getFrame().getContentPane().getLayout()).show(getFrame().getContentPane(), RechnungPanel);
+				show(RechnungPanel);
 			}
 		});
 		menuBar.add(mntmRechnung);
@@ -164,7 +176,7 @@ public class Hauptprogramm {
 		JMenuItem mntmFahrzeug = new JMenuItem("Fahrzeug");
 		mntmFahrzeug.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				((CardLayout)getFrame().getContentPane().getLayout()).show(getFrame().getContentPane(), FahrzeugPanel);
+				show(FahrzeugPanel);
 			}
 		});
 		menuBar.add(mntmFahrzeug);
@@ -172,7 +184,7 @@ public class Hauptprogramm {
 		JMenuItem mntmKunde = new JMenuItem("Kunde");
 		mntmKunde.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				((CardLayout)getFrame().getContentPane().getLayout()).show(getFrame().getContentPane(), KundePanel);
+				show(KundePanel);
 			}
 		});
 		menuBar.add(mntmKunde);

@@ -54,7 +54,7 @@ public class FahrzeugSuchenPanel extends JPanel {
 				String Kennzeichen = txtKennzeichen.getText();
 				Fahrzeug fahrzeug = hauptprogramm.getFahrzeugListe().sucheFahrzeug(Kennzeichen);
 //				EinFahrzeugAusgabePanel.setData(fahrzeug);
-				((CardLayout)hauptprogramm.getFrame().getContentPane().getLayout()).show(hauptprogramm.getFrame().getContentPane(), Hauptprogramm.EinFahrzeugAusgabePanel);
+				hauptprogramm.show(Hauptprogramm.EinFahrzeugAusgabePanel);
 			}
 		});
 		btnAnsehen.setFont(new Font("Tahoma", Font.PLAIN, 11));

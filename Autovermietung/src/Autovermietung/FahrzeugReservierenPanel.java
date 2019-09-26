@@ -9,10 +9,14 @@ import javax.swing.JTable;
 import javax.swing.SwingConstants;
 
 import com.github.lgooddatepicker.components.DateTimePicker;
+import javax.swing.JButton;
 
 public class FahrzeugReservierenPanel extends JPanel {
 	private Hauptprogramm hauptprogramm;
-	private JTable table;
+	JLabel lblKennzeichen;
+	JLabel lblTyp;
+	JLabel lblHersteller;
+	Fahrzeug fahrzeug;
 
 
 //Create the panel.
@@ -29,16 +33,23 @@ public class FahrzeugReservierenPanel extends JPanel {
 		add(lblReservieren);
 		
 //Textfeld ausgewählte Fahrzeuge
-		JLabel lblAuswahl = new JLabel("... ihre Auswahl");
-		//JLabel lblAuswahl = new JLabel(lblAuswahl = hauptprogramm.fahrzeugeAusgabePanel.table.getSelectedRow());
+		//JLabel lblAuswahl = new JLabel("... ihre Auswahl");
+		lblKennzeichen = new JLabel("Kennzeichen");
+		lblKennzeichen.setHorizontalAlignment(SwingConstants.CENTER);
 		//lblAuswahl = hauptprogramm.fahrzeugeAusgabePanel.table.getSelectedRow();
 		
-//		int column = 0;
-//		int row = table.getSelectedRow();
-//		String value = table.getModel().getValueAt(row, column).toString();
+		lblKennzeichen.setBounds(88, 80, 279, 14);
+		add(lblKennzeichen);
+
+		lblTyp = new JLabel("Typ");
+		lblTyp.setHorizontalAlignment(SwingConstants.CENTER);
+		lblTyp.setBounds(88, 100, 279, 14);
+		add(lblTyp);
 		
-		lblAuswahl.setBounds(88, 105, 279, 14);
-		add(lblAuswahl);
+		lblHersteller = new JLabel("Hersteller");
+		lblHersteller.setHorizontalAlignment(SwingConstants.CENTER);
+		lblHersteller.setBounds(88, 120, 279, 14);
+		add(lblHersteller);
 
 //DateTimePicker Positionen
 		DateTimePicker vonDateTimePicker = new DateTimePicker();
@@ -51,6 +62,18 @@ public class FahrzeugReservierenPanel extends JPanel {
 		add(bisDateTimePicker);		
 		bisDateTimePicker.setDateTimeStrict(LocalDateTime.now().plusDays(1));
 		
+		JButton btnJetztReservieren = new JButton("jetzt reservieren");
+		btnJetztReservieren.setBounds(130, 242, 200, 23);
+		add(btnJetztReservieren);
 		
+		
+	}
+	
+	void setData(Fahrzeug fahrzeug)
+	{
+		this.fahrzeug = fahrzeug;
+		lblKennzeichen.setText(fahrzeug.getKennzeichen());
+		lblTyp.setText(fahrzeug.getTyp().toString());
+		lblHersteller.setText(fahrzeug.getHersteller().toString());
 	}
 }

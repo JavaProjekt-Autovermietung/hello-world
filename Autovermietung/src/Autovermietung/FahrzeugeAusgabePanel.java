@@ -36,67 +36,73 @@ public class FahrzeugeAusgabePanel extends JPanel {
 			
 			
 			//data der Tabelle
-					Vector data = new Vector ();
-						Vector rowA = new Vector();
-							rowA.add(  "1" );
-							rowA.add(  "2" );
-							rowA.add(  "3" );
-							rowA.add(  "4" );
-						Vector rowB = new Vector();
-							rowB.add(  "5" );
-							rowB.add(  "6" );
-							rowB.add(  "7" );
-							rowB.add(  "8" );
-						Vector rowC = new Vector();
-							rowC.add(  "9" );
-							rowC.add( "10" );
-							rowC.add( "11" );
-							rowC.add( "12" );
-					
-							data.add( rowA );
-							data.add( rowB );
-							data.add( rowC );
+			Vector data = new Vector ();
+				Vector rowA = new Vector();
+					rowA.add(  "1" );
+					rowA.add(  "2" );
+					rowA.add(  "3" );
+					rowA.add(  "4" );
+				Vector rowB = new Vector();
+					rowB.add(  "5" );
+					rowB.add(  "6" );
+					rowB.add(  "7" );
+					rowB.add(  "8" );
+				Vector rowC = new Vector();
+					rowC.add(  "9" );
+					rowC.add( "10" );
+					rowC.add( "11" );
+					rowC.add( "12" );
+			
+					data.add( rowA );
+					data.add( rowB );
+					data.add( rowC );
 							
 // Die Titel für das Table
 
-					Vector title = new Vector();
-						title.add( "Kennzeichen" );
-						title.add( "Hersteller" );
-						title.add( "Modell" );
-						title.add( "Typ" );
-						setLayout(null);
-						
+				Vector title = new Vector();
+					title.add( "Kennzeichen" );
+					title.add( "Hersteller" );
+					title.add( "Modell" );
+					title.add( "Typ" );
+					setLayout(null);
+					
 
 // Das JTable initialisieren
-						table = new JTable( data, title );
-						JScrollPane scrollPane = new JScrollPane(table);
-						scrollPane.setBounds(10, 5, 431, 200);
-						add (scrollPane);
-						table.setBounds (5, 5, 400, 0);
+				table = new JTable( data, title );
+				JScrollPane scrollPane = new JScrollPane(table);
+				scrollPane.setBounds(10, 5, 431, 200);
+				add (scrollPane);
+				table.setBounds (5, 5, 400, 0);
+
 						
 //Buttons Reservieren und Buchen
-						JButton btnReservieren = new JButton("Reservieren");
-						btnReservieren.addActionListener(new ActionListener() {
-							public void actionPerformed(ActionEvent e) {
-								((CardLayout)hauptprogramm.getFrame().getContentPane().getLayout()).show(hauptprogramm.getFrame().getContentPane(), hauptprogramm.FahrzeugReservierenPanel);
-							}
-						});
-						btnReservieren.setBounds(10, 244, 194, 23);
-						add(btnReservieren);
+				JButton btnReservieren = new JButton("Reservieren");
+				btnReservieren.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						DefaultTableModel model = (DefaultTableModel)table.getModel();
+						String sKennzeichen = (String)model.getValueAt(table.getSelectedRow(), 0);
 						
-						JButton btnBuchen = new JButton("Buchen");
-						btnBuchen.addActionListener(new ActionListener() {
-							public void actionPerformed(ActionEvent e) {
-								
-								((CardLayout)hauptprogramm.getFrame().getContentPane().getLayout()).show(hauptprogramm.getFrame().getContentPane(), hauptprogramm.FahrzeugBuchenPanel);
-							}
-						});
-						btnBuchen.setBounds(245, 244, 194, 23);
-						add(btnBuchen);
+						Fahrzeug f = hauptprogramm.getFahrzeugListe().sucheFahrzeug(sKennzeichen);
+						hauptprogramm.getFahrzeugReservierenPanel().setData(f);
 						
-						JFrame f = new JFrame();
-
-					    f.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );				
+						hauptprogramm.show(hauptprogramm.FahrzeugReservierenPanel);
+					}
+				});
+				btnReservieren.setBounds(10, 244, 194, 23);
+				add(btnReservieren);
+				
+				JButton btnBuchen = new JButton("Buchen");
+				btnBuchen.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						
+						hauptprogramm.show(hauptprogramm.FahrzeugBuchenPanel);
+					}
+				});
+				btnBuchen.setBounds(245, 244, 194, 23);
+				add(btnBuchen);
+				
+				JFrame f = new JFrame();
+			    f.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );				
 		}
 	
 	void setData (ArrayList <Fahrzeug> fahrzeuge)
