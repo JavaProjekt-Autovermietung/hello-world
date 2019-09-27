@@ -23,17 +23,6 @@ public class Fahrzeug {
     private ArrayList<KalenderEintrag> Kalender = new ArrayList<KalenderEintrag>();
     private FahrzeugKlasse Klasse;
     
-    
-    /**
-     * Operation Fahrzeug
-     *
-     * @param Kennzeichen - 
-     * @param Typ - 
-     * @param Hersteller - 
-     * @param Modell - 
-     * @ 						param Klasse fehlt!!
-     * @return 
-     */
     public Fahrzeug(String Kennzeichen, FahrzeugTyp Typ, FahrzeugHersteller Hersteller, String Modell, FahrzeugKlasse Klasse ){
     	this.Kennzeichen = Kennzeichen;
     	this.Typ = Typ;
@@ -63,49 +52,39 @@ public class Fahrzeug {
     {
     	int zeitraum = DateTime.ZeitSpanneTage(von, bis);
     	double stunden = DateTime.ZeitSpanneStunden(von, bis);
-    	int  volleStunden = (int) Math.ceil(stunden);
     	
-    	LocalDateTime vonDatum = von;
+    	LocalDate vonAnfrage = von.toLocalDate(), bisAnfrage = bis.toLocalDate();
+    	
     	int zaehler = 0;
     		
     	if (zeitraum > 1) { 	
     		for (int iarray=0; iarray < Kalender.size(); iarray++) 
     		{
-    			if (Kalender.get(iarray).von == vonDatum &&  Kalender.get(iarray).Status != KalenderEintrag.Autostatus.frei)
-    			{
-    				return false;
-    			}
-    			else {
-	    				zaehler =+1;
-	    				if (zaehler == zeitraum) 
-						{ 
-							return true;
-						}	
-    			}
-    			vonDatum.plusDays(1);
-
+    			if (!( bisAnfrage.isBefore(Kalender.get(iarray).von.toLocalDate()) ||
+    					vonAnfrage.isAfter(Kalender.get(iarray).bis.toLocalDate()) ) )
+    				zaehler =+ 1;	  						
     		}
-    		}
-
+    		
+    	} // end if zeitraum
+    	
     	else if (zeitraum == 1 && stunden > 0) {
     		
-    		for (int jarray=0; jarray < Kalender.size(); jarray++) {
-    			if (Kalender.get(jarray).von == vonDatum && Kalender.get(jarray).Status != KalenderEintrag.Autostatus.frei)
-    			{
-    				return false;
-    			}
-    			else {
-    					volleStunden =-1;
-    					if (volleStunden == 0)
-    					{return false;}
-    			}
+    		for (int earray=0; earray < Kalender.size(); earray++) 
+    		{
+    			
+	    			if (! ( bis.isBefore(Kalender.get(earray).von) ||
+	    					von.isAfter(Kalender.get(earray).bis) ) )
+	    					zaehler =+1;
     		}
-    		vonDatum.plusHours(1);
-
-    	}
-
-  		return false; 
-     }
+    		
+    	} // end else 
+    	
+    	if (zaehler > 0)
+			return false;
+		else
+			return true;	
+    		
+   } // Ende verfuegbar
     
     /**
      * Operation ausleihen
@@ -273,8 +252,8 @@ public class Fahrzeug {
     
     public void setKalenderC() {
     	KalenderEintrag k = new KalenderEintrag();
-		k.von = LocalDateTime.of(2019, Month.SEPTEMBER, 26, 10, 00,00);
-		k.bis = LocalDateTime.of(2019, Month.SEPTEMBER, 27, 18, 00,00);
+		k.von = LocalDateTime.of(2019, Month.SEPTEMBER, 27, 10, 00,00);
+		k.bis = LocalDateTime.of(2019, Month.SEPTEMBER, 28, 18, 00,00);
 		k.Kennzeichen = getKennzeichen();
 		k.Status = KalenderEintrag.Autostatus.ausgeliehen;
 		Kalender.add(k);
