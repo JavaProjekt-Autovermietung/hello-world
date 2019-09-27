@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import Autovermietung.KalenderEintrag.Autostatus;
 import java.math.*;
 import java.time.LocalDateTime;
+import java.time.Month;
 import java.time.LocalDate;
 
 public class Fahrzeug {
@@ -103,7 +104,7 @@ public class Fahrzeug {
 
     	}
 
-		return false; 
+  		return false; 
      }
     
     /**
@@ -249,4 +250,35 @@ public class Fahrzeug {
     
     }
     
+   // Kalender ausfüllen, um Testdaten zu haben.
+    
+    public void setKalenderA() {
+    	KalenderEintrag k = new KalenderEintrag();
+		k.von = LocalDateTime.of(2019, Month.OCTOBER, 1, 8, 00,00);
+		k.bis = LocalDateTime.of(2019, Month.OCTOBER, 1, 18, 30,00);
+		k.Kennzeichen = getKennzeichen();
+		k.Status = KalenderEintrag.Autostatus.reserviert;
+		Kalender.add(k);
+    }
+    
+    public void setKalenderB() {
+    	KalenderEintrag k = new KalenderEintrag();
+		k.von = LocalDateTime.of(2019, Month.OCTOBER, 5, 10, 00,00);
+		k.bis = LocalDateTime.of(2019, Month.OCTOBER, 10, 20, 45,00);
+		k.Kennzeichen = getKennzeichen();
+		k.Status = KalenderEintrag.Autostatus.gebucht;
+		Kalender.add(k);
+    }
+    
+    
+    public void setKalenderC() {
+    	KalenderEintrag k = new KalenderEintrag();
+		k.von = LocalDateTime.of(2019, Month.SEPTEMBER, 26, 10, 00,00);
+		k.bis = LocalDateTime.of(2019, Month.SEPTEMBER, 27, 18, 00,00);
+		k.Kennzeichen = getKennzeichen();
+		k.Status = KalenderEintrag.Autostatus.ausgeliehen;
+		Kalender.add(k);
+    } 
+	
+
 }
