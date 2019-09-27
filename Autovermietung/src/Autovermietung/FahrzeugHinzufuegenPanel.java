@@ -53,8 +53,6 @@ public class FahrzeugHinzufuegenPanel extends JPanel{
 		cbfahrzeugKlasse.setMaximumRowCount(3);
 		cbfahrzeugKlasse.setBounds(113, 209, 220, 22);
 		add(cbfahrzeugKlasse);
-		//fahrzeugKlasse.setSelectedIndex(2);
-		//fahrzeugKlasse.addActionListener(this);
 		
 //ComboBox 
 //FahrzeugHersteller Auswahl: enum FahrzeugHersteller { BMW, Skoda, VW, Mercedes };
@@ -64,8 +62,6 @@ public class FahrzeugHinzufuegenPanel extends JPanel{
 		cbfahrzeugHersteller.setMaximumRowCount(4);
 		cbfahrzeugHersteller.setBounds(113, 149, 220, 22);
 		add(cbfahrzeugHersteller);
-		//fahrzeugHersteller.setSelectedIndex(4);
-		//fahrzeugHersteller.addActionListener(this);
 		
 //ComboBox 
 //FahrzeugTyp Auswahl : enum FahrzeugTyp { Kombi, Limosine, Cabrio };
@@ -75,9 +71,6 @@ public class FahrzeugHinzufuegenPanel extends JPanel{
 		cbfahrzeugHersteller.setMaximumRowCount(3);
 		cbfahrzeugTyp.setBounds(113, 116, 220, 22);
 		add(cbfahrzeugTyp);
-		//cbfahrzeugTyp.setSelectedIndex(4);
-		//cbfahrzeugTyp.addActionListener((ActionListener) this);
-		
 	
 //Button Fahrzeug hinzufuegen
 		JButton btnFahrzeugHinzufuegen = new JButton("Fahrzeug hinzuf\u00FCgen");
@@ -85,8 +78,8 @@ public class FahrzeugHinzufuegenPanel extends JPanel{
 			public void actionPerformed(ActionEvent e) 
 			{
 
-				//ComboBox Auswahl der Enum Fälle
-				//String fahrzeugHersteller = cbfahrzeugHersteller.getSelectedItem().toString();
+//ComboBox Auswahl der Enum Fälle
+//String fahrzeugHersteller = cbfahrzeugHersteller.getSelectedItem().toString();
 				Fahrzeug.FahrzeugHersteller h = Fahrzeug.FahrzeugHersteller.BMW;
 				switch (cbfahrzeugHersteller.getSelectedItem().toString())
 				{
@@ -96,7 +89,7 @@ public class FahrzeugHinzufuegenPanel extends JPanel{
 					case "Mercedes": h = Fahrzeug.FahrzeugHersteller.Mercedes; break;
 				}
 				
-				//String fahrzeugTyp = cbfahrzeugTyp.getSelectedItem().toString();
+//String fahrzeugTyp = cbfahrzeugTyp.getSelectedItem().toString();
 				Fahrzeug.FahrzeugTyp t = Fahrzeug.FahrzeugTyp.Cabrio;
 				switch (cbfahrzeugTyp.getSelectedItem().toString())
 				{
@@ -105,7 +98,7 @@ public class FahrzeugHinzufuegenPanel extends JPanel{
 					case "Limousine": t = Fahrzeug.FahrzeugTyp.Limousine; break;
 				}
 				
-				//String fahrzeugKlasse = cbfahrzeugTyp.getSelectedItem().toString();
+//String fahrzeugKlasse = cbfahrzeugTyp.getSelectedItem().toString();
 				Fahrzeug.FahrzeugKlasse k = Fahrzeug.FahrzeugKlasse.Kleinwagen;
 				switch (cbfahrzeugKlasse.getSelectedItem().toString())
 				{

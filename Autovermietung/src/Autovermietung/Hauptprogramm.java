@@ -29,6 +29,8 @@ public class Hauptprogramm {
 	static final String RechnungSuche = "RechnungSuche";
 	static final String RechnungErstellen = "RechnungErstellen";
 	static final String RechnungPanel = "RechnungPanel";
+	static final String RechnungenAusgabe = "RechnungenAusgabe";
+	static final String RechnungAusgabe = "RechnungAusgabe";
 	static final String FahrzeugPanel = "FahrzeugPanel";
 	static final String KundePanel = "KundePanel";
 	static final String KundeErstellen = "KundeErstellen";
@@ -41,12 +43,13 @@ public class Hauptprogramm {
 	static final String FahrzeugReservierenPanel = "FahrzeugReservierenPanel";	
 	static final String EinFahrzeugAusgabePanel = "EinFahrzeugAusgabePanel";
 
-	
 	private RechnungsListe rechnungsListe = new RechnungsListe();
 	private FahrzeugListe fahrzeugListe = new FahrzeugListe();
 	
 	//Panel
 	private JFrame frame;
+	private RechnungenAusgabePanel rechnungenAusgabePanel;
+	private RechnungAusgabePanel rechnungAusgabePanel;
 	
 	FahrzeugeAusgabePanel fahrzeugeAusgabePanel;
 	FahrzeugReservierenPanel fahrzeugReservierenPanel;
@@ -79,6 +82,11 @@ public class Hauptprogramm {
 	FahrzeugReservierenPanel getFahrzeugReservierenPanel()
 	{
 		return fahrzeugReservierenPanel;
+	}
+	
+	RechnungAusgabePanel getRechnungAusgabePanel()
+	{
+		return rechnungAusgabePanel;
 	}
 	
 	void show(String PanelName)
@@ -121,7 +129,6 @@ public class Hauptprogramm {
 	//Alle einzelnen Panels so aufrufen
 		
 		StartPanel startPanel = new StartPanel(this);
-		//frame.getContentPane().add(startPanel, RechnungPanel);
 		frame.getContentPane().add(startPanel, StartPanel);
 		
 		RechnungPanel rechnungPanel = new RechnungPanel(this);
@@ -142,14 +149,24 @@ public class Hauptprogramm {
 		KundeSuchePanel kundeSuche = new KundeSuchePanel(this);
 		frame.getContentPane().add(kundeSuche, KundeSuche);
 		
+		rechnungAusgabePanel = new RechnungAusgabePanel(this);
+		frame.getContentPane().add(rechnungAusgabePanel, RechnungAusgabe);
+		
+		rechnungenAusgabePanel = new RechnungenAusgabePanel(this);
+		frame.getContentPane().add(rechnungenAusgabePanel, RechnungenAusgabe);
+		
 		FahrzeugPanel fahrzeugPanel = new FahrzeugPanel(this);
 		frame.getContentPane().add(fahrzeugPanel, FahrzeugPanel);
+		
 		
 		FahrzeugHinzufuegenPanel fahrzeugHinzufuegenPanel = new FahrzeugHinzufuegenPanel(this);
 		frame.getContentPane().add(fahrzeugHinzufuegenPanel, FahrzeugHinzufuegenPanel);
 		
 		FahrzeugSuchenPanel fahrzeugSuchenPanel = new FahrzeugSuchenPanel(this);
 		frame.getContentPane().add(fahrzeugSuchenPanel, FahrzeugSuchenPanel);
+
+		EinFahrzeugAusgabePanel einFahrzeugAusgabePanel = new EinFahrzeugAusgabePanel(this);
+		frame.getContentPane().add(einFahrzeugAusgabePanel, EinFahrzeugAusgabePanel);
 
 		FahrzeugBuchenPanel fahrzeugBuchenPanel = new FahrzeugBuchenPanel(this);
 		frame.getContentPane().add(fahrzeugBuchenPanel, FahrzeugBuchenPanel);
@@ -193,16 +210,14 @@ public class Hauptprogramm {
 		});
 		menuBar.add(mntmKunde);
 		
-		//((CardLayout)getFrame().getContentPane().getLayout()).show(getFrame().getContentPane(), FahrzeugeAusgabePanel);
-		
-	//Zum testen
-		for (int i = 0; i < 6; i++)
+//Zum testen der Tabelle
+		for (int i = 0; i < 1; i++)
 		{
 			fahrzeugListe.hinzufuegen("B ML-1234",Fahrzeug.FahrzeugTyp.Cabrio, Fahrzeug.FahrzeugHersteller.Skoda, "Octavia", Fahrzeug.FahrzeugKlasse.Kleinwagen);
 			fahrzeugListe.hinzufuegen("D MT-123",Fahrzeug.FahrzeugTyp.Kombi, Fahrzeug.FahrzeugHersteller.VW, "Golf", Fahrzeug.FahrzeugKlasse.Mittelklasse);
 		}
 		
-		fahrzeugListe.Datumsetzen();
+		//fahrzeugListe.Datumsetzen();
 		
 	}
 }

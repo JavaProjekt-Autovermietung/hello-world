@@ -62,9 +62,13 @@ public class FahrzeugSuchenPanel extends JPanel {
 		btnAnsehen.setBounds(72, 177, 100, 21);
 		add(btnAnsehen);
 		
-		
-		
-		
-
+		JButton btnLschen = new JButton("L\u00F6schen");
+		btnLschen.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnLschen.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		btnLschen.setBounds(179, 89, 100, 21);
+		add(btnLschen);
 	}
 }

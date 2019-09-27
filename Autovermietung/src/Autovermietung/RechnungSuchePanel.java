@@ -16,6 +16,7 @@ import javax.swing.JCheckBoxMenuItem;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
+import java.awt.Choice;
 
 public class RechnungSuchePanel extends JPanel {
 	private Hauptprogramm hauptprogramm;
@@ -53,21 +54,15 @@ public class RechnungSuchePanel extends JPanel {
 		btnRechnungAendern.setBounds(229, 125, 104, 23);
 		add(btnRechnungAendern);
 		
-		JMenu mnSortierenNach = new JMenu("Sortieren nach");
-		mnSortierenNach.setBounds(140, 218, 133, 26);
-		add(mnSortierenNach);
+		Choice choice = new Choice();
+		choice.setBounds(146, 227, 154, 20);
+		add(choice);
+		choice.add("Sortieren nach...");
+		choice.add("Kundennummer");
+		choice.add("Rechnungsnummer");
+		choice.add("Preis");
+		choice.add("Ausleihdauer");
 		
-		JMenuItem mntmKundennummer = new JMenuItem("Kundennummer");
-		mnSortierenNach.add(mntmKundennummer);
-		
-		JMenuItem mntmRechnungsnummer = new JMenuItem("Rechnungsnummer");
-		mnSortierenNach.add(mntmRechnungsnummer);
-		
-		JMenuItem mntmPreis = new JMenuItem("Preis");
-		mnSortierenNach.add(mntmPreis);
-		
-		JMenuItem mntmAusleihdauer = new JMenuItem("Ausleihdauer");
-		mnSortierenNach.add(mntmAusleihdauer);
 	}
 	private static void addPopup(Component component, final JPopupMenu popup) {
 		component.addMouseListener(new MouseAdapter() {

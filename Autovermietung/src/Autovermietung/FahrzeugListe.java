@@ -29,15 +29,12 @@ public class FahrzeugListe {
      */
     public Fahrzeug sucheFahrzeug(String Kennzeichen) 
     	{ 
-    	
-    	for (int i = 0; i < fahrzeugListe.size(); i++){
-    	    if (fahrzeugListe.get(i).getKennzeichen().compareTo(Kennzeichen) == 0)
-    	    	return fahrzeugListe.get(i);
-    	} 
-    	    
-    	 System.out.println("Fahrzeug nicht gefunden! Kennzeichen: ");
-    	 return null;
-    	    
+	    	for (int i = 0; i < fahrzeugListe.size(); i++){
+	    	    if (fahrzeugListe.get(i).getKennzeichen().compareTo(Kennzeichen) == 0)
+	    	    	return fahrzeugListe.get(i);    	    
+    	}
+    	System.out.println("Fahrzeug nicht gefunden");
+    	return null;
     }
     
     /**
