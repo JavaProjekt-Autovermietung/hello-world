@@ -84,9 +84,12 @@ public class FahrzeugeAusgabePanel extends JPanel {
 						String sKennzeichen = (String)model.getValueAt(table.getSelectedRow(), 0);
 						
 						Fahrzeug f = hauptprogramm.getFahrzeugListe().sucheFahrzeug(sKennzeichen);
-						hauptprogramm.getFahrzeugReservierenPanel().setData(f);
-						
-						hauptprogramm.show(hauptprogramm.FahrzeugReservierenPanel);
+						if (f != null)
+						{
+							hauptprogramm.getFahrzeugReservierenPanel().setData(f);
+							
+							hauptprogramm.show(hauptprogramm.FahrzeugReservierenPanel);
+						}
 					}
 				});
 				btnReservieren.setBounds(10, 244, 194, 23);

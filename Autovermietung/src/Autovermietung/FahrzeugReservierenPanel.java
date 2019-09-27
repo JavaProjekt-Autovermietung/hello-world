@@ -66,6 +66,7 @@ public class FahrzeugReservierenPanel extends JPanel {
 		btnJetztReservieren.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//befehl zum reservieren HIER
+				fahrzeug.reservieren(vonDateTimePicker.getDateTimeStrict(), bisDateTimePicker.getDateTimeStrict(), 1);
 				
 				//zum testen
 				JOptionPane.showMessageDialog(btnJetztReservieren, "Erfolgreich hinzugefügt!");
