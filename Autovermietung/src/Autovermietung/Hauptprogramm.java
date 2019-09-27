@@ -200,6 +200,9 @@ public class Hauptprogramm {
 		{
 			fahrzeugListe.hinzufuegen("B ML-1234",Fahrzeug.FahrzeugTyp.Cabrio, Fahrzeug.FahrzeugHersteller.Skoda, "Octavia", Fahrzeug.FahrzeugKlasse.Kleinwagen);
 			fahrzeugListe.hinzufuegen("D MT-123",Fahrzeug.FahrzeugTyp.Kombi, Fahrzeug.FahrzeugHersteller.VW, "Golf", Fahrzeug.FahrzeugKlasse.Mittelklasse);
-		}		
+		}
+		
+		fahrzeugListe.Datumsetzen();
+		
 	}
 }
