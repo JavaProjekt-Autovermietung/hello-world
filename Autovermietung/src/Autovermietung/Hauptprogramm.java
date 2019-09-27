@@ -217,7 +217,7 @@ public class Hauptprogramm {
 			fahrzeugListe.hinzufuegen("D MT-123",Fahrzeug.FahrzeugTyp.Kombi, Fahrzeug.FahrzeugHersteller.VW, "Golf", Fahrzeug.FahrzeugKlasse.Mittelklasse);
 		}
 		
-		fahrzeugListe.Datumsetzen();
+		//fahrzeugListe.Datumsetzen();
 		
 	}
 }
