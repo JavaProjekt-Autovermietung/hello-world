@@ -15,6 +15,7 @@ public class RechnungenAusgabePanel extends JPanel {
 	
 	private Hauptprogramm hauptprogramm;
 	private JTable table;
+	private int txtRechnungsnummer;
 
 
 	public RechnungenAusgabePanel(Hauptprogramm haupt) {
@@ -77,4 +78,24 @@ public class RechnungenAusgabePanel extends JPanel {
 					}
 					table.setModel(model);
 		}
+		
+		void setData2( ArrayList<Rechnung> Rechnungen ) {
+			
+			
+			DefaultTableModel model = new DefaultTableModel(
+					new Object[] { "Rechnungsnummer", "Preis", "Ausleihdauer", "Kundennummer" }, 0);
+			
+			for (int i = 0; i < Rechnungen.size(); i++)
+			{
+				if (txtRechnungsnummer == Rechnungen.get(i).getRechnungsNummer()) {
+					Vector row = new Vector();
+					row.add(Rechnungen.get(i).getRechnungsNummer());
+					row.add(Rechnungen.get(i).getPreis());
+					row.add(Rechnungen.get(i).getAusleihdauer());
+					row.add(Rechnungen.get(i).getKundennummer());
+					model.addRow(row);
+				}
+			}
+			table.setModel(model);
+}
 }

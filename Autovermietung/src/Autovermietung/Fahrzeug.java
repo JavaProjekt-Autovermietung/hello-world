@@ -3,13 +3,13 @@ package Autovermietung;
 import java.util.ArrayList;
 
 import Autovermietung.KalenderEintrag.Autostatus;
-
+import java.math.*;
 import java.time.LocalDateTime;
 import java.time.LocalDate;
 
 public class Fahrzeug {
 
-	enum FahrzeugTyp { Kombi, Limosine, Cabrio };
+	enum FahrzeugTyp { Kombi, Limousine, Cabrio };
 	enum FahrzeugHersteller { BMW, Skoda, VW, Mercedes };
 	enum FahrzeugKlasse { Kleinwagen, Mittelklasse, Oberklasse };
 	
@@ -41,65 +41,33 @@ public class Fahrzeug {
     	this.Klasse = Klasse;
     	Kalender = new ArrayList<KalenderEintrag>();
     }
-    /**
-     * Operation getKennzeichen
-     *
-     * @return String
-     */
+    
     public String getKennzeichen() { return Kennzeichen; }
-    /**
-     * Operation setKennzeichen
-     *
-     * @param neu - 
-     * @return 
-     */
+    
     public void setKennzeichen(String neu){Kennzeichen = neu;}
-    /**
-     * Operation getTyp
-     *
-     * @return FahrzeugTyp
-     */
+    
     public FahrzeugTyp getTyp() { return Typ; }
-    /**
-     * Operation setTyp
-     *
-     * @param neu - 
-     * @return 
-     */
+    
     public void setTyp(FahrzeugTyp neu) {Typ = neu;}
-    /**
-     * Operation getHersteller
-     *
-     * @return FahrzeugHersteller
-     */
+    
     public FahrzeugHersteller getHersteller() { return Hersteller; }
-    /**
-     * Operation setHersteller
-     *
-     * @param neu - 
-     * @return 
-     */
+    
     public void setHersteller( FahrzeugHersteller neu) {Hersteller = neu;}
-    /**
-     * Operation getModell
-     *
-     * @return String
-     */
+    
     public String getModell(){ return Modell; }
-    /**
-     * Operation setModell
-     *
-     * @param neu - 
-     * @return 
-     */
+    
     public void setModell(String neu){Modell =  neu;}
     
     public boolean verfuegbar(LocalDateTime von, LocalDateTime bis) 
     {
     	int zeitraum = DateTime.ZeitSpanneTage(von, bis);
+    	double stunden = DateTime.ZeitSpanneStunden(von, bis);
+    	int  volleStunden = (int) Math.ceil(stunden);
+    	
     	LocalDateTime vonDatum = von;
     	int zaehler = 0;
     		
+    	if (zeitraum > 1) { 	
     		for (int iarray=0; iarray < Kalender.size(); iarray++) 
     		{
     			if (Kalender.get(iarray).von == vonDatum &&  Kalender.get(iarray).Status != KalenderEintrag.Autostatus.frei)
@@ -115,6 +83,25 @@ public class Fahrzeug {
     			}
     			vonDatum.plusDays(1);
     		}
+    		}
+
+    	else if (zeitraum == 1 && stunden > 0) {
+    		
+    		for (int jarray=0; jarray < Kalender.size(); jarray++) {
+    			if (Kalender.get(jarray).von == vonDatum && Kalender.get(jarray).Status != KalenderEintrag.Autostatus.frei)
+    			{
+    				return false;
+    			}
+    			else {
+    					volleStunden =-1;
+    					if (volleStunden == 0)
+    					{return false;}
+    			}
+    		}
+    		vonDatum.plusHours(1);
+
+    	}
+
 		return false; 
      }
     

@@ -25,7 +25,7 @@ public class FahrzeugPanel extends JPanel {
 	private Hauptprogramm hauptprogramm;
 
 
-//Create the panel.
+//Create the panel//
 	public FahrzeugPanel(Hauptprogramm haupt) {
 		hauptprogramm = haupt;
 		setLayout(null);
@@ -41,8 +41,9 @@ public class FahrzeugPanel extends JPanel {
 		btnFahrzeugHinzufuegen.setBounds(88, 51, 279, 23);
 		btnFahrzeugHinzufuegen.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+			  hauptprogramm.show(hauptprogramm.FahrzeugHinzufuegenPanel);
 			}
-		});
+			});
 		add(btnFahrzeugHinzufuegen);
 		
 //DateTimePicker Positionen
@@ -54,10 +55,16 @@ public class FahrzeugPanel extends JPanel {
 		DateTimePicker bisDateTimePicker = new DateTimePicker();
 		bisDateTimePicker.setBounds(88, 145, 279, 23);
 		add(bisDateTimePicker);		
-		bisDateTimePicker.setDateTimeStrict(LocalDateTime.now());
+		bisDateTimePicker.setDateTimeStrict(LocalDateTime.now().plusDays(1));
 		
 //Button Nach Fahrzeug suchen
 		JButton btnNachFahrzeugSuchen = new JButton("Nach Fahrzeug suchen");
+		btnNachFahrzeugSuchen.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				hauptprogramm.show(Hauptprogramm.FahrzeugSuchenPanel);
+				
+			}
+		});
 		btnNachFahrzeugSuchen.setBounds(88, 236, 279, 23);
 		add(btnNachFahrzeugSuchen);
 		
@@ -74,14 +81,16 @@ public class FahrzeugPanel extends JPanel {
 				//JOptionPane.showMessageDialog(null, bis.toString());
 				
 //Init fahrzeugListe
-				ArrayList<Fahrzeug> fahrzeugListe = hauptprogramm.getFahrzeugListe().verfuegbar(von, bis);
+				//ArrayList<Fahrzeug> fahrzeugListe = hauptprogramm.getFahrzeugListe().verfuegbar(von, bis);
+				//ArrayList<Fahrzeug> fahrzeugListe = hauptprogramm.getFahrzeugListe();
 				//fahrzeugListe.verfuegbar(von,bis);
 				
-				hauptprogramm.getFahrzeugAusgabePanel().setData(fahrzeugListe);
+//				hauptprogramm.getFahrzeugAusgabePanel().setData(fahrzeugListe);
+				hauptprogramm.getFahrzeugAusgabePanel().setData(hauptprogramm.getFahrzeugListe().getFahrzeugListe());
 				
-				((CardLayout)hauptprogramm.getFrame().getContentPane().getLayout()).show(hauptprogramm.getFrame().getContentPane(), Hauptprogramm.FahrzeugeAusgabePanel);
+				hauptprogramm.show(Hauptprogramm.FahrzeugeAusgabePanel);
 				
-//Hier AusgabePanel
+//Hier AusgabePanel Verfügbarkeit
 			}
 		});
 		btnVerfuegbarkeitPruefen.setBounds(88, 179, 279, 23);

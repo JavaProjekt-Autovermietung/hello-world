@@ -38,7 +38,7 @@ public class RechnungPanel extends JPanel {
 		JButton btnRechnungErstellen = new JButton("Neue Rechnung erstellen");
 		btnRechnungErstellen.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				((CardLayout)hauptprogramm.getFrame().getContentPane().getLayout()).show(hauptprogramm.getFrame().getContentPane(), "RechnungErstellen");
+				hauptprogramm.show(Hauptprogramm.RechnungErstellen);
 			}
 		});
 		btnRechnungErstellen.setBounds(113, 102, 220, 23);
@@ -63,7 +63,7 @@ public class RechnungPanel extends JPanel {
 		JButton btnNachRechnungSuchen = new JButton("Nach Rechnung suchen");
 		btnNachRechnungSuchen.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				((CardLayout)hauptprogramm.getFrame().getContentPane().getLayout()).show(hauptprogramm.getFrame().getContentPane(), Hauptprogramm.RechnungSuche);
+				hauptprogramm.show(Hauptprogramm.RechnungSuche);
 			}
 		});
 		btnNachRechnungSuchen.setBounds(113, 220, 220, 23);

@@ -23,18 +23,19 @@ public class RechnungErstellenPanel extends JPanel {
 	private JTextField txtPreis;
 	private Hauptprogramm hauptprogramm;
 
-	/**
-	 * Create the panel.
-	 */
+	
+//Create the panel.
 	public RechnungErstellenPanel(Hauptprogramm haupt) {
 		hauptprogramm = haupt;
 		setLayout(null);
 
+//Titel
 		JLabel lblRechnung = new JLabel("Rechnung");
 		lblRechnung.setBounds(169, 45, 104, 29);
 		lblRechnung.setFont(new Font("Tahoma", Font.PLAIN, 24));
 		add(lblRechnung);
 		
+//textfelder
 		txtRechnungsnummer = new JTextField();
 		txtRechnungsnummer.setText("Rechnungsnummer");
 		txtRechnungsnummer.setBounds(113, 86, 220, 20);

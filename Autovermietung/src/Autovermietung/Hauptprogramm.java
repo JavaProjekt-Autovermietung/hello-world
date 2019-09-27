@@ -16,45 +16,85 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
-import java.awt.CardLayout; 
+import java.awt.CardLayout;
 import java.awt.FlowLayout;
 import com.github.lgooddatepicker.components.DateTimePicker;
 import java.awt.Button;
 import javax.swing.JButton;
 
 public class Hauptprogramm {
-	
-	//Konstante für Panel Namen
+
+	//Konstanten für Panel Namen (statt Strings)
 	static final String StartPanel = "StartPanel";
 	static final String RechnungSuche = "RechnungSuche";
 	static final String RechnungErstellen = "RechnungErstellen";
 	static final String RechnungPanel = "RechnungPanel";
+	static final String RechnungenAusgabe = "RechnungenAusgabe";
+	static final String RechnungAusgabe = "RechnungAusgabe";
 	static final String FahrzeugPanel = "FahrzeugPanel";
 	static final String KundePanel = "KundePanel";
 	static final String KundeErstellen = "KundeErstellen";
 	static final String KundeSuche = "KundeSuche";
-	static final String RechnungenAusgabe = "RechnungenAusgabe";
+	static final String KundenAusgabePanel = "KundenAusgabePanel";
 	static final String FahrzeugeAusgabePanel = "FahrzeugeAusgabePanel";
-	static final String RechnungAusgabe = "RechnungAusgabe";
-	
+	static final String FahrzeugHinzufuegenPanel = "FahrzeugHinzufuegenPanel";
+	static final String FahrzeugSuchenPanel = "FahrzeugSuchenPanel";
+	static final String FahrzeugBuchenPanel = "FahrzeugBuchenPanel";
+	static final String FahrzeugReservierenPanel = "FahrzeugReservierenPanel";	
+	static final String EinFahrzeugAusgabePanel = "EinFahrzeugAusgabePanel";
+
 	private RechnungsListe rechnungsListe = new RechnungsListe();
 	private FahrzeugListe fahrzeugListe = new FahrzeugListe();
 	
+	//Panel
 	private JFrame frame;
 	private RechnungenAusgabePanel rechnungenAusgabePanel;
-	private FahrzeugeAusgabePanel fahrzeugeAusgabePanel;
 	private RechnungAusgabePanel rechnungAusgabePanel;
 	
-	JFrame getFrame() { return frame; }
-	RechnungsListe getRechnungsListe() { return rechnungsListe; }
-	RechnungenAusgabePanel getRechnungenAusgabePanel() { return rechnungenAusgabePanel; }
-	RechnungAusgabePanel getRechnungAusgabePanel() { return rechnungAusgabePanel; }
-	FahrzeugListe getFahrzeugListe () { return fahrzeugListe; }
-	FahrzeugeAusgabePanel getFahrzeugAusgabePanel() { return fahrzeugeAusgabePanel; }
+	FahrzeugeAusgabePanel fahrzeugeAusgabePanel;
+	FahrzeugReservierenPanel fahrzeugReservierenPanel;
+	
+	EinFahrzeugAusgabePanel einFahrzeugAusgabePanel;
+	
+	JFrame getFrame() 
+	  { 
+		return frame;
+	  }
+	RechnungsListe getRechnungsListe() 
+	  { return rechnungsListe;
+	  }
+	
+	FahrzeugListe getFahrzeugListe ()
+	  { 
+		return fahrzeugListe; 
+	  }
+	
+	FahrzeugeAusgabePanel getFahrzeugAusgabePanel() 
+	  { 
+		return fahrzeugeAusgabePanel; 
+	  }
+	
+	EinFahrzeugAusgabePanel getEinFahrzeugAusgabePanel() 
+	  { 
+		return einFahrzeugAusgabePanel; 
+	  }
+	
+	FahrzeugReservierenPanel getFahrzeugReservierenPanel()
+	{
+		return fahrzeugReservierenPanel;
+	}
+	
+	RechnungAusgabePanel getRechnungAusgabePanel()
+	{
+		return rechnungAusgabePanel;
+	}
+	
+	void show(String PanelName)
+	{
+		((CardLayout)getFrame().getContentPane().getLayout()).show(getFrame().getContentPane(), PanelName);
+	}
 
-	/**
-	 * Launch the application.
-	 */
+	//Launch the application.
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -69,25 +109,24 @@ public class Hauptprogramm {
 		});
 	}
 
-	/**
-	 * Create the application.
-	 */
+
+//Create the application.
+
 	public Hauptprogramm() {
 		initialize();
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
+	//Initialize the contents of the frame.
+
 	private void initialize() {
 		frame = new JFrame();
 		frame.setResizable(false);
-		frame.setBounds(100, 100, 458, 441);
+		frame.setBounds(100, 100, 500, 500);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(new CardLayout(0, 0));
 		
 		
-		//Alle einzelnen Panels so aufrufen
+	//Alle einzelnen Panels so aufrufen
 		
 		StartPanel startPanel = new StartPanel(this);
 		//frame.getContentPane().add(startPanel, RechnungPanel);
@@ -111,8 +150,8 @@ public class Hauptprogramm {
 		KundeSuchePanel kundeSuche = new KundeSuchePanel(this);
 		frame.getContentPane().add(kundeSuche, KundeSuche);
 		
-		RechnungAusgabePanel rechnungAusgabe = new RechnungAusgabePanel(this);
-		frame.getContentPane().add(rechnungAusgabe, RechnungAusgabe);
+		rechnungAusgabePanel = new RechnungAusgabePanel(this);
+		frame.getContentPane().add(rechnungAusgabePanel, RechnungAusgabe);
 		
 		rechnungenAusgabePanel = new RechnungenAusgabePanel(this);
 		frame.getContentPane().add(rechnungenAusgabePanel, RechnungenAusgabe);
@@ -120,19 +159,35 @@ public class Hauptprogramm {
 		FahrzeugPanel fahrzeugPanel = new FahrzeugPanel(this);
 		frame.getContentPane().add(fahrzeugPanel, FahrzeugPanel);
 		
-		//Member
+		
+		FahrzeugHinzufuegenPanel fahrzeugHinzufuegenPanel = new FahrzeugHinzufuegenPanel(this);
+		frame.getContentPane().add(fahrzeugHinzufuegenPanel, FahrzeugHinzufuegenPanel);
+		
+		FahrzeugSuchenPanel fahrzeugSuchenPanel = new FahrzeugSuchenPanel(this);
+		frame.getContentPane().add(fahrzeugSuchenPanel, FahrzeugSuchenPanel);
+
+		FahrzeugBuchenPanel fahrzeugBuchenPanel = new FahrzeugBuchenPanel(this);
+		frame.getContentPane().add(fahrzeugBuchenPanel, FahrzeugBuchenPanel);
+		
+	//als Member
 		fahrzeugeAusgabePanel = new FahrzeugeAusgabePanel(this);
 		frame.getContentPane().add(fahrzeugeAusgabePanel, FahrzeugeAusgabePanel);
 		
+		einFahrzeugAusgabePanel = new EinFahrzeugAusgabePanel(this);
+		frame.getContentPane().add(einFahrzeugAusgabePanel, EinFahrzeugAusgabePanel);
 		
-		//Menue Reiter
+		fahrzeugReservierenPanel = new FahrzeugReservierenPanel(this);
+		frame.getContentPane().add(fahrzeugReservierenPanel, FahrzeugReservierenPanel);
+
+	
+	//Menue Reiter
 		JMenuBar menuBar = new JMenuBar();
 		frame.setJMenuBar(menuBar);
 		
 		JMenuItem mntmRechnung = new JMenuItem("Rechnung");
 		mntmRechnung.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				((CardLayout)getFrame().getContentPane().getLayout()).show(getFrame().getContentPane(), RechnungPanel);
+				show(RechnungPanel);
 			}
 		});
 		menuBar.add(mntmRechnung);
@@ -140,7 +195,7 @@ public class Hauptprogramm {
 		JMenuItem mntmFahrzeug = new JMenuItem("Fahrzeug");
 		mntmFahrzeug.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				((CardLayout)getFrame().getContentPane().getLayout()).show(getFrame().getContentPane(), FahrzeugPanel);
+				show(FahrzeugPanel);
 			}
 		});
 		menuBar.add(mntmFahrzeug);
@@ -148,24 +203,21 @@ public class Hauptprogramm {
 		JMenuItem mntmKunde = new JMenuItem("Kunde");
 		mntmKunde.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				((CardLayout)getFrame().getContentPane().getLayout()).show(getFrame().getContentPane(), KundePanel);
+				show(KundePanel);
 			}
 		});
 		menuBar.add(mntmKunde);
 		
-		((CardLayout)getFrame().getContentPane().getLayout()).show(getFrame().getContentPane(), RechnungPanel);
-		
 		//((CardLayout)getFrame().getContentPane().getLayout()).show(getFrame().getContentPane(), FahrzeugeAusgabePanel);
 		
-/*		ArrayList<Fahrzeug> temp = new ArrayList <Fahrzeug>();
-		for (int i = 0; i < 100; i++)
+	//Zum testen
+		for (int i = 0; i < 6; i++)
 		{
-			Fahrzeug f = new Fahrzeug ("B ML-1234",Fahrzeug.FahrzeugTyp.Cabrio, Fahrzeug.FahrzeugHersteller.Skoda, "Octavia", Fahrzeug.FahrzeugKlasse.Kleinwagen);
-			Fahrzeug f2 = new Fahrzeug ("D MT-123",Fahrzeug.FahrzeugTyp.Kombi, Fahrzeug.FahrzeugHersteller.VW, "Golf", Fahrzeug.FahrzeugKlasse.Mittelklasse);		
-					temp.add(f);
-					temp.add(f2);
+			fahrzeugListe.hinzufuegen("B ML-1234",Fahrzeug.FahrzeugTyp.Cabrio, Fahrzeug.FahrzeugHersteller.Skoda, "Octavia", Fahrzeug.FahrzeugKlasse.Kleinwagen);
+			fahrzeugListe.hinzufuegen("D MT-123",Fahrzeug.FahrzeugTyp.Kombi, Fahrzeug.FahrzeugHersteller.VW, "Golf", Fahrzeug.FahrzeugKlasse.Mittelklasse);
 		}
-		fahrzeugeAusgabePanel.setData (temp);*/
-
+		
+		fahrzeugListe.Datumsetzen();
+		
 	}
 }
