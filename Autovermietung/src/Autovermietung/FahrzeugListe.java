@@ -139,5 +139,22 @@ public class FahrzeugListe {
     	else
     		return null;
      }
+     
+  // Kalender ausfüllen
+     
+     
+     public void Datumsetzen() {
+     for (int i =0; i < fahrzeugListe.size(); i++)
+			{
+			
+    	 	if ( i % 2 == 0 && i !=0)
+    	 	fahrzeugListe.get(i).setKalenderA();
+			if ( i % 2 != 0)
+			fahrzeugListe.get(i).setKalenderB();
+			if (i == 0)
+			
+				fahrzeugListe.get(i).setKalenderC();
+			}
+     	} 	
 }
      
