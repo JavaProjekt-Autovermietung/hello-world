@@ -35,22 +35,22 @@ public class Hauptprogramm {
 	static final String KundeSuche = "KundeSuche";
 	static final String RechnungenAusgabe = "RechnungenAusgabe";
 	static final String FahrzeugeAusgabePanel = "FahrzeugeAusgabePanel";
+	static final String RechnungAusgabe = "RechnungAusgabe";
 	
 	private RechnungsListe rechnungsListe = new RechnungsListe();
 	private FahrzeugListe fahrzeugListe = new FahrzeugListe();
 	
-
 	private JFrame frame;
 	private RechnungenAusgabePanel rechnungenAusgabePanel;
 	private FahrzeugeAusgabePanel fahrzeugeAusgabePanel;
-	FahrzeugeAusgabePanel fahrzeugeAusgabePanel;
+	private RechnungAusgabePanel rechnungAusgabePanel;
 	
 	JFrame getFrame() { return frame; }
 	RechnungsListe getRechnungsListe() { return rechnungsListe; }
-	RechnungenAusgabePanel getRechnungAusgabePanel() { return rechnungenAusgabePanel; }
+	RechnungenAusgabePanel getRechnungenAusgabePanel() { return rechnungenAusgabePanel; }
+	RechnungAusgabePanel getRechnungAusgabePanel() { return rechnungAusgabePanel; }
 	FahrzeugListe getFahrzeugListe () { return fahrzeugListe; }
 	FahrzeugeAusgabePanel getFahrzeugAusgabePanel() { return fahrzeugeAusgabePanel; }
-
 
 	/**
 	 * Launch the application.
@@ -111,6 +111,9 @@ public class Hauptprogramm {
 		KundeSuchePanel kundeSuche = new KundeSuchePanel(this);
 		frame.getContentPane().add(kundeSuche, KundeSuche);
 		
+		RechnungAusgabePanel rechnungAusgabe = new RechnungAusgabePanel(this);
+		frame.getContentPane().add(rechnungAusgabe, RechnungAusgabe);
+		
 		rechnungenAusgabePanel = new RechnungenAusgabePanel(this);
 		frame.getContentPane().add(rechnungenAusgabePanel, RechnungenAusgabe);
 		
@@ -120,6 +123,7 @@ public class Hauptprogramm {
 		//Member
 		fahrzeugeAusgabePanel = new FahrzeugeAusgabePanel(this);
 		frame.getContentPane().add(fahrzeugeAusgabePanel, FahrzeugeAusgabePanel);
+		
 		
 		//Menue Reiter
 		JMenuBar menuBar = new JMenuBar();
@@ -148,6 +152,8 @@ public class Hauptprogramm {
 			}
 		});
 		menuBar.add(mntmKunde);
+		
+		((CardLayout)getFrame().getContentPane().getLayout()).show(getFrame().getContentPane(), RechnungPanel);
 		
 		//((CardLayout)getFrame().getContentPane().getLayout()).show(getFrame().getContentPane(), FahrzeugeAusgabePanel);
 		
